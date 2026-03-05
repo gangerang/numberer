@@ -63,6 +63,25 @@ input[type="text"]:focus, select:focus {
   box-shadow: 0 0 0 3px rgba(0,113,227,0.15);
 }
 
+.search-row {
+  display: flex;
+  gap: 0.4rem;
+}
+.search-row input[type="text"] { flex: 1; }
+.search-btn {
+  border: 1px solid #0071e3;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background: #0071e3;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.search-btn:hover { background: #005bb5; }
+.search-btn:disabled { background: #a0c4e8; border-color: #a0c4e8; cursor: default; }
+
 .digit-preview {
   font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
   font-size: 0.8rem;
@@ -355,7 +374,6 @@ mark {
 /* Combo lines in number cell */
 .combo-line .vd-word { font-weight: 600; color: #1d1d1f; }
 .combo-line .vd-digits { color: #8e8e93; }
-.combo-overflow { font-size: 0.7rem; color: #8e8e93; font-style: italic; }
 
 
 @media (max-width: 640px) {
@@ -373,8 +391,11 @@ mark {
 
 <div class="panel controls">
   <div class="control-group">
-    <label for="search">Search digits</label>
-    <input type="text" id="search" placeholder="e.g. 2267, CAMP" autocomplete="off" spellcheck="false">
+    <label for="search">Search digits (min 3)</label>
+    <div class="search-row">
+      <input type="text" id="search" placeholder="e.g. 2267, CAMP" autocomplete="off" spellcheck="false">
+      <button class="search-btn" id="search-btn">Search</button>
+    </div>
     <div class="digit-preview" id="digit-preview"></div>
   </div>
   <div class="control-group">
@@ -399,6 +420,7 @@ mark {
     <span>
       <label class="cb-label"><input type="checkbox" id="skip-area"> Subscriber only</label>
       <label class="cb-label"><input type="checkbox" id="has-companions"> Has companions</label>
+      <label class="cb-label"><input type="checkbox" id="short-words"> Short words (1-2 letters)</label>
     </span>
   </div>
   <div class="active-filters" id="active-filters-1"></div>
@@ -482,6 +504,7 @@ mark {
   var $clearStage2 = document.getElementById("clear-stage2");
   var $skipArea = document.getElementById("skip-area");
   var $hasCompanions = document.getElementById("has-companions");
+  var $shortWords = document.getElementById("short-words");
   var $panel2 = document.getElementById("word-panel-2");
 
   // --- Build indexes ---
@@ -559,14 +582,63 @@ mark {
     }
   }
 
-  // --- Word counts (cached by state+skipArea) ---
+  // --- Generate short (1-2 letter) word entries ---
+  var SHORT_WORD_LIST = [
+    "a", "i",
+    "ad", "ah", "am", "an", "as", "at", "ax",
+    "be", "bi", "bo", "by",
+    "do",
+    "go",
+    "ha", "he", "hi", "ho",
+    "if", "in", "is", "it",
+    "la", "lo",
+    "ma", "me", "mi", "mo", "mu", "my",
+    "no", "nu",
+    "of", "oh", "ok", "on", "or", "ow", "ox",
+    "pa", "pi",
+    "re",
+    "so",
+    "to", "uh", "um", "un", "up", "us",
+    "we", "wo"
+  ];
+  var SHORT_WORDS = new Set(SHORT_WORD_LIST);
+
+  // Group by digit sequence to scan efficiently
+  var _shortByDigits = {};
+  for (var si = 0; si < SHORT_WORD_LIST.length; si++) {
+    var sw = SHORT_WORD_LIST[si];
+    var sd = wordToDigits(sw);
+    if (!_shortByDigits[sd]) _shortByDigits[sd] = [];
+    _shortByDigits[sd].push(sw);
+  }
+  for (var digits in _shortByDigits) {
+    var matchingWords = _shortByDigits[digits];
+    for (var ni2 = 0; ni2 < DATA.length; ni2++) {
+      var raw2 = DATA[ni2].n;
+      var d9b = NUM_DIGITS[raw2];
+      var pos2 = 0;
+      while (true) {
+        var idx2 = d9b.indexOf(digits, pos2);
+        if (idx2 === -1) break;
+        for (var wi = 0; wi < matchingWords.length; wi++) {
+          NUM_WORDS[raw2].push([matchingWords[wi], idx2]);
+          if (!WORD_TO_NUMS[matchingWords[wi]]) WORD_TO_NUMS[matchingWords[wi]] = new Set();
+          WORD_TO_NUMS[matchingWords[wi]].add(raw2);
+        }
+        pos2 = idx2 + 1;
+      }
+    }
+  }
+
+  // --- Word counts (cached by state+skipArea+shortWords) ---
   var cachedWordList = null;
   var cachedWordKey = "";
 
   function getWordList() {
     var skipArea = $skipArea.checked;
+    var includeShort = $shortWords.checked;
     var st = $state.value;
-    var key = st + "|" + (skipArea ? "1" : "0");
+    var key = st + "|" + (skipArea ? "1" : "0") + "|" + (includeShort ? "1" : "0");
     if (key === cachedWordKey) return cachedWordList;
 
     var counts = {};
@@ -578,6 +650,7 @@ mark {
       for (var j = 0; j < wList.length; j++) {
         if (skipArea && wList[j][1] === 0) continue;
         var w = wList[j][0];
+        if (!includeShort && SHORT_WORDS.has(w)) continue;
         if (!seen[w]) {
           seen[w] = true;
           counts[w] = (counts[w] || 0) + 1;
@@ -591,14 +664,15 @@ mark {
     return out;
   }
 
-  // --- Companion counts per word (cached by state+skipArea) ---
+  // --- Companion counts per word (cached by state+skipArea+shortWords) ---
   var cachedCompCounts = null;
   var cachedCompKey = "";
 
   function getCompanionCounts() {
     var skipArea = $skipArea.checked;
+    var includeShort = $shortWords.checked;
     var st = $state.value;
-    var key = st + "|" + (skipArea ? "1" : "0");
+    var key = st + "|" + (skipArea ? "1" : "0") + "|" + (includeShort ? "1" : "0");
     if (key === cachedCompKey) return cachedCompCounts;
 
     var companions = {}; // word → Set of companion words
@@ -611,6 +685,7 @@ mark {
       var words = [];
       for (var j = 0; j < wList.length; j++) {
         if (skipArea && wList[j][1] === 0) continue;
+        if (!includeShort && SHORT_WORDS.has(wList[j][0])) continue;
         words.push(wList[j]);
       }
 
@@ -739,7 +814,7 @@ mark {
     return results;
   }
 
-  function getCombinations(raw, skipArea) {
+  function getCombinations(raw, skipArea, includeShort) {
     var words = NUM_WORDS[raw] || [];
     if (!words.length) return [];
 
@@ -747,6 +822,7 @@ mark {
     for (var i = 0; i < words.length; i++) {
       var w = words[i][0], p = words[i][1];
       if (skipArea && p === 0) continue;
+      if (!includeShort && SHORT_WORDS.has(w)) continue;
       if (!byStart[p]) byStart[p] = [];
       byStart[p].push([w, p]);
     }
@@ -897,6 +973,7 @@ mark {
 
     var stateFilter = $state.value;
     var skipArea = $skipArea.checked;
+    var includeShort = $shortWords.checked;
     var searchDigits = getSearchDigits();
 
     // Union all numbers containing any stage 1 word
@@ -914,7 +991,7 @@ mark {
       if (stateFilter && d.s !== stateFilter) return;
       if (searchDigits && NUM_DIGITS[raw].indexOf(searchDigits) === -1) return;
 
-      var combos = getCombinations(raw, skipArea);
+      var combos = getCombinations(raw, skipArea, includeShort);
       // Filter combos to those containing at least one stage 1 word
       var filtered = [];
       for (var i = 0; i < combos.length; i++) {
@@ -964,9 +1041,13 @@ mark {
     });
   }
 
+  function inputToDigits(text) {
+    var s = text.trim();
+    return s.match(/^\d+$/) ? s : wordToDigits(s) || "";
+  }
+
   function getSearchDigits() {
-    var searchWord = $search.value.trim();
-    return searchWord.match(/^\d+$/) ? searchWord : wordToDigits(searchWord) || "";
+    return activeSearchDigits;
   }
 
   function computeResults() {
@@ -978,11 +1059,12 @@ mark {
       if (!searchDigits) return;
       var stateFilter = $state.value;
       var skipArea = $skipArea.checked;
+      var includeShort = $shortWords.checked;
       for (var i = 0; i < DATA.length; i++) {
         var d = DATA[i];
         if (stateFilter && d.s !== stateFilter) continue;
         if (NUM_DIGITS[d.n].indexOf(searchDigits) === -1) continue;
-        var combos = getCombinations(d.n, skipArea);
+        var combos = getCombinations(d.n, skipArea, includeShort);
         resultRows.push({
           raw: d.n,
           d: d,
@@ -1078,23 +1160,17 @@ mark {
       // Number cell: all combos formatted inline
       var rawHtml = highlightDigits(formatNumber(raw), searchDigits);
       var numberCell = '';
-      var cap = 50;
       if (row.combos.length > 0) {
-        var comboShowing = Math.min(row.combos.length, cap);
-        for (var ci = 0; ci < comboShowing; ci++) {
+        for (var ci = 0; ci < row.combos.length; ci++) {
           numberCell += '<div class="combo-line">' + formatComboHtml(raw, row.combos[ci]) + '</div>';
-        }
-        if (row.combos.length > cap) {
-          numberCell += '<div class="combo-overflow">+ ' + (row.combos.length - cap) + ' more</div>';
         }
       }
       numberCell += '<div class="num-raw">' + rawHtml + '</div>';
 
-      // Word badges: collect unique words from all shown combos
+      // Word badges: collect unique words from all combos
       var badgesSeen = {};
       var badges = "";
-      var comboShowing2 = row.combos.length > 0 ? Math.min(row.combos.length, cap) : 0;
-      for (var ci2 = 0; ci2 < comboShowing2; ci2++) {
+      for (var ci2 = 0; ci2 < row.combos.length; ci2++) {
         for (var bi = 0; bi < row.combos[ci2].length; bi++) {
           var bw = row.combos[ci2][bi][0];
           if (badgesSeen[bw]) continue;
@@ -1231,6 +1307,12 @@ mark {
     renderWordGrid1();
   });
 
+  $shortWords.addEventListener("change", function() {
+    cachedWordKey = "";
+    cachedCompKey = "";
+    onStage1Change();
+  });
+
   // Result table clicks (combo links & badges)
   $tbody.addEventListener("click", function(e) {
     var badge = e.target.closest(".badge");
@@ -1266,14 +1348,32 @@ mark {
     });
   });
 
-  // Debounced digit search input
-  var timer = null;
+  // Digit search — button-triggered, min 3 chars
+  var $searchBtn = document.getElementById("search-btn");
+  var activeSearchDigits = ""; // last committed search
+
+  function doSearch() {
+    var digits = inputToDigits($search.value);
+    if (digits.length > 0 && digits.length < 3) return;
+    activeSearchDigits = digits;
+    onStage1Change();
+  }
+
   $search.addEventListener("input", function() {
     updateDigitPreview();
-    clearTimeout(timer);
-    timer = setTimeout(function() {
-        onStage1Change();
-    }, 100);
+    var digits = inputToDigits($search.value);
+    $searchBtn.disabled = digits.length > 0 && digits.length < 3;
+    // Clear results immediately when input is emptied
+    if (!digits && activeSearchDigits) {
+      activeSearchDigits = "";
+      onStage1Change();
+    }
+  });
+
+  $searchBtn.addEventListener("click", doSearch);
+
+  $search.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") doSearch();
   });
 
   // State filter change
@@ -1324,9 +1424,10 @@ mark {
 
   // --- Init ---
   loadHash();
+  activeSearchDigits = inputToDigits($search.value);
   updateDigitPreview();
   renderWordGrid1();
-  if (stage1Words.size > 0) {
+  if (stage1Words.size > 0 || activeSearchDigits.length >= 3) {
     computeStage1Results();
     computeResults();
     renderActiveFilters1();
