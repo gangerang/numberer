@@ -1,0 +1,333 @@
+[
+  {
+    "number": "61879355553",
+    "formatted": "08 7935 5553",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 60,
+    "reasons": [
+      "repeat run of 4 (20pts)",
+      "4 unique digits (10pts)",
+      "palindrome 355553 (12pts)",
+      "vanity: well, rye, elk (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61238155111",
+    "formatted": "02 3815 5111",
+    "state": "NSW",
+    "city": "Crookwell",
+    "score": 54,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "trailing 111 (12pts)",
+      "double pair 5511 (6pts)",
+      "palindrome 1551 (8pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61345274447",
+    "formatted": "03 4527 4447",
+    "state": "VIC",
+    "city": "Warrnambool",
+    "score": 48,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "palindrome 74447 (10pts)",
+      "vanity: sigh, his, lap (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61387772721",
+    "formatted": "03 8777 2721",
+    "state": "VIC",
+    "city": "Croydon",
+    "score": 46,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "repeating pair 7272 (8pts)",
+      "vanity: para, rap, sap (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61267149666",
+    "formatted": "02 6714 9666",
+    "state": "NSW",
+    "city": "Armidale",
+    "score": 45,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "trailing 666 (12pts)",
+      "vanity: zoom, won, woo (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61256573337",
+    "formatted": "02 5657 3337",
+    "state": "NSW",
+    "city": "Kyogle",
+    "score": 44,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "palindrome 73337 (10pts)",
+      "vanity: seed, reef, deer (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355550",
+    "formatted": "08 7935 5550",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 43,
+    "reasons": [
+      "repeat run of 4 (20pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879700009",
+    "formatted": "08 7970 0009",
+    "state": "NT",
+    "city": "Darwin",
+    "score": 43,
+    "reasons": [
+      "repeat run of 4 (20pts)",
+      "3 unique digits (15pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61851278222",
+    "formatted": "08 5127 8222",
+    "state": "WA",
+    "city": "Port Hedland",
+    "score": 40,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "trailing 222 (12pts)",
+      "vanity: tab, art, rub (5pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61387772732",
+    "formatted": "03 8777 2732",
+    "state": "VIC",
+    "city": "Croydon",
+    "score": 38,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "vanity: rare, rap, pea (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61387772742",
+    "formatted": "03 8777 2742",
+    "state": "VIC",
+    "city": "Croydon",
+    "score": 38,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "vanity: rash, rap, sap (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61387772748",
+    "formatted": "03 8777 2748",
+    "state": "VIC",
+    "city": "Croydon",
+    "score": 38,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "vanity: rash, rap, sap (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61345274445",
+    "formatted": "03 4527 4445",
+    "state": "VIC",
+    "city": "Warrnambool",
+    "score": 38,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "vanity: sigh, lap, jar (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879700002",
+    "formatted": "08 7970 0002",
+    "state": "NT",
+    "city": "Darwin",
+    "score": 38,
+    "reasons": [
+      "repeat run of 4 (20pts)",
+      "4 unique digits (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61256568286",
+    "formatted": "02 5656 8286",
+    "state": "NSW",
+    "city": "Grafton",
+    "score": 37,
+    "reasons": [
+      "4 unique digits (10pts)",
+      "repeating pair 5656 (8pts)",
+      "palindrome 68286 (10pts)",
+      "vanity: vat, lot, bun (5pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61255040405",
+    "formatted": "02 5504 0405",
+    "state": "NSW",
+    "city": "Kempsey",
+    "score": 37,
+    "reasons": [
+      "3 unique digits (15pts)",
+      "repeating pair 0404 (8pts)",
+      "palindrome 04040 (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61748823443",
+    "formatted": "07 4882 3443",
+    "state": "QLD",
+    "city": "Cannon Valley",
+    "score": 37,
+    "reasons": [
+      "4 unique digits (10pts)",
+      "sequential run of 3 ascending (5pts)",
+      "palindrome 3443 (8pts)",
+      "vanity: tube, egg, fig (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61748823434",
+    "formatted": "07 4882 3434",
+    "state": "QLD",
+    "city": "Cannon Valley",
+    "score": 37,
+    "reasons": [
+      "4 unique digits (10pts)",
+      "sequential run of 3 ascending (5pts)",
+      "repeating pair 3434 (8pts)",
+      "vanity: tube, tub, gut (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61341490222",
+    "formatted": "03 4149 0222",
+    "state": "VIC",
+    "city": "Bairnsdale",
+    "score": 36,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "trailing 222 (12pts)",
+      "vanity: cab (5pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61743498222",
+    "formatted": "07 4349 8222",
+    "state": "QLD",
+    "city": "Hervey Bay",
+    "score": 36,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "trailing 222 (12pts)",
+      "vanity: tab, fix, cab (5pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  }
+]

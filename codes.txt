@@ -1,0 +1,177 @@
+SA
+
+<option value="0">Select City</option>
+<option value="Adelaide">Adelaide</option>
+<option value="Bordertown">Bordertown</option>
+<option value="Halidon">Halidon</option>
+<option value="Karoonda">Karoonda</option>
+<option value="Loxton">Loxton</option>
+<option value="Mount Gambier">Mount Gambier</option>
+<option value="Murray Bridge">Murray Bridge</option>
+<option value="Port Augusta">Port Augusta</option>
+<option value="Victor Harbor">Victor Harbor</option>
+<option value="Victor_Harbor">Victor_Harbor</option>
+<option value="Whyalla">Whyalla</option>
+
+WA
+
+<option value="0">Select City</option>
+<option value="Albany">Albany</option>
+<option value="Broome">Broome</option>
+<option value="Bunbury">Bunbury</option>
+<option value="Geraldton">Geraldton</option>
+<option value="Kalgoorlie">Kalgoorlie</option>
+<option value="Karratha">Karratha</option>
+<option value="Mandurah">Mandurah</option>
+<option value="Margaret River">Margaret River</option>
+<option value="Meekatharra">Meekatharra</option>
+<option value="Mount Barker">Mount Barker</option>
+<option value="Port Hedland">Port Hedland</option>
+
+NSW
+
+<option value="0">Select City</option>
+<option value="Albury">Albury</option>
+<option value="Armidale">Armidale</option>
+<option value="Ballina">Ballina</option>
+<option value="Bankstown">Bankstown</option>
+<option value="Bathurst">Bathurst</option>
+<option value="Bega">Bega</option>
+<option value="Bowral">Bowral</option>
+<option value="Campbelltown">Campbelltown</option>
+<option value="Coffs_Harbour">Coffs_Harbour</option>
+<option value="Cooma">Cooma</option>
+<option value="Coonabarabran">Coonabarabran</option>
+<option value="Crookwell">Crookwell</option>
+<option value="Dubbo">Dubbo</option>
+<option value="Dural">Dural</option>
+<option value="Engadine">Engadine</option>
+<option value="​Forster">​Forster</option>
+<option value="Glen Innes">Glen Innes</option>
+<option value="Gosford">Gosford</option>
+<option value="Goulburn">Goulburn</option>
+<option value="Grafton">Grafton</option>
+<option value="Gulgong">Gulgong</option>
+<option value="Kempsey">Kempsey</option>
+<option value="Kyogle">Kyogle</option>
+<option value="Lismore">Lismore</option>
+<option value="Liverpool">Liverpool</option>
+<option value="Maitland">Maitland</option>
+<option value="Mudgee">Mudgee</option>
+<option value="Mullumbimby">Mullumbimby</option>
+<option value="Murwillumbah">Murwillumbah</option>
+<option value="Newcastle">Newcastle</option>
+<option value="Nowra">Nowra</option>
+<option value="Orange">Orange</option>
+<option value="Penrith">Penrith</option>
+<option value="Ported">Ported</option>
+<option value="Port Macquarie">Port Macquarie</option>
+<option value="Scone">Scone</option>
+<option value="Sutherland">Sutherland</option>
+<option value="Swansea">Swansea</option>
+<option value="Sydney">Sydney</option>
+<option value="Tamworth">Tamworth</option>
+<option value="Taree">Taree</option>
+<option value="Tweed Heads">Tweed Heads</option>
+<option value="Tweed_Heads">Tweed_Heads</option>
+<option value="Wagga_Wagga">Wagga_Wagga</option>
+<option value="Windsor">Windsor</option>
+<option value="Wollongong">Wollongong</option>
+<option value="Young">Young</option>
+
+VIC 
+
+<option value="0">Select City</option>
+<option value="Alexandra">Alexandra</option>
+<option value="Bacchus Marsh">Bacchus Marsh</option>
+<option value="Bairnsdale">Bairnsdale</option>
+<option value="Ballarat">Ballarat</option>
+<option value="Beechworth">Beechworth</option>
+<option value="Bendigo">Bendigo</option>
+<option value="Castlemaine">Castlemaine</option>
+<option value="Clayton">Clayton</option>
+<option value="Croydon">Croydon</option>
+<option value="Dandenong">Dandenong</option>
+<option value="Echuca">Echuca</option>
+<option value="Geelong">Geelong</option>
+<option value="Gisborne">Gisborne</option>
+<option value="Heyfield">Heyfield</option>
+<option value="Kalkallo">Kalkallo</option>
+<option value="Kilmore">Kilmore</option>
+<option value="Kyabram">Kyabram</option>
+<option value="Kyneton">Kyneton</option>
+<option value="Melbourne">Melbourne</option>
+<option value="Mildura">Mildura</option>
+<option value="Mornington">Mornington</option>
+<option value="Morwell">Morwell</option>
+<option value="Ringwood">Ringwood</option>
+<option value="Romsey">Romsey</option>
+<option value="Rosebud">Rosebud</option>
+<option value="Seymour">Seymour</option>
+<option value="Shepparton">Shepparton</option>
+<option value="Swan Hill">Swan Hill</option>
+<option value="Sydenham">Sydenham</option>
+<option value="Traralgon">Traralgon</option>
+<option value="Warragul">Warragul</option>
+<option value="Warrnambool">Warrnambool</option>
+<option value="Yarram">Yarram</option>
+
+QLD
+
+<option value="0">Select City</option>
+<option value="Agnes Waters">Agnes Waters</option>
+<option value="Ballandean">Ballandean</option>
+<option value="Beaudesert">Beaudesert</option>
+<option value="Beenleigh">Beenleigh</option>
+<option value="Brisbane">Brisbane</option>
+<option value="Bundaberg">Bundaberg</option>
+<option value="Caboolture">Caboolture</option>
+<option value="Cairns">Cairns</option>
+<option value="Caloundra">Caloundra</option>
+<option value="Cannon Valley">Cannon Valley</option>
+<option value="Charleville">Charleville</option>
+<option value="Dalby">Dalby</option>
+<option value="Emerald">Emerald</option>
+<option value="Gatton">Gatton</option>
+<option value="Gladstone">Gladstone</option>
+<option value="Goondiwindi">Goondiwindi</option>
+<option value="Hervey Bay">Hervey Bay</option>
+<option value="Ipswich">Ipswich</option>
+<option value="Jimboomba">Jimboomba</option>
+<option value="Kingaroy">Kingaroy</option>
+<option value="Mackay">Mackay</option>
+<option value="Maryborough">Maryborough</option>
+<option value="Moranbah">Moranbah</option>
+<option value="Mt Isa">Mt Isa</option>
+<option value="Nambour">Nambour</option>
+<option value="Noosaville">Noosaville</option>
+<option value="Ormeau">Ormeau</option>
+<option value="Quilpie">Quilpie</option>
+<option value="Redcliffe">Redcliffe</option>
+<option value="Rockhampton">Rockhampton</option>
+<option value="Southport">Southport</option>
+<option value="Stanthorpe">Stanthorpe</option>
+<option value="Tamborine Mountain">Tamborine Mountain</option>
+<option value="Toowoomba">Toowoomba</option>
+<option value="Warwick">Warwick</option>
+<option value="Woodford">Woodford</option>
+
+NT
+
+<option value="0">Select City</option><option value="Alice Springs">Alice Springs</option><option value="Darwin">Darwin</option>
+
+TAS
+
+<option value="0">Select City</option>
+<option value="Devonport">Devonport</option>
+<option value="Hobart">Hobart</option>
+<option value="Launceston">Launceston</option>
+<option value="Oatlands">Oatlands</option>
+<option value="Smithton">Smithton</option>
+<option value="Ulverstone">Ulverstone</option>
+
+
+ACT 
+<option value="0">Select City</option><option value="Canberra">Canberra</option>
+
+

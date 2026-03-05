@@ -1,0 +1,323 @@
+[
+  {
+    "number": "61879355559",
+    "formatted": "08 7935 5559",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 48,
+    "reasons": [
+      "repeat run of 4 (20pts)",
+      "4 unique digits (10pts)",
+      "vanity: well, rye, elk (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355599",
+    "formatted": "08 7935 5599",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 45,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "trailing 99 (5pts)",
+      "double pair 5599 (6pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355551",
+    "formatted": "08 7935 5551",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 43,
+    "reasons": [
+      "repeat run of 4 (20pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355554",
+    "formatted": "08 7935 5554",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 43,
+    "reasons": [
+      "repeat run of 4 (20pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355588",
+    "formatted": "08 7935 5588",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 40,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "trailing 88 (5pts)",
+      "double pair 5588 (6pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355595",
+    "formatted": "08 7935 5595",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 38,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "vanity: well, rye, elk (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879700004",
+    "formatted": "08 7970 0004",
+    "state": "NT",
+    "city": "Darwin",
+    "score": 38,
+    "reasons": [
+      "repeat run of 4 (20pts)",
+      "4 unique digits (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879700002",
+    "formatted": "08 7970 0002",
+    "state": "NT",
+    "city": "Darwin",
+    "score": 38,
+    "reasons": [
+      "repeat run of 4 (20pts)",
+      "4 unique digits (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355567",
+    "formatted": "08 7935 5567",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 34,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "sequential run of 3 ascending (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355579",
+    "formatted": "08 7935 5579",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 34,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355590",
+    "formatted": "08 7935 5590",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 29,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355578",
+    "formatted": "08 7935 5578",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 29,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355574",
+    "formatted": "08 7935 5574",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 29,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355592",
+    "formatted": "08 7935 5592",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 29,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355571",
+    "formatted": "08 7935 5571",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 29,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355587",
+    "formatted": "08 7935 5587",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 29,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355570",
+    "formatted": "08 7935 5570",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 29,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879355594",
+    "formatted": "08 7935 5594",
+    "state": "NT",
+    "city": "Alice Springs",
+    "score": 29,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "5 unique digits (5pts)",
+      "vanity: well, rye, elk (10pts)",
+      "semi-dominant digit (4pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879700030",
+    "formatted": "08 7970 0030",
+    "state": "NT",
+    "city": "Darwin",
+    "score": 28,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  },
+  {
+    "number": "61879700020",
+    "formatted": "08 7970 0020",
+    "state": "NT",
+    "city": "Darwin",
+    "score": 28,
+    "reasons": [
+      "repeat run of 3 (10pts)",
+      "4 unique digits (10pts)",
+      "dominant digit (8pts)"
+    ],
+    "channels": 10,
+    "setup_cost": 0.0,
+    "monthly_cost": 2.0
+  }
+]
