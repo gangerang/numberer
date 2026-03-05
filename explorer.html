@@ -13,7 +13,7 @@ body {
   color: #1d1d1f;
   line-height: 1.5;
   padding: 1.5rem;
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -141,15 +141,7 @@ input[type="text"]:focus, select:focus {
   min-height: 0;
 }
 .active-filters:empty { display: none; }
-
-.filter-label {
-  font-size: 0.65rem;
-  color: #6e6e73;
-  margin-right: 0.15rem;
-  align-self: center;
-}
-
-.filter-spacer { width: 0.5rem; display: inline-block; }
+#active-filters-1 { min-height: 1.6rem; display: flex; }
 
 .filter-pill {
   display: inline-flex;
@@ -163,15 +155,15 @@ input[type="text"]:focus, select:focus {
   cursor: pointer;
   letter-spacing: 0.03em;
 }
-.filter-pill.inc {
+.filter-pill.s1 {
   background: #d4edda;
   color: #155724;
   border: 1px solid #a3d9b1;
 }
-.filter-pill.exc {
-  background: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f1aeb5;
+.filter-pill.s2 {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #86cfda;
 }
 .filter-pill .remove { font-size: 0.85em; opacity: 0.6; }
 .filter-pill:hover .remove { opacity: 1; }
@@ -200,18 +192,17 @@ input[type="text"]:focus, select:focus {
   transition: all 0.1s;
 }
 .word-chip:hover { border-color: #999; color: #1d1d1f; }
-.word-chip.inc {
+.word-chip.selected {
   background: #d4edda;
   color: #155724;
   border-color: #a3d9b1;
   font-weight: 700;
 }
-.word-chip.exc {
-  background: #f8d7da;
-  color: #721c24;
-  border-color: #f1aeb5;
+.word-chip.s2-selected {
+  background: #d1ecf1;
+  color: #0c5460;
+  border-color: #86cfda;
   font-weight: 700;
-  text-decoration: line-through;
 }
 .word-chip .count {
   font-weight: 400;
@@ -219,6 +210,19 @@ input[type="text"]:focus, select:focus {
   margin-left: 0.15rem;
   font-size: 0.9em;
 }
+.word-chip .comp-count {
+  font-weight: 400;
+  opacity: 0.5;
+  margin-left: 0.1rem;
+  font-size: 0.85em;
+  color: #0071e3;
+}
+
+/* Stage 2 panel */
+#word-panel-2 {
+  border-left: 3px solid #0071e3;
+}
+#word-panel-2[hidden] { display: none; }
 
 /* Status bar */
 .status-bar {
@@ -311,16 +315,15 @@ tr.data-row:hover td { background: #f0f5ff; }
   cursor: pointer;
 }
 .badge:hover { background: #ffe69c; }
-.badge.is-inc {
+.badge.is-s1 {
   background: #d4edda;
   color: #155724;
   border-color: #a3d9b1;
 }
-.badge.is-exc {
-  background: #f8d7da;
-  color: #721c24;
-  border-color: #f1aeb5;
-  text-decoration: line-through;
+.badge.is-s2 {
+  background: #d1ecf1;
+  color: #0c5460;
+  border-color: #86cfda;
 }
 
 mark {
@@ -349,39 +352,10 @@ mark {
   font-size: 0.9rem;
 }
 
-/* Combo link in number cell */
-.combo-link {
-  font-size: 0.65rem;
-  color: #0071e3;
-  cursor: pointer;
-  margin-left: 0.5rem;
-  white-space: nowrap;
-}
-.combo-link:hover { text-decoration: underline; }
-
-/* Expanded combo row */
-tr.combo-row td {
-  background: #f9fafb;
-  padding: 0.5rem 0.75rem 0.5rem 3.25rem;
-  border-bottom: 1px solid #ebebed;
-}
-tr.combo-row:hover td { background: #f9fafb; }
-
-.combo-panel {
-  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
-  font-size: 0.8rem;
-  line-height: 1.6;
-  border-left: 3px solid #d2d2d7;
-  padding-left: 0.75rem;
-}
-.combo-header {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 0.7rem;
-  color: #6e6e73;
-  margin-bottom: 0.25rem;
-}
+/* Combo lines in number cell */
 .combo-line .vd-word { font-weight: 600; color: #1d1d1f; }
 .combo-line .vd-digits { color: #8e8e93; }
+.combo-overflow { font-size: 0.7rem; color: #8e8e93; font-style: italic; }
 
 @media (max-width: 640px) {
   body { padding: 0.75rem; }
@@ -398,8 +372,8 @@ tr.combo-row:hover td { background: #f9fafb; }
 
 <div class="panel controls">
   <div class="control-group">
-    <label for="search">Search word / digits</label>
-    <input type="text" id="search" placeholder="e.g. BUSH, CAMP, 2267" autocomplete="off" spellcheck="false">
+    <label for="search">Search digits</label>
+    <input type="text" id="search" placeholder="e.g. 2267" autocomplete="off" spellcheck="false">
     <div class="digit-preview" id="digit-preview"></div>
   </div>
   <div class="control-group">
@@ -408,27 +382,48 @@ tr.combo-row:hover td { background: #f9fafb; }
   </div>
 </div>
 
-<div class="panel" id="word-panel">
+<div class="panel" id="word-panel-1">
   <div class="word-browser-header">
-    <label>Vanity words</label>
-    <input type="text" id="word-search" placeholder="Filter words..." autocomplete="off" spellcheck="false">
+    <label>Primary words</label>
+    <input type="text" id="word-search-1" placeholder="Filter words..." autocomplete="off" spellcheck="false">
     <div class="word-browser-actions">
-      <button class="sort-btn active" data-wsort="length">Length</button>
-      <button class="sort-btn" data-wsort="count">Count</button>
-      <button class="sort-btn" data-wsort="alpha">A-Z</button>
-      <button class="clear-btn" id="clear-filters">Clear</button>
+      <button class="sort-btn active" data-stage="1" data-wsort="length">Length</button>
+      <button class="sort-btn" data-stage="1" data-wsort="count">Count</button>
+      <button class="sort-btn" data-stage="1" data-wsort="alpha">A-Z</button>
+      <button class="clear-btn" id="clear-stage1">Clear</button>
     </div>
   </div>
   <div class="word-sub-header">
-    <span class="word-hint">Click to include &middot; Shift+click to exclude &middot; Click again to remove</span>
-    <label class="cb-label"><input type="checkbox" id="skip-area"> Subscriber only (skip area code digit)</label>
+    <span class="word-hint">Click to select words &middot; results show numbers containing any selected word</span>
+    <span>
+      <label class="cb-label"><input type="checkbox" id="skip-area"> Subscriber only</label>
+      <label class="cb-label"><input type="checkbox" id="has-companions"> Has companions</label>
+    </span>
   </div>
-  <div class="active-filters" id="active-filters"></div>
-  <div class="word-grid" id="word-grid"></div>
+  <div class="active-filters" id="active-filters-1"></div>
+  <div class="word-grid" id="word-grid-1"></div>
+</div>
+
+<div class="panel" id="word-panel-2" hidden>
+  <div class="word-browser-header">
+    <label>Companion words <span id="companion-count"></span></label>
+    <input type="text" id="word-search-2" placeholder="Filter companions..." autocomplete="off" spellcheck="false">
+    <div class="word-browser-actions">
+      <button class="sort-btn active" data-stage="2" data-wsort="length">Length</button>
+      <button class="sort-btn" data-stage="2" data-wsort="count">Count</button>
+      <button class="sort-btn" data-stage="2" data-wsort="alpha">A-Z</button>
+      <button class="clear-btn" id="clear-stage2">Clear</button>
+    </div>
+  </div>
+  <div class="word-sub-header">
+    <span class="word-hint">Words that co-exist in valid combos with your primary selections</span>
+  </div>
+  <div class="active-filters" id="active-filters-2"></div>
+  <div class="word-grid" id="word-grid-2"></div>
 </div>
 
 <div class="status-bar">
-  <span id="result-count">Loading data...</span>
+  <span id="result-count">Select one or more words to see matching numbers</span>
   <span id="cap-notice"></span>
 </div>
 
@@ -438,7 +433,7 @@ tr.combo-row:hover td { background: #f9fafb; }
       <tr>
         <th class="rank-cell">#</th>
         <th data-sort="number">Number</th>
-        <th data-sort="word">Word</th>
+        <th data-sort="words">Words</th>
         <th data-sort="location">Location</th>
       </tr>
     </thead>
@@ -454,56 +449,61 @@ tr.combo-row:hover td { background: #f9fafb; }
   var RENDER_CAP = 5000;
   var KEYPAD = {a:"2",b:"2",c:"2",d:"3",e:"3",f:"3",g:"4",h:"4",i:"4",j:"5",k:"5",l:"5",m:"6",n:"6",o:"6",p:"7",q:"7",r:"7",s:"7",t:"8",u:"8",v:"8",w:"9",x:"9",y:"9",z:"9"};
 
-  var sortCol = "word";
+  var sortCol = "coverage";
   var sortAsc = false;
-  var wordSortBy = "length";
-  var wordFilters = {};  // word → "inc" | "exc"
-  var expandedNumber = null;  // raw number currently expanded, or null
+  var wordSort1 = "length";
+  var wordSort2 = "length";
 
+  // Two-stage word selections
+  var stage1Words = new Set();
+  var stage2Words = new Set();
+
+  // Computed state
+  var comboCache = {};        // raw → array of combos containing a stage 1 word
+  var stage1Numbers = {};     // raw → DATA entry, numbers matching stage 1
+  var stage2Available = {};   // word → count
+  var resultRows = [];        // final sorted results
+
+  // DOM refs
   var $search = document.getElementById("search");
   var $state = document.getElementById("state-filter");
   var $preview = document.getElementById("digit-preview");
   var $count = document.getElementById("result-count");
   var $cap = document.getElementById("cap-notice");
   var $tbody = document.getElementById("tbody");
-  var $wordSearch = document.getElementById("word-search");
-  var $wordGrid = document.getElementById("word-grid");
-  var $activeFilters = document.getElementById("active-filters");
-  var $clearBtn = document.getElementById("clear-filters");
+  var $wordSearch1 = document.getElementById("word-search-1");
+  var $wordSearch2 = document.getElementById("word-search-2");
+  var $wordGrid1 = document.getElementById("word-grid-1");
+  var $wordGrid2 = document.getElementById("word-grid-2");
+  var $activeFilters1 = document.getElementById("active-filters-1");
+  var $activeFilters2 = document.getElementById("active-filters-2");
+  var $clearStage1 = document.getElementById("clear-stage1");
+  var $clearStage2 = document.getElementById("clear-stage2");
   var $skipArea = document.getElementById("skip-area");
+  var $hasCompanions = document.getElementById("has-companions");
+  var $panel2 = document.getElementById("word-panel-2");
 
-  // --- Build per-number word index and flatten into per-word rows ---
-  // NUM_WORDS[raw] = [[word, pos], ...] — all words for that number
-  var NUM_WORDS = {};
-  var ROWS = [];
+  // --- Build indexes ---
+  var NUM_WORDS = {};   // raw → [[word, pos], ...]
+  var NUM_DIGITS = {};  // raw → subscriber digits string
+  var NUM_DATA = {};    // raw → DATA entry
+  var WORD_TO_NUMS = {}; // word → Set of raw number strings
+
   var i, j, r, wList;
   for (i = 0; i < DATA.length; i++) {
     r = DATA[i];
     wList = r.w || [];
     NUM_WORDS[r.n] = wList;
-    if (wList.length) {
-      // Deduplicate: one row per unique word per number (use first position)
-      var seenWord = {};
-      for (j = 0; j < wList.length; j++) {
-        var word = wList[j][0], pos = wList[j][1];
-        if (!seenWord[word]) {
-          seenWord[word] = true;
-          ROWS.push({n: r.n, s: r.s, c: r.c, w: word, p: pos});
-        }
-      }
-    } else {
-      ROWS.push({n: r.n, s: r.s, c: r.c, w: null, p: -1});
+    NUM_DATA[r.n] = r;
+    NUM_DIGITS[r.n] = r.n.startsWith("61") ? r.n.slice(2) : r.n.slice(1);
+    for (j = 0; j < wList.length; j++) {
+      var word = wList[j][0];
+      if (!WORD_TO_NUMS[word]) WORD_TO_NUMS[word] = new Set();
+      WORD_TO_NUMS[word].add(r.n);
     }
   }
 
-  // --- Pre-compute per-number digit string for search ---
-  var NUM_DIGITS = {};
-  for (i = 0; i < DATA.length; i++) {
-    var raw = DATA[i].n;
-    NUM_DIGITS[raw] = raw.startsWith("61") ? raw.slice(2) : raw.slice(1);
-  }
-
-  // --- Word counts (unique words per number, recomputed when state/skip-area change) ---
+  // --- Word counts (cached by state+skipArea) ---
   var cachedWordList = null;
   var cachedWordKey = "";
 
@@ -518,7 +518,6 @@ tr.combo-row:hover td { background: #f9fafb; }
       var d = DATA[i];
       if (st && d.s !== st) continue;
       var wList = d.w || [];
-      // Count each word once per number
       var seen = {};
       for (var j = 0; j < wList.length; j++) {
         if (skipArea && wList[j][1] === 0) continue;
@@ -536,6 +535,51 @@ tr.combo-row:hover td { background: #f9fafb; }
     return out;
   }
 
+  // --- Companion counts per word (cached by state+skipArea) ---
+  var cachedCompCounts = null;
+  var cachedCompKey = "";
+
+  function getCompanionCounts() {
+    var skipArea = $skipArea.checked;
+    var st = $state.value;
+    var key = st + "|" + (skipArea ? "1" : "0");
+    if (key === cachedCompKey) return cachedCompCounts;
+
+    var companions = {}; // word → Set of companion words
+    for (var i = 0; i < DATA.length; i++) {
+      var d = DATA[i];
+      if (st && d.s !== st) continue;
+      var wList = d.w || [];
+      if (wList.length < 2) continue;
+
+      var words = [];
+      for (var j = 0; j < wList.length; j++) {
+        if (skipArea && wList[j][1] === 0) continue;
+        words.push(wList[j]);
+      }
+
+      for (var a = 0; a < words.length; a++) {
+        for (var b = a + 1; b < words.length; b++) {
+          var w1 = words[a][0], p1 = words[a][1], l1 = w1.length;
+          var w2 = words[b][0], p2 = words[b][1], l2 = w2.length;
+          if (w1 === w2) continue;
+          if (p2 >= p1 + l1 || p1 >= p2 + l2) {
+            if (!companions[w1]) companions[w1] = new Set();
+            companions[w1].add(w2);
+            if (!companions[w2]) companions[w2] = new Set();
+            companions[w2].add(w1);
+          }
+        }
+      }
+    }
+
+    var counts = {};
+    for (var w in companions) counts[w] = companions[w].size;
+    cachedCompCounts = counts;
+    cachedCompKey = key;
+    return counts;
+  }
+
   // --- State dropdown ---
   var stateSet = {};
   for (i = 0; i < DATA.length; i++) stateSet[DATA[i].s] = 1;
@@ -546,40 +590,6 @@ tr.combo-row:hover td { background: #f9fafb; }
     opt.textContent = states[i];
     $state.appendChild(opt);
   }
-
-  // --- Sorting ---
-  var sortedRows = ROWS.slice();
-
-  function comparator(a, b) {
-    var va, vb;
-    switch (sortCol) {
-      case "word":
-        va = a.w || ""; vb = b.w || "";
-        if (va.length !== vb.length) return sortAsc ? va.length - vb.length : vb.length - va.length;
-        if (va < vb) return sortAsc ? -1 : 1;
-        if (va > vb) return sortAsc ? 1 : -1;
-        return 0;
-      case "number":
-        if (a.n < b.n) return sortAsc ? -1 : 1;
-        if (a.n > b.n) return sortAsc ? 1 : -1;
-        return 0;
-      case "location":
-        va = a.s + a.c; vb = b.s + b.c;
-        if (va < vb) return sortAsc ? -1 : 1;
-        if (va > vb) return sortAsc ? 1 : -1;
-        return 0;
-      default:
-        va = a.w || ""; vb = b.w || "";
-        if (va.length !== vb.length) return vb.length - va.length;
-        return va < vb ? -1 : va > vb ? 1 : 0;
-    }
-  }
-
-  function reSort() {
-    sortedRows = ROWS.slice();
-    sortedRows.sort(comparator);
-  }
-  reSort();
 
   // --- Helpers ---
 
@@ -602,49 +612,39 @@ tr.combo-row:hover td { background: #f9fafb; }
     return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
   }
 
-  function formatVanityHtml(raw, word, pos) {
-    var local = raw.startsWith("61") ? "0" + raw.slice(2) : raw;
-    var d = local.slice(1);
-    var prefix = local[0] + d.slice(0, pos);
-    var suffix = d.slice(pos + word.length);
-    var parts = [];
-    if (prefix) parts.push('<span class="vd-digits">' + escHtml(prefix) + '</span>');
-    parts.push('<span class="vd-word">' + escHtml(word) + '</span>');
-    if (suffix) parts.push('<span class="vd-digits">' + escHtml(suffix) + '</span>');
-    return parts.join(" ");
-  }
-
-  // Format a combination: multiple words placed in the 9-digit string
   function formatComboHtml(raw, combo) {
     var local = raw.startsWith("61") ? "0" + raw.slice(2) : raw;
-    var d9 = local.slice(1); // 9 digits
-    // Build character array with words placed
-    var chars = d9.split("");
-    var isWord = new Array(chars.length);
-    for (var k = 0; k < isWord.length; k++) isWord[k] = false;
+    var chars = local.split("");
+    // Track which combo word each position belongs to (-1 = digit)
+    var seg = new Array(chars.length);
+    for (var k = 0; k < chars.length; k++) seg[k] = -1;
     for (var ci = 0; ci < combo.length; ci++) {
       var w = combo[ci][0], p = combo[ci][1];
       for (var ch = 0; ch < w.length; ch++) {
-        if (p + ch < chars.length) {
-          chars[p + ch] = w[ch];
-          isWord[p + ch] = true;
+        var idx = p + ch + 1; // +1: positions are in 9-digit string, local has leading 0
+        if (idx < chars.length) {
+          chars[idx] = w[ch];
+          seg[idx] = ci;
         }
       }
     }
-    // Build HTML with spans
-    var html = '<span class="vd-digits">' + escHtml(local[0]) + '</span> ';
-    var inWord = false;
-    for (var ci2 = 0; ci2 < chars.length; ci2++) {
-      if (isWord[ci2] && !inWord) {
-        html += '<span class="vd-word">';
-        inWord = true;
-      } else if (!isWord[ci2] && inWord) {
-        html += '</span> <span class="vd-digits">';
-        inWord = false;
+    // Build HTML: group by segment id, space between groups
+    var html = "";
+    var i = 0;
+    while (i < chars.length) {
+      var sid = seg[i];
+      var part = "";
+      while (i < chars.length && seg[i] === sid) {
+        part += chars[i];
+        i++;
       }
-      html += escHtml(chars[ci2]);
+      if (html) html += " ";
+      if (sid >= 0) {
+        html += '<span class="vd-word">' + escHtml(part) + '</span>';
+      } else {
+        html += '<span class="vd-digits">' + escHtml(part) + '</span>';
+      }
     }
-    html += '</span>';
     return html;
   }
 
@@ -686,7 +686,6 @@ tr.combo-row:hover td { background: #f9fafb; }
     var words = NUM_WORDS[raw] || [];
     if (!words.length) return [];
 
-    // Index by start position
     var byStart = {};
     for (var i = 0; i < words.length; i++) {
       var w = words[i][0], p = words[i][1];
@@ -697,13 +696,11 @@ tr.combo-row:hover td { background: #f9fafb; }
 
     var combos = findCombinations(byStart, 0, 9);
 
-    // Filter out empty combos
     var valid = [];
     for (var j = 0; j < combos.length; j++) {
       if (combos[j].length > 0) valid.push(combos[j]);
     }
 
-    // Sort by total digit coverage desc, then word count desc
     valid.sort(function(a, b) {
       var covA = 0, covB = 0;
       for (var k = 0; k < a.length; k++) covA += a[k][0].length;
@@ -715,248 +712,454 @@ tr.combo-row:hover td { background: #f9fafb; }
     return valid;
   }
 
-  // --- Word browser ---
+  function comboCoverage(combo) {
+    var cov = 0;
+    for (var i = 0; i < combo.length; i++) cov += combo[i][0].length;
+    return cov;
+  }
 
-  function getSortedWords() {
-    var all = getWordList();
-    var filter = $wordSearch.value.trim().toLowerCase();
-    var words = filter ? all.filter(function(e) { return e[0].indexOf(filter) !== -1; }) : all.slice();
-    if (wordSortBy === "count") {
-      words.sort(function(a, b) { return b[1] - a[1] || a[0].localeCompare(b[0]); });
-    } else if (wordSortBy === "alpha") {
-      words.sort(function(a, b) { return a[0].localeCompare(b[0]); });
-    } else {
-      words.sort(function(a, b) { return b[0].length - a[0].length || b[1] - a[1] || a[0].localeCompare(b[0]); });
+  function comboContainsAny(combo, wordSet) {
+    for (var i = 0; i < combo.length; i++) {
+      if (wordSet.has(combo[i][0])) return true;
     }
+    return false;
+  }
+
+  function comboWords(combo) {
+    var words = [];
+    for (var i = 0; i < combo.length; i++) words.push(combo[i][0]);
     return words;
   }
 
-  function renderWordGrid() {
-    var words = getSortedWords();
+  // --- Sorted word list helpers ---
+
+  function sortWordEntries(entries, sortBy) {
+    var sorted = entries.slice();
+    if (sortBy === "count") {
+      sorted.sort(function(a, b) { return b[1] - a[1] || a[0].localeCompare(b[0]); });
+    } else if (sortBy === "alpha") {
+      sorted.sort(function(a, b) { return a[0].localeCompare(b[0]); });
+    } else {
+      sorted.sort(function(a, b) { return b[0].length - a[0].length || b[1] - a[1] || a[0].localeCompare(b[0]); });
+    }
+    return sorted;
+  }
+
+  // --- Render word grids ---
+
+  function renderWordGrid1() {
+    var all = getWordList();
+    var compCounts = getCompanionCounts();
+    var filter = $wordSearch1.value.trim().toLowerCase();
+    var onlyWithCompanions = $hasCompanions.checked;
+    var words = all.filter(function(e) {
+      if (filter && e[0].indexOf(filter) === -1) return false;
+      if (onlyWithCompanions && !compCounts[e[0]]) return false;
+      return true;
+    });
+    words = sortWordEntries(words, wordSort1);
+
     var html = "";
     for (var i = 0; i < words.length; i++) {
       var w = words[i][0], c = words[i][1];
-      var cls = wordFilters[w] ? " " + wordFilters[w] : "";
+      var cc = compCounts[w] || 0;
+      var cls = stage1Words.has(w) ? " selected" : "";
       html += '<span class="word-chip' + cls + '" data-word="' + w + '">'
-        + escHtml(w) + '<span class="count">' + c + '</span></span>';
+        + escHtml(w) + '<span class="count">' + c + '</span>'
+        + (cc ? '<span class="comp-count">\u2194' + cc + '</span>' : '')
+        + '</span>';
     }
-    $wordGrid.innerHTML = html;
+    $wordGrid1.innerHTML = html;
   }
 
-  function updateChipClass(word) {
-    var chip = $wordGrid.querySelector('[data-word="' + word + '"]');
-    if (chip) chip.className = "word-chip" + (wordFilters[word] ? " " + wordFilters[word] : "");
-  }
-
-  function renderActiveFilters() {
-    var inc = [], exc = [], w;
-    for (w in wordFilters) {
-      if (wordFilters[w] === "inc") inc.push(w);
-      else if (wordFilters[w] === "exc") exc.push(w);
+  function renderWordGrid2() {
+    var $companionCount = document.getElementById("companion-count");
+    if (stage1Words.size === 0) {
+      $panel2.hidden = true;
+      return;
     }
+    $panel2.hidden = false;
+
+    var totalCompanions = Object.keys(stage2Available).length;
+    $companionCount.textContent = "(" + totalCompanions + ")";
+
+    var filter = $wordSearch2.value.trim().toLowerCase();
+    var entries = [];
+    for (var w in stage2Available) {
+      if (filter && w.indexOf(filter) === -1) continue;
+      entries.push([w, stage2Available[w]]);
+    }
+    entries = sortWordEntries(entries, wordSort2);
+
     var html = "";
-    if (inc.length) {
-      html += '<span class="filter-label">INCLUDE:</span>';
-      inc.sort();
-      for (var i = 0; i < inc.length; i++) {
-        html += '<span class="filter-pill inc" data-word="' + escHtml(inc[i]) + '">'
-          + escHtml(inc[i]) + ' <span class="remove">&times;</span></span>';
-      }
+    for (var i = 0; i < entries.length; i++) {
+      var w2 = entries[i][0], c = entries[i][1];
+      var cls = stage2Words.has(w2) ? " s2-selected" : "";
+      html += '<span class="word-chip' + cls + '" data-word="' + w2 + '">'
+        + escHtml(w2) + '<span class="count">' + c + '</span></span>';
     }
-    if (exc.length) {
-      if (inc.length) html += '<span class="filter-spacer"></span>';
-      html += '<span class="filter-label">EXCLUDE:</span>';
-      exc.sort();
-      for (var i2 = 0; i2 < exc.length; i2++) {
-        html += '<span class="filter-pill exc" data-word="' + escHtml(exc[i2]) + '">'
-          + escHtml(exc[i2]) + ' <span class="remove">&times;</span></span>';
-      }
+    $wordGrid2.innerHTML = html;
+  }
+
+  function renderActiveFilters1() {
+    if (stage1Words.size === 0) {
+      $activeFilters1.innerHTML = "";
+      return;
     }
-    $activeFilters.innerHTML = html;
+    var words = Array.from(stage1Words).sort();
+    var html = '';
+    for (var i = 0; i < words.length; i++) {
+      html += '<span class="filter-pill s1" data-word="' + escHtml(words[i]) + '">'
+        + escHtml(words[i]) + ' <span class="remove">&times;</span></span>';
+    }
+    $activeFilters1.innerHTML = html;
   }
 
-  function toggleWordFilter(word, mode) {
-    if (wordFilters[word] === mode) delete wordFilters[word];
-    else wordFilters[word] = mode;
+  function renderActiveFilters2() {
+    if (stage2Words.size === 0) {
+      $activeFilters2.innerHTML = "";
+      return;
+    }
+    var words = Array.from(stage2Words).sort();
+    var html = '';
+    for (var i = 0; i < words.length; i++) {
+      html += '<span class="filter-pill s2" data-word="' + escHtml(words[i]) + '">'
+        + escHtml(words[i]) + ' <span class="remove">&times;</span></span>';
+    }
+    $activeFilters2.innerHTML = html;
   }
 
-  function onWordToggle(word, mode) {
-    toggleWordFilter(word, mode);
-    updateChipClass(word);
-    renderActiveFilters();
-    filterAndRender();
-  }
+  // --- Computation ---
 
-  $wordGrid.addEventListener("click", function(e) {
-    var chip = e.target.closest(".word-chip");
-    if (!chip) return;
-    onWordToggle(chip.dataset.word, e.shiftKey ? "exc" : "inc");
-  });
+  function computeStage1Results() {
+    comboCache = {};
+    stage1Numbers = {};
+    stage2Available = {};
 
-  $activeFilters.addEventListener("click", function(e) {
-    var pill = e.target.closest(".filter-pill");
-    if (!pill) return;
-    var word = pill.dataset.word;
-    delete wordFilters[word];
-    updateChipClass(word);
-    renderActiveFilters();
-    filterAndRender();
-  });
+    if (stage1Words.size === 0) return;
 
-  $clearBtn.addEventListener("click", function() {
-    var w;
-    for (w in wordFilters) delete wordFilters[w];
-    $wordSearch.value = "";
-    renderWordGrid();
-    renderActiveFilters();
-    filterAndRender();
-  });
-
-  $wordSearch.addEventListener("input", function() { renderWordGrid(); });
-
-  document.querySelectorAll(".sort-btn[data-wsort]").forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      wordSortBy = btn.dataset.wsort;
-      document.querySelectorAll(".sort-btn[data-wsort]").forEach(function(b) { b.classList.remove("active"); });
-      btn.classList.add("active");
-      renderWordGrid();
-    });
-  });
-
-  $skipArea.addEventListener("change", function() {
-    renderWordGrid();
-    filterAndRender();
-  });
-
-  // --- Main filter & render ---
-
-  function filterAndRender() {
-    var searchWord = $search.value.trim();
-    var searchDigits = wordToDigits(searchWord) || (searchWord.match(/^\d+$/) ? searchWord : "");
     var stateFilter = $state.value;
     var skipArea = $skipArea.checked;
+    var searchDigits = getSearchDigits();
 
-    var incSet = null, excSet = null, w;
-    for (w in wordFilters) {
-      if (wordFilters[w] === "inc") { if (!incSet) incSet = new Set(); incSet.add(w); }
-      else if (wordFilters[w] === "exc") { if (!excSet) excSet = new Set(); excSet.add(w); }
+    // Union all numbers containing any stage 1 word
+    var numSet = new Set();
+    stage1Words.forEach(function(w) {
+      var nums = WORD_TO_NUMS[w];
+      if (nums) nums.forEach(function(n) { numSet.add(n); });
+    });
+
+    // Apply pre-filters and compute combos
+    var s2Counts = {};
+    numSet.forEach(function(raw) {
+      var d = NUM_DATA[raw];
+      if (!d) return;
+      if (stateFilter && d.s !== stateFilter) return;
+      if (searchDigits && NUM_DIGITS[raw].indexOf(searchDigits) === -1) return;
+
+      var combos = getCombinations(raw, skipArea);
+      // Filter combos to those containing at least one stage 1 word
+      var filtered = [];
+      for (var i = 0; i < combos.length; i++) {
+        if (comboContainsAny(combos[i], stage1Words)) {
+          filtered.push(combos[i]);
+        }
+      }
+      if (filtered.length === 0) return;
+
+      comboCache[raw] = filtered;
+      stage1Numbers[raw] = d;
+
+      // Collect companion words
+      for (var ci = 0; ci < filtered.length; ci++) {
+        var words = comboWords(filtered[ci]);
+        for (var wi = 0; wi < words.length; wi++) {
+          if (!stage1Words.has(words[wi])) {
+            s2Counts[words[wi]] = (s2Counts[words[wi]] || 0) + 1;
+          }
+        }
+      }
+    });
+
+    // Deduplicate companion counts: count distinct numbers, not combos
+    // Recompute: for each companion word, how many distinct numbers have it in a filtered combo
+    stage2Available = {};
+    var companionNums = {}; // word → Set of raw
+    for (var raw in comboCache) {
+      var combos = comboCache[raw];
+      var seenWords = {};
+      for (var ci = 0; ci < combos.length; ci++) {
+        var ws = comboWords(combos[ci]);
+        for (var wi = 0; wi < ws.length; wi++) {
+          if (!stage1Words.has(ws[wi]) && !seenWords[ws[wi]]) {
+            seenWords[ws[wi]] = true;
+            if (!companionNums[ws[wi]]) companionNums[ws[wi]] = 0;
+            companionNums[ws[wi]]++;
+          }
+        }
+      }
+    }
+    stage2Available = companionNums;
+
+    // Prune stage 2 selections no longer available
+    stage2Words.forEach(function(w) {
+      if (!stage2Available[w]) stage2Words.delete(w);
+    });
+  }
+
+  function getSearchDigits() {
+    var searchWord = $search.value.trim();
+    return searchWord.match(/^\d+$/) ? searchWord : wordToDigits(searchWord) || "";
+  }
+
+  function computeResults() {
+    resultRows = [];
+    if (stage1Words.size === 0) return;
+
+    var hasS2 = stage2Words.size > 0;
+
+    for (var raw in comboCache) {
+      var combos = comboCache[raw];
+      var matchingCombos;
+
+      if (hasS2) {
+        // Filter to combos containing both a stage 1 AND a stage 2 word
+        matchingCombos = [];
+        for (var i = 0; i < combos.length; i++) {
+          if (comboContainsAny(combos[i], stage2Words)) {
+            matchingCombos.push(combos[i]);
+          }
+        }
+        if (matchingCombos.length === 0) continue;
+      } else {
+        matchingCombos = combos;
+      }
+
+      // Pick best combo (highest coverage)
+      var best = matchingCombos[0]; // already sorted by coverage
+      var cov = comboCoverage(best);
+      var d = stage1Numbers[raw];
+
+      resultRows.push({
+        raw: raw,
+        d: d,
+        best: best,
+        coverage: cov,
+        combos: matchingCombos
+      });
     }
 
+    // Sort
+    resultRows.sort(function(a, b) {
+      switch (sortCol) {
+        case "coverage":
+          if (a.coverage !== b.coverage) return sortAsc ? a.coverage - b.coverage : b.coverage - a.coverage;
+          return a.raw < b.raw ? -1 : 1;
+        case "number":
+          return sortAsc ? (a.raw < b.raw ? -1 : 1) : (a.raw > b.raw ? -1 : 1);
+        case "words":
+          var wa = a.best[0][0], wb = b.best[0][0];
+          if (wa < wb) return sortAsc ? -1 : 1;
+          if (wa > wb) return sortAsc ? 1 : -1;
+          return 0;
+        case "location":
+          var la = a.d.s + a.d.c, lb = b.d.s + b.d.c;
+          if (la < lb) return sortAsc ? -1 : 1;
+          if (la > lb) return sortAsc ? 1 : -1;
+          return 0;
+        default:
+          if (a.coverage !== b.coverage) return b.coverage - a.coverage;
+          return a.raw < b.raw ? -1 : 1;
+      }
+    });
+  }
+
+  // --- Render results ---
+
+  function renderResults() {
+    var searchDigits = getSearchDigits();
+
+    if (stage1Words.size === 0) {
+      $count.textContent = "Select one or more words to see matching numbers";
+      $cap.textContent = "";
+      $tbody.innerHTML = '<tr><td colspan="4" class="empty-state">Select one or more words above to see matching numbers</td></tr>';
+      return;
+    }
+
+    var total = resultRows.length;
+    var showing = Math.min(total, RENDER_CAP);
+    $count.textContent = "Showing " + showing + " of " + total + " numbers";
+    $cap.textContent = total > RENDER_CAP ? (total - RENDER_CAP) + " more not shown" : "";
+
+    var html = "";
+    for (var idx = 0; idx < showing; idx++) {
+      var row = resultRows[idx];
+      var raw = row.raw;
+
+      // Number cell: all combos formatted inline
+      var rawHtml = highlightDigits(formatNumber(raw), searchDigits);
+      var numberCell = '';
+      var cap = 50;
+      var comboShowing = Math.min(row.combos.length, cap);
+      for (var ci = 0; ci < comboShowing; ci++) {
+        numberCell += '<div class="combo-line">' + formatComboHtml(raw, row.combos[ci]) + '</div>';
+      }
+      if (row.combos.length > cap) {
+        numberCell += '<div class="combo-overflow">+ ' + (row.combos.length - cap) + ' more</div>';
+      }
+      numberCell += '<div class="num-raw">' + rawHtml + '</div>';
+
+      // Word badges: collect unique words from all shown combos
+      var badgesSeen = {};
+      var badges = "";
+      for (var ci2 = 0; ci2 < comboShowing; ci2++) {
+        for (var bi = 0; bi < row.combos[ci2].length; bi++) {
+          var bw = row.combos[ci2][bi][0];
+          if (badgesSeen[bw]) continue;
+          badgesSeen[bw] = true;
+          var bcls = stage1Words.has(bw) ? " is-s1" : stage2Words.has(bw) ? " is-s2" : "";
+          badges += '<span class="badge' + bcls + '" data-word="' + escHtml(bw) + '">' + escHtml(bw) + '</span>';
+        }
+      }
+
+      html += '<tr class="data-row"><td class="rank-cell">' + (idx + 1) + '</td><td>' + numberCell + '</td><td>' + badges + '</td><td class="location">' + escHtml(row.d.s) + ' / ' + escHtml(row.d.c) + '</td></tr>';
+    }
+
+    $tbody.innerHTML = html || '<tr><td colspan="4" class="empty-state">No numbers match your filters</td></tr>';
+  }
+
+
+  // --- Stage change handlers ---
+
+  function onStage1Change() {
+    computeStage1Results();
+    computeResults();
+    renderActiveFilters1();
+    renderActiveFilters2();
+    renderWordGrid1();
+    renderWordGrid2();
+    renderResults();
+    saveHash();
+  }
+
+  function onStage2Change() {
+    computeResults();
+    renderActiveFilters2();
+    renderWordGrid2();
+    renderResults();
+    saveHash();
+  }
+
+  // --- Update digit preview ---
+  function updateDigitPreview() {
+    var searchWord = $search.value.trim();
     if (searchWord && !searchWord.match(/^\d+$/)) {
       var digits = wordToDigits(searchWord);
       $preview.textContent = digits ? "\u2192 " + digits : "";
     } else {
       $preview.textContent = "";
     }
+  }
 
-    var filtered = [];
-    var src = sortedRows;
-    for (var i = 0; i < src.length; i++) {
-      var r = src[i];
-      if (stateFilter && r.s !== stateFilter) continue;
-      if (searchDigits && NUM_DIGITS[r.n].indexOf(searchDigits) === -1) continue;
-      if (skipArea && r.p === 0) continue;
-      if (incSet && (!r.w || !incSet.has(r.w))) continue;
-      if (excSet && r.w && excSet.has(r.w)) continue;
-      filtered.push(r);
-      if (filtered.length >= RENDER_CAP) break;
-    }
+  // --- Event wiring ---
 
-    var total;
-    if (filtered.length < RENDER_CAP) {
-      total = filtered.length;
-    } else {
-      total = RENDER_CAP;
-      for (var j = i + 1; j < src.length; j++) {
-        r = src[j];
-        if (stateFilter && r.s !== stateFilter) continue;
-        if (searchDigits && NUM_DIGITS[r.n].indexOf(searchDigits) === -1) continue;
-        if (skipArea && r.p === 0) continue;
-        if (incSet && (!r.w || !incSet.has(r.w))) continue;
-        if (excSet && r.w && excSet.has(r.w)) continue;
-        total++;
-      }
-    }
+  // Stage 1 chip clicks
+  $wordGrid1.addEventListener("click", function(e) {
+    var chip = e.target.closest(".word-chip");
+    if (!chip) return;
+    var word = chip.dataset.word;
+    if (stage1Words.has(word)) stage1Words.delete(word);
+    else stage1Words.add(word);
+    onStage1Change();
+  });
 
-    $count.textContent = "Showing " + filtered.length + " of " + total + " rows";
-    $cap.textContent = total > RENDER_CAP ? (total - RENDER_CAP) + " more not shown" : "";
+  // Stage 2 chip clicks
+  $wordGrid2.addEventListener("click", function(e) {
+    var chip = e.target.closest(".word-chip");
+    if (!chip) return;
+    var word = chip.dataset.word;
+    if (stage2Words.has(word)) stage2Words.delete(word);
+    else stage2Words.add(word);
+    onStage2Change();
+  });
 
-    // Render
-    var html = "";
-    for (var idx = 0; idx < filtered.length; idx++) {
-      r = filtered[idx];
+  // Stage 1 pill remove
+  $activeFilters1.addEventListener("click", function(e) {
+    var pill = e.target.closest(".filter-pill");
+    if (!pill) return;
+    stage1Words.delete(pill.dataset.word);
+    onStage1Change();
+  });
 
-      // Count combinations for this number
-      var numWords = NUM_WORDS[r.n] || [];
-      var comboCount = 0;
-      if (numWords.length > 1) {
-        // Quick count: only if > 1 word exists for this number
-        comboCount = -1; // means "has combos, count on demand"
-      }
+  // Stage 2 pill remove
+  $activeFilters2.addEventListener("click", function(e) {
+    var pill = e.target.closest(".filter-pill");
+    if (!pill) return;
+    stage2Words.delete(pill.dataset.word);
+    onStage2Change();
+  });
 
-      var numberCell;
-      if (r.w) {
-        var vanityHtml = formatVanityHtml(r.n, r.w, r.p);
-        var rawHtml = highlightDigits(formatNumber(r.n), searchDigits);
-        numberCell = '<div class="num-vanity">' + vanityHtml + '</div><div class="num-raw">' + rawHtml + '</div>';
+  // Clear stage 1 (clears both)
+  $clearStage1.addEventListener("click", function() {
+    stage1Words.clear();
+    stage2Words.clear();
+    $wordSearch1.value = "";
+    onStage1Change();
+  });
+
+  // Clear stage 2 only
+  $clearStage2.addEventListener("click", function() {
+    stage2Words.clear();
+    $wordSearch2.value = "";
+    onStage2Change();
+  });
+
+  // Word search filters
+  $wordSearch1.addEventListener("input", function() { renderWordGrid1(); });
+  $wordSearch2.addEventListener("input", function() { renderWordGrid2(); });
+
+  // Sort buttons
+  document.querySelectorAll(".sort-btn[data-stage]").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var stage = btn.dataset.stage;
+      var sort = btn.dataset.wsort;
+      // Update active state for this stage's buttons
+      document.querySelectorAll('.sort-btn[data-stage="' + stage + '"]').forEach(function(b) {
+        b.classList.remove("active");
+      });
+      btn.classList.add("active");
+      if (stage === "1") {
+        wordSort1 = sort;
+        renderWordGrid1();
       } else {
-        numberCell = '<div class="num">' + highlightDigits(formatNumber(r.n), searchDigits) + '</div>';
+        wordSort2 = sort;
+        renderWordGrid2();
       }
+    });
+  });
 
-      // Combo link
-      if (numWords.length > 1) {
-        numberCell += '<span class="combo-link" data-combo="' + r.n + '">combos</span>';
-      }
+  // Skip area checkbox
+  $skipArea.addEventListener("change", function() {
+    cachedWordKey = ""; // invalidate cache
+    cachedCompKey = ""; // invalidate companion cache
+    onStage1Change();
+  });
 
-      var badge = "";
-      if (r.w) {
-        var cls = wordFilters[r.w] === "inc" ? " is-inc" : wordFilters[r.w] === "exc" ? " is-exc" : "";
-        badge = '<span class="badge' + cls + '" data-word="' + escHtml(r.w) + '">' + escHtml(r.w) + '</span>';
-      }
-      html += '<tr class="data-row"><td class="rank-cell">' + (idx+1) + '</td><td>' + numberCell + '</td><td>' + badge + '</td><td class="location">' + escHtml(r.s) + ' / ' + escHtml(r.c) + '</td></tr>';
+  $hasCompanions.addEventListener("change", function() {
+    renderWordGrid1();
+  });
 
-      // If this number is expanded, add combo row
-      if (expandedNumber === r.n) {
-        html += buildComboRow(r.n, skipArea);
-      }
-    }
-
-    $tbody.innerHTML = html || '<tr><td colspan="4" class="empty-state">No numbers match your filters</td></tr>';
-    saveHash();
-  }
-
-  function buildComboRow(raw, skipArea) {
-    var combos = getCombinations(raw, skipArea);
-    var cap = 50;
-    var showing = Math.min(combos.length, cap);
-    var headerText = combos.length + " combination" + (combos.length !== 1 ? "s" : "");
-    if (combos.length > cap) headerText += " (showing top " + cap + ")";
-
-    var html = '<tr class="combo-row"><td colspan="4"><div class="combo-panel">';
-    html += '<div class="combo-header">' + escHtml(headerText) + '</div>';
-    for (var i = 0; i < showing; i++) {
-      html += '<div class="combo-line">' + formatComboHtml(raw, combos[i]) + '</div>';
-    }
-    html += '</div></td></tr>';
-    return html;
-  }
-
-  // Click combo links and badges in results
+  // Result table clicks (combo links & badges)
   $tbody.addEventListener("click", function(e) {
-    var comboLink = e.target.closest(".combo-link");
-    if (comboLink) {
-      var num = comboLink.dataset.combo;
-      if (expandedNumber === num) {
-        expandedNumber = null;
-      } else {
-        expandedNumber = num;
-      }
-      filterAndRender();
-      return;
-    }
     var badge = e.target.closest(".badge");
     if (!badge) return;
-    onWordToggle(badge.dataset.word, e.shiftKey ? "exc" : "inc");
+    var word = badge.dataset.word;
+    // Add to stage 2 if not in stage 1
+    if (!stage1Words.has(word)) {
+      if (stage2Words.has(word)) stage2Words.delete(word);
+      else if (stage2Available[word]) stage2Words.add(word);
+        onStage2Change();
+    }
   });
 
   // Sort headers
@@ -969,26 +1172,34 @@ tr.combo-row:hover td { background: #f9fafb; }
         sortCol = col;
         sortAsc = col === "number" || col === "location";
       }
+      // Update sort arrows
       document.querySelectorAll("th .sort-arrow").forEach(function(el) { el.remove(); });
       var arrow = document.createElement("span");
       arrow.className = "sort-arrow";
       arrow.textContent = sortAsc ? "\u25B2" : "\u25BC";
       th.appendChild(arrow);
-      reSort();
-      filterAndRender();
+      computeResults();
+      renderResults();
+      saveHash();
     });
   });
 
-  // Debounced text input
+  // Debounced digit search input
   var timer = null;
-  function onInput() {
+  $search.addEventListener("input", function() {
+    updateDigitPreview();
     clearTimeout(timer);
-    timer = setTimeout(filterAndRender, 100);
-  }
-  $search.addEventListener("input", onInput);
+    timer = setTimeout(function() {
+        onStage1Change();
+    }, 100);
+  });
+
+  // State filter change
   $state.addEventListener("change", function() {
-    renderWordGrid();
-    filterAndRender();
+    cachedWordKey = ""; // invalidate cache
+    cachedCompKey = ""; // invalidate companion cache
+    renderWordGrid1();
+    onStage1Change();
   });
 
   // --- URL hash ---
@@ -998,14 +1209,9 @@ tr.combo-row:hover td { background: #f9fafb; }
     if ($search.value) params.set("q", $search.value);
     if ($state.value) params.set("st", $state.value);
     if ($skipArea.checked) params.set("sub", "1");
-    var inc = [], exc = [], w;
-    for (w in wordFilters) {
-      if (wordFilters[w] === "inc") inc.push(w);
-      else if (wordFilters[w] === "exc") exc.push(w);
-    }
-    if (inc.length) params.set("inc", inc.sort().join(","));
-    if (exc.length) params.set("exc", exc.sort().join(","));
-    if (sortCol !== "word" || sortAsc) params.set("sort", (sortAsc ? "" : "-") + sortCol);
+    if (stage1Words.size) params.set("w1", Array.from(stage1Words).sort().join(","));
+    if (stage2Words.size) params.set("w2", Array.from(stage2Words).sort().join(","));
+    if (sortCol !== "coverage" || sortAsc) params.set("sort", (sortAsc ? "" : "-") + sortCol);
     var h = params.toString();
     history.replaceState(null, "", h ? "#" + h : location.pathname);
   }
@@ -1017,11 +1223,15 @@ tr.combo-row:hover td { background: #f9fafb; }
     if (params.has("q")) $search.value = params.get("q");
     if (params.has("st")) $state.value = params.get("st");
     if (params.get("sub") === "1") $skipArea.checked = true;
-    if (params.has("inc")) {
-      params.get("inc").split(",").forEach(function(w) { if (w) wordFilters[w] = "inc"; });
+    if (params.has("w1")) {
+      params.get("w1").split(",").forEach(function(w) { if (w) stage1Words.add(w); });
     }
-    if (params.has("exc")) {
-      params.get("exc").split(",").forEach(function(w) { if (w) wordFilters[w] = "exc"; });
+    if (params.has("w2")) {
+      params.get("w2").split(",").forEach(function(w) { if (w) stage2Words.add(w); });
+    }
+    // Support legacy hash params
+    if (params.has("inc") && !params.has("w1")) {
+      params.get("inc").split(",").forEach(function(w) { if (w) stage1Words.add(w); });
     }
     if (params.has("sort")) {
       var s = params.get("sort");
@@ -1032,10 +1242,17 @@ tr.combo-row:hover td { background: #f9fafb; }
 
   // --- Init ---
   loadHash();
-  if (sortCol !== "word" || sortAsc) reSort();
-  renderWordGrid();
-  renderActiveFilters();
-  filterAndRender();
+  updateDigitPreview();
+  renderWordGrid1();
+  if (stage1Words.size > 0) {
+    computeStage1Results();
+    computeResults();
+    renderActiveFilters1();
+    renderActiveFilters2();
+    renderWordGrid2();
+    renderResults();
+    saveHash();
+  }
 })();
 </script>
 </body>
