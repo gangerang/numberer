@@ -268,7 +268,7 @@ td {
   vertical-align: middle;
 }
 tr:last-child td { border-bottom: none; }
-tr:hover td { background: #f0f5ff; }
+tr.data-row:hover td { background: #f0f5ff; }
 
 /* Number display */
 .num {
@@ -330,11 +330,6 @@ mark {
   padding: 0 1px;
 }
 
-.score-cell {
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-
 .location {
   color: #6e6e73;
   font-size: 0.8rem;
@@ -353,6 +348,40 @@ mark {
   color: #8e8e93;
   font-size: 0.9rem;
 }
+
+/* Combo link in number cell */
+.combo-link {
+  font-size: 0.65rem;
+  color: #0071e3;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+.combo-link:hover { text-decoration: underline; }
+
+/* Expanded combo row */
+tr.combo-row td {
+  background: #f9fafb;
+  padding: 0.5rem 0.75rem 0.5rem 3.25rem;
+  border-bottom: 1px solid #ebebed;
+}
+tr.combo-row:hover td { background: #f9fafb; }
+
+.combo-panel {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  border-left: 3px solid #d2d2d7;
+  padding-left: 0.75rem;
+}
+.combo-header {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 0.7rem;
+  color: #6e6e73;
+  margin-bottom: 0.25rem;
+}
+.combo-line .vd-word { font-weight: 600; color: #1d1d1f; }
+.combo-line .vd-digits { color: #8e8e93; }
 
 @media (max-width: 640px) {
   body { padding: 0.75rem; }
@@ -410,7 +439,6 @@ mark {
         <th class="rank-cell">#</th>
         <th data-sort="number">Number</th>
         <th data-sort="word">Word</th>
-        <th data-sort="score">Score <span class="sort-arrow">&#x25BC;</span></th>
         <th data-sort="location">Location</th>
       </tr>
     </thead>
@@ -426,10 +454,11 @@ mark {
   var RENDER_CAP = 5000;
   var KEYPAD = {a:"2",b:"2",c:"2",d:"3",e:"3",f:"3",g:"4",h:"4",i:"4",j:"5",k:"5",l:"5",m:"6",n:"6",o:"6",p:"7",q:"7",r:"7",s:"7",t:"8",u:"8",v:"8",w:"9",x:"9",y:"9",z:"9"};
 
-  var sortCol = "score";
+  var sortCol = "word";
   var sortAsc = false;
   var wordSortBy = "length";
   var wordFilters = {};  // word → "inc" | "exc"
+  var expandedNumber = null;  // raw number currently expanded, or null
 
   var $search = document.getElementById("search");
   var $state = document.getElementById("state-filter");
@@ -443,30 +472,38 @@ mark {
   var $clearBtn = document.getElementById("clear-filters");
   var $skipArea = document.getElementById("skip-area");
 
-  // --- Flatten DATA into per-word rows ---
+  // --- Build per-number word index and flatten into per-word rows ---
+  // NUM_WORDS[raw] = [[word, pos], ...] — all words for that number
+  var NUM_WORDS = {};
   var ROWS = [];
-  var i, j, r, vw, entry;
+  var i, j, r, wList;
   for (i = 0; i < DATA.length; i++) {
     r = DATA[i];
-    vw = r.vw || [];
-    if (vw.length) {
-      for (j = 0; j < vw.length; j++) {
-        entry = vw[j];
-        ROWS.push({n: r.n, s: r.s, c: r.c, sc: r.sc, w: entry[0], p: entry[1]});
+    wList = r.w || [];
+    NUM_WORDS[r.n] = wList;
+    if (wList.length) {
+      // Deduplicate: one row per unique word per number (use first position)
+      var seenWord = {};
+      for (j = 0; j < wList.length; j++) {
+        var word = wList[j][0], pos = wList[j][1];
+        if (!seenWord[word]) {
+          seenWord[word] = true;
+          ROWS.push({n: r.n, s: r.s, c: r.c, w: word, p: pos});
+        }
       }
     } else {
-      ROWS.push({n: r.n, s: r.s, c: r.c, sc: r.sc, w: null, p: -1});
+      ROWS.push({n: r.n, s: r.s, c: r.c, w: null, p: -1});
     }
   }
 
   // --- Pre-compute per-number digit string for search ---
-  var NUM_DIGITS = {};  // raw number → 9-digit string
+  var NUM_DIGITS = {};
   for (i = 0; i < DATA.length; i++) {
     var raw = DATA[i].n;
     NUM_DIGITS[raw] = raw.startsWith("61") ? raw.slice(2) : raw.slice(1);
   }
 
-  // --- Word counts (recomputed when state/skip-area filters change) ---
+  // --- Word counts (unique words per number, recomputed when state/skip-area change) ---
   var cachedWordList = null;
   var cachedWordKey = "";
 
@@ -480,11 +517,16 @@ mark {
     for (var i = 0; i < DATA.length; i++) {
       var d = DATA[i];
       if (st && d.s !== st) continue;
-      var vw = d.vw || [];
-      for (var j = 0; j < vw.length; j++) {
-        if (skipArea && vw[j][1] === 0) continue;
-        var w = vw[j][0];
-        counts[w] = (counts[w] || 0) + 1;
+      var wList = d.w || [];
+      // Count each word once per number
+      var seen = {};
+      for (var j = 0; j < wList.length; j++) {
+        if (skipArea && wList[j][1] === 0) continue;
+        var w = wList[j][0];
+        if (!seen[w]) {
+          seen[w] = true;
+          counts[w] = (counts[w] || 0) + 1;
+        }
       }
     }
     var out = [];
@@ -506,16 +548,11 @@ mark {
   }
 
   // --- Sorting ---
-  // Pre-sorted copy of ROWS; re-sorted only when sort column/direction changes
   var sortedRows = ROWS.slice();
 
   function comparator(a, b) {
     var va, vb;
     switch (sortCol) {
-      case "score":
-        if (a.sc !== b.sc) return sortAsc ? a.sc - b.sc : b.sc - a.sc;
-        va = a.w ? a.w.length : 0; vb = b.w ? b.w.length : 0;
-        return vb - va;
       case "word":
         va = a.w || ""; vb = b.w || "";
         if (va.length !== vb.length) return sortAsc ? va.length - vb.length : vb.length - va.length;
@@ -532,7 +569,9 @@ mark {
         if (va > vb) return sortAsc ? 1 : -1;
         return 0;
       default:
-        return sortAsc ? a.sc - b.sc : b.sc - a.sc;
+        va = a.w || ""; vb = b.w || "";
+        if (va.length !== vb.length) return vb.length - va.length;
+        return va < vb ? -1 : va > vb ? 1 : 0;
     }
   }
 
@@ -575,6 +614,40 @@ mark {
     return parts.join(" ");
   }
 
+  // Format a combination: multiple words placed in the 9-digit string
+  function formatComboHtml(raw, combo) {
+    var local = raw.startsWith("61") ? "0" + raw.slice(2) : raw;
+    var d9 = local.slice(1); // 9 digits
+    // Build character array with words placed
+    var chars = d9.split("");
+    var isWord = new Array(chars.length);
+    for (var k = 0; k < isWord.length; k++) isWord[k] = false;
+    for (var ci = 0; ci < combo.length; ci++) {
+      var w = combo[ci][0], p = combo[ci][1];
+      for (var ch = 0; ch < w.length; ch++) {
+        if (p + ch < chars.length) {
+          chars[p + ch] = w[ch];
+          isWord[p + ch] = true;
+        }
+      }
+    }
+    // Build HTML with spans
+    var html = '<span class="vd-digits">' + escHtml(local[0]) + '</span> ';
+    var inWord = false;
+    for (var ci2 = 0; ci2 < chars.length; ci2++) {
+      if (isWord[ci2] && !inWord) {
+        html += '<span class="vd-word">';
+        inWord = true;
+      } else if (!isWord[ci2] && inWord) {
+        html += '</span> <span class="vd-digits">';
+        inWord = false;
+      }
+      html += escHtml(chars[ci2]);
+    }
+    html += '</span>';
+    return html;
+  }
+
   function highlightDigits(formatted, digitStr) {
     if (!digitStr) return escHtml(formatted);
     var raw = formatted.replace(/ /g, "");
@@ -591,6 +664,55 @@ mark {
       si++;
     }
     return result.join("");
+  }
+
+  // --- Combination finder ---
+
+  function findCombinations(wordsByStart, pos, n) {
+    if (pos >= n) return [[]];
+    var results = findCombinations(wordsByStart, pos + 1, n);
+    var wordsHere = wordsByStart[pos] || [];
+    for (var i = 0; i < wordsHere.length; i++) {
+      var w = wordsHere[i];
+      var sub = findCombinations(wordsByStart, pos + w[0].length, n);
+      for (var j = 0; j < sub.length; j++) {
+        results.push([w].concat(sub[j]));
+      }
+    }
+    return results;
+  }
+
+  function getCombinations(raw, skipArea) {
+    var words = NUM_WORDS[raw] || [];
+    if (!words.length) return [];
+
+    // Index by start position
+    var byStart = {};
+    for (var i = 0; i < words.length; i++) {
+      var w = words[i][0], p = words[i][1];
+      if (skipArea && p === 0) continue;
+      if (!byStart[p]) byStart[p] = [];
+      byStart[p].push([w, p]);
+    }
+
+    var combos = findCombinations(byStart, 0, 9);
+
+    // Filter out empty combos
+    var valid = [];
+    for (var j = 0; j < combos.length; j++) {
+      if (combos[j].length > 0) valid.push(combos[j]);
+    }
+
+    // Sort by total digit coverage desc, then word count desc
+    valid.sort(function(a, b) {
+      var covA = 0, covB = 0;
+      for (var k = 0; k < a.length; k++) covA += a[k][0].length;
+      for (var k2 = 0; k2 < b.length; k2++) covB += b[k2][0].length;
+      if (covA !== covB) return covB - covA;
+      return b.length - a.length;
+    });
+
+    return valid;
   }
 
   // --- Word browser ---
@@ -621,7 +743,6 @@ mark {
     $wordGrid.innerHTML = html;
   }
 
-  // Fast: toggle one chip's class without rebuilding the grid
   function updateChipClass(word) {
     var chip = $wordGrid.querySelector('[data-word="' + word + '"]');
     if (chip) chip.className = "word-chip" + (wordFilters[word] ? " " + wordFilters[word] : "");
@@ -646,9 +767,9 @@ mark {
       if (inc.length) html += '<span class="filter-spacer"></span>';
       html += '<span class="filter-label">EXCLUDE:</span>';
       exc.sort();
-      for (var i = 0; i < exc.length; i++) {
-        html += '<span class="filter-pill exc" data-word="' + escHtml(exc[i]) + '">'
-          + escHtml(exc[i]) + ' <span class="remove">&times;</span></span>';
+      for (var i2 = 0; i2 < exc.length; i2++) {
+        html += '<span class="filter-pill exc" data-word="' + escHtml(exc[i2]) + '">'
+          + escHtml(exc[i2]) + ' <span class="remove">&times;</span></span>';
       }
     }
     $activeFilters.innerHTML = html;
@@ -659,7 +780,6 @@ mark {
     else wordFilters[word] = mode;
   }
 
-  // Fast toggle: update one chip + pills + re-filter (no re-sort, no grid rebuild)
   function onWordToggle(word, mode) {
     toggleWordFilter(word, mode);
     updateChipClass(word);
@@ -708,7 +828,7 @@ mark {
     filterAndRender();
   });
 
-  // --- Main filter & render (no sorting — uses pre-sorted array) ---
+  // --- Main filter & render ---
 
   function filterAndRender() {
     var searchWord = $search.value.trim();
@@ -716,14 +836,12 @@ mark {
     var stateFilter = $state.value;
     var skipArea = $skipArea.checked;
 
-    // Build Sets for fast lookup
     var incSet = null, excSet = null, w;
     for (w in wordFilters) {
       if (wordFilters[w] === "inc") { if (!incSet) incSet = new Set(); incSet.add(w); }
       else if (wordFilters[w] === "exc") { if (!excSet) excSet = new Set(); excSet.add(w); }
     }
 
-    // Digit preview
     if (searchWord && !searchWord.match(/^\d+$/)) {
       var digits = wordToDigits(searchWord);
       $preview.textContent = digits ? "\u2192 " + digits : "";
@@ -731,7 +849,6 @@ mark {
       $preview.textContent = "";
     }
 
-    // Filter pre-sorted rows (order preserved)
     var filtered = [];
     var src = sortedRows;
     for (var i = 0; i < src.length; i++) {
@@ -749,7 +866,6 @@ mark {
     if (filtered.length < RENDER_CAP) {
       total = filtered.length;
     } else {
-      // Count remaining matches for the status line
       total = RENDER_CAP;
       for (var j = i + 1; j < src.length; j++) {
         r = src[j];
@@ -769,6 +885,15 @@ mark {
     var html = "";
     for (var idx = 0; idx < filtered.length; idx++) {
       r = filtered[idx];
+
+      // Count combinations for this number
+      var numWords = NUM_WORDS[r.n] || [];
+      var comboCount = 0;
+      if (numWords.length > 1) {
+        // Quick count: only if > 1 word exists for this number
+        comboCount = -1; // means "has combos, count on demand"
+      }
+
       var numberCell;
       if (r.w) {
         var vanityHtml = formatVanityHtml(r.n, r.w, r.p);
@@ -777,26 +902,64 @@ mark {
       } else {
         numberCell = '<div class="num">' + highlightDigits(formatNumber(r.n), searchDigits) + '</div>';
       }
+
+      // Combo link
+      if (numWords.length > 1) {
+        numberCell += '<span class="combo-link" data-combo="' + r.n + '">combos</span>';
+      }
+
       var badge = "";
       if (r.w) {
         var cls = wordFilters[r.w] === "inc" ? " is-inc" : wordFilters[r.w] === "exc" ? " is-exc" : "";
         badge = '<span class="badge' + cls + '" data-word="' + escHtml(r.w) + '">' + escHtml(r.w) + '</span>';
       }
-      html += '<tr><td class="rank-cell">' + (idx+1) + '</td><td>' + numberCell + '</td><td>' + badge + '</td><td class="score-cell">' + r.sc + '</td><td class="location">' + escHtml(r.s) + ' / ' + escHtml(r.c) + '</td></tr>';
+      html += '<tr class="data-row"><td class="rank-cell">' + (idx+1) + '</td><td>' + numberCell + '</td><td>' + badge + '</td><td class="location">' + escHtml(r.s) + ' / ' + escHtml(r.c) + '</td></tr>';
+
+      // If this number is expanded, add combo row
+      if (expandedNumber === r.n) {
+        html += buildComboRow(r.n, skipArea);
+      }
     }
 
-    $tbody.innerHTML = html || '<tr><td colspan="5" class="empty-state">No numbers match your filters</td></tr>';
+    $tbody.innerHTML = html || '<tr><td colspan="4" class="empty-state">No numbers match your filters</td></tr>';
     saveHash();
   }
 
-  // Click badges in results
+  function buildComboRow(raw, skipArea) {
+    var combos = getCombinations(raw, skipArea);
+    var cap = 50;
+    var showing = Math.min(combos.length, cap);
+    var headerText = combos.length + " combination" + (combos.length !== 1 ? "s" : "");
+    if (combos.length > cap) headerText += " (showing top " + cap + ")";
+
+    var html = '<tr class="combo-row"><td colspan="4"><div class="combo-panel">';
+    html += '<div class="combo-header">' + escHtml(headerText) + '</div>';
+    for (var i = 0; i < showing; i++) {
+      html += '<div class="combo-line">' + formatComboHtml(raw, combos[i]) + '</div>';
+    }
+    html += '</div></td></tr>';
+    return html;
+  }
+
+  // Click combo links and badges in results
   $tbody.addEventListener("click", function(e) {
+    var comboLink = e.target.closest(".combo-link");
+    if (comboLink) {
+      var num = comboLink.dataset.combo;
+      if (expandedNumber === num) {
+        expandedNumber = null;
+      } else {
+        expandedNumber = num;
+      }
+      filterAndRender();
+      return;
+    }
     var badge = e.target.closest(".badge");
     if (!badge) return;
     onWordToggle(badge.dataset.word, e.shiftKey ? "exc" : "inc");
   });
 
-  // Sort headers — only re-sort here
+  // Sort headers
   document.querySelectorAll("th[data-sort]").forEach(function(th) {
     th.addEventListener("click", function() {
       var col = th.dataset.sort;
@@ -842,7 +1005,7 @@ mark {
     }
     if (inc.length) params.set("inc", inc.sort().join(","));
     if (exc.length) params.set("exc", exc.sort().join(","));
-    if (sortCol !== "score" || sortAsc) params.set("sort", (sortAsc ? "" : "-") + sortCol);
+    if (sortCol !== "word" || sortAsc) params.set("sort", (sortAsc ? "" : "-") + sortCol);
     var h = params.toString();
     history.replaceState(null, "", h ? "#" + h : location.pathname);
   }
@@ -869,7 +1032,7 @@ mark {
 
   // --- Init ---
   loadHash();
-  if (sortCol !== "score" || sortAsc) reSort();
+  if (sortCol !== "word" || sortAsc) reSort();
   renderWordGrid();
   renderActiveFilters();
   filterAndRender();
