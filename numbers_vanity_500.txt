@@ -1,0 +1,2506 @@
+Ranking 2270 numbers from numbers_all.json
+
+============================================================
+ TOP 500 VANITY NUMBERS
+============================================================
+
+  # 1  02 THAT WAGE  (score: 35)
+       02 8428 9243
+       NSW / Dural
+       5 unique digits (5pts), vanity: THAT-WAGE (8/8 digits, 30pts)
+
+  # 2  03 HEAT MATE  (score: 40)
+       03 4328 6283
+       VIC / Bacchus Marsh
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: HEAT-MATE (8/8 digits, 30pts)
+
+  # 3  03 HEAT MALL  (score: 40)
+       03 4328 6255
+       VIC / Bacchus Marsh
+       trailing 55 (5pts), sequential run of 3 descending (5pts), vanity: HEAT-MALL (8/8 digits, 30pts)
+
+  # 4  03 GIFT BAND  (score: 35)
+       03 4438 2263
+       VIC / Echuca
+       5 unique digits (5pts), vanity: GIFT-BAND (8/8 digits, 30pts)
+
+  # 5  03 GIFT CAMP  (score: 30)
+       03 4438 2267
+       VIC / Echuca
+       vanity: GIFT-CAMP (8/8 digits, 30pts)
+
+  # 6  03 GIFT BAIL  (score: 39)
+       03 4438 2245
+       VIC / Echuca
+       5 unique digits (5pts), vanity: GIFT-BAIL (8/8 digits, 30pts), semi-dominant digit (4pts)
+
+  # 7  03 GIFT BANK  (score: 30)
+       03 4438 2265
+       VIC / Echuca
+       vanity: GIFT-BANK (8/8 digits, 30pts)
+
+  # 8  07 HULL EXAM  (score: 30)
+       07 4855 3926
+       QLD / Moranbah
+       vanity: HULL-EXAM (8/8 digits, 30pts)
+
+  # 9  07 LOAD TAPE  (score: 30)
+       07 5623 8273
+       QLD / Ormeau
+       vanity: LOAD-TAPE (8/8 digits, 30pts)
+
+  #10  07 LOAD TAKE  (score: 35)
+       07 5623 8253
+       QLD / Ormeau
+       5 unique digits (5pts), vanity: LOAD-TAKE (8/8 digits, 30pts)
+
+  #11  07 LOAD TANK  (score: 35)
+       07 5623 8265
+       QLD / Ormeau
+       5 unique digits (5pts), vanity: LOAD-TANK (8/8 digits, 30pts)
+
+  #12  07 LOAD TALK  (score: 44)
+       07 5623 8255
+       QLD / Ormeau
+       5 unique digits (5pts), trailing 55 (5pts), vanity: LOAD-TALK (8/8 digits, 30pts), semi-dominant digit (4pts)
+
+  #13  07 LOAD TASK  (score: 30)
+       07 5623 8275
+       QLD / Ormeau
+       vanity: LOAD-TASK (8/8 digits, 30pts)
+
+  #14  08 RODE FLUE  (score: 45)
+       08 7633 3583
+       SA / Whyalla
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: RODE-FLUE (8/8 digits, 22pts), dominant digit (8pts)
+
+  #15  08 RODE FLUB  (score: 36)
+       08 7633 3582
+       SA / Whyalla
+       repeat run of 3 (10pts), vanity: RODE-FLUB (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #16  02 JUDO MINT  (score: 31)
+       02 5836 6468
+       NSW / Dubbo
+       5 unique digits (5pts), vanity: JUDO-MINT (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #17  02 JUDO MIST  (score: 22)
+       02 5836 6478
+       NSW / Dubbo
+       vanity: JUDO-MIST (8/8 digits, 22pts)
+
+  #18  02 THAT WAFT  (score: 31)
+       02 8428 9238
+       NSW / Dural
+       5 unique digits (5pts), vanity: THAT-WAFT (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #19  02 THAT WADI  (score: 32)
+       02 8428 9234
+       NSW / Dural
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: THAT-WADI (8/8 digits, 22pts)
+
+  #20  02 THAT WACO  (score: 31)
+       02 8428 9226
+       NSW / Dural
+       5 unique digits (5pts), vanity: THAT-WACO (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #21  03 HEAT MAYO  (score: 27)
+       03 4328 6296
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MAYO (8/8 digits, 22pts)
+
+  #22  03 HEAT MAUL  (score: 27)
+       03 4328 6285
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MAUL (8/8 digits, 22pts)
+
+  #23  03 HEAT MAMA  (score: 44)
+       03 4328 6262
+       VIC / Bacchus Marsh
+       5 unique digits (5pts), sequential run of 3 descending (5pts), repeating pair 6262 (8pts), vanity: HEAT-MAMA (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #24  03 HEAT MALI  (score: 27)
+       03 4328 6254
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MALI (8/8 digits, 22pts)
+
+  #25  03 HEAT MASH  (score: 27)
+       03 4328 6274
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MASH (8/8 digits, 22pts)
+
+  #26  03 HEAT MARE  (score: 27)
+       03 4328 6273
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MARE (8/8 digits, 22pts)
+
+  #27  03 HEAT MATS  (score: 27)
+       03 4328 6287
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MATS (8/8 digits, 22pts)
+
+  #28  03 HEAT MAYA  (score: 31)
+       03 4328 6292
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MAYA (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #29  03 HEAT MANN  (score: 41)
+       03 4328 6266
+       VIC / Bacchus Marsh
+       5 unique digits (5pts), trailing 66 (5pts), sequential run of 3 descending (5pts), vanity: HEAT-MANN (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #30  03 GIFT CANT  (score: 27)
+       03 4438 2268
+       VIC / Echuca
+       5 unique digits (5pts), vanity: GIFT-CANT (8/8 digits, 22pts)
+
+  #31  03 GIFT CAIN  (score: 31)
+       03 4438 2246
+       VIC / Echuca
+       5 unique digits (5pts), vanity: GIFT-CAIN (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #32  03 GIFT BAIT  (score: 36)
+       03 4438 2248
+       VIC / Echuca
+       4 unique digits (10pts), vanity: GIFT-BAIT (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #33  03 GIFT BANG  (score: 31)
+       03 4438 2264
+       VIC / Echuca
+       5 unique digits (5pts), vanity: GIFT-BANG (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #34  03 GIFT BAGS  (score: 31)
+       03 4438 2247
+       VIC / Echuca
+       5 unique digits (5pts), vanity: GIFT-BAGS (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #35  07 PLAT SNOW  (score: 27)
+       07 7528 7669
+       QLD / Goondiwindi
+       sequential run of 3 descending (5pts), vanity: PLAT-SNOW (8/8 digits, 22pts)
+
+  #36  07 PLAT POOR  (score: 44)
+       07 7528 7667
+       QLD / Goondiwindi
+       5 unique digits (5pts), sequential run of 3 descending (5pts), palindrome 7667 (8pts), vanity: PLAT-POOR (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #37  07 PLAT PORT  (score: 46)
+       07 7528 7678
+       QLD / Goondiwindi
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), palindrome 87678 (10pts), vanity: PLAT-PORT (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #38  07 PLAT SONG  (score: 27)
+       07 7528 7664
+       QLD / Goondiwindi
+       sequential run of 3 descending (5pts), vanity: PLAT-SONG (8/8 digits, 22pts)
+
+  #39  07 PLAT POND  (score: 27)
+       07 7528 7663
+       QLD / Goondiwindi
+       sequential run of 3 descending (5pts), vanity: PLAT-POND (8/8 digits, 22pts)
+
+  #40  07 PLAT POUR  (score: 36)
+       07 7528 7687
+       QLD / Goondiwindi
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: PLAT-POUR (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #41  07 PLAT POOL  (score: 32)
+       07 7528 7665
+       QLD / Goondiwindi
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: PLAT-POOL (8/8 digits, 22pts)
+
+  #42  07 PLAT POPE  (score: 31)
+       07 7528 7673
+       QLD / Goondiwindi
+       sequential run of 3 descending (5pts), vanity: PLAT-POPE (8/8 digits, 22pts), semi-dominant digit (4pts)
+
+  #43  07 HULL DYAD  (score: 22)
+       07 4855 3923
+       QLD / Moranbah
+       vanity: HULL-DYAD (8/8 digits, 22pts)
+
+  #44  07 LOAD VARY  (score: 22)
+       07 5623 8279
+       QLD / Ormeau
+       vanity: LOAD-VARY (8/8 digits, 22pts)
+
+  #45  08 SKIP 9JUG  (score: 26)
+       08 7547 9584
+       SA / Loxton
+       5 unique digits (5pts), vanity: SKIP-JUG (7/8 digits, 21pts)
+
+  #46  08 RODE FLY5  (score: 40)
+       08 7633 3595
+       SA / Whyalla
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: RODE-FLY (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #47  08 RODE FLY0  (score: 35)
+       08 7633 3590
+       SA / Whyalla
+       repeat run of 3 (10pts), vanity: RODE-FLY (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #48  08 RODE FLY2  (score: 35)
+       08 7633 3592
+       SA / Whyalla
+       repeat run of 3 (10pts), vanity: RODE-FLY (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #49  08 RODE FLY3  (score: 44)
+       08 7633 3593
+       SA / Whyalla
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: RODE-FLY (7/8 digits, 21pts), dominant digit (8pts)
+
+  #50  08 PODF ELT1  (score: 35)
+       08 7633 3581
+       SA / Whyalla
+       repeat run of 3 (10pts), vanity: POD-FELT (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #51  08 PODF ELT6  (score: 40)
+       08 7633 3586
+       SA / Whyalla
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: POD-FELT (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #52  08 RODE FLY4  (score: 35)
+       08 7633 3594
+       SA / Whyalla
+       repeat run of 3 (10pts), vanity: RODE-FLY (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #53  08 RODE FLY1  (score: 35)
+       08 7633 3591
+       SA / Whyalla
+       repeat run of 3 (10pts), vanity: RODE-FLY (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #54  08 PODF ELT5  (score: 40)
+       08 7633 3585
+       SA / Whyalla
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: POD-FELT (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #55  08 RODE FLY8  (score: 35)
+       08 7633 3598
+       SA / Whyalla
+       repeat run of 3 (10pts), vanity: RODE-FLY (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #56  08 RODE FLY7  (score: 40)
+       08 7633 3597
+       SA / Whyalla
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: RODE-FLY (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #57  08 7NEE DJUG  (score: 35)
+       08 7633 3584
+       SA / Whyalla
+       repeat run of 3 (10pts), vanity: NEED-JUG (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #58  02 4TRY WRAP  (score: 38)
+       02 4879 9727
+       NSW / Bowral
+       5 unique digits (5pts), palindrome 7997 (8pts), vanity: TRY-WRAP (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #59  02 THAT WAD0  (score: 21)
+       02 8428 9230
+       NSW / Dural
+       vanity: THAT-WAD (7/8 digits, 21pts)
+
+  #60  02 THAT WAG9  (score: 31)
+       02 8428 9249
+       NSW / Dural
+       4 unique digits (10pts), vanity: THAT-WAG (7/8 digits, 21pts)
+
+  #61  02 THAT WAD1  (score: 21)
+       02 8428 9231
+       NSW / Dural
+       vanity: THAT-WAD (7/8 digits, 21pts)
+
+  #62  02 THAT WAD2  (score: 30)
+       02 8428 9232
+       NSW / Dural
+       5 unique digits (5pts), vanity: THAT-WAD (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #63  02 THAT 9ACE  (score: 30)
+       02 8428 9223
+       NSW / Dural
+       5 unique digits (5pts), vanity: THAT-ACE (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #64  02 THAT 9BIG  (score: 40)
+       02 8428 9244
+       NSW / Dural
+       4 unique digits (10pts), trailing 44 (5pts), vanity: THAT-BIG (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #65  02 THAT 9BAT  (score: 35)
+       02 8428 9228
+       NSW / Dural
+       4 unique digits (10pts), vanity: THAT-BAT (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #66  02 8PRO MEAT  (score: 32)
+       02 8776 6328
+       NSW / Liverpool
+       5 unique digits (5pts), double pair 7766 (6pts), vanity: PRO-MEAT (7/8 digits, 21pts)
+
+  #67  02 8PRO NEAR  (score: 36)
+       02 8776 6327
+       NSW / Liverpool
+       5 unique digits (5pts), double pair 7766 (6pts), vanity: PRO-NEAR (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #68  02 PAL1 WITH  (score: 21)
+       02 7251 9484
+       NSW / Sydney
+       vanity: PAL-WITH (7/8 digits, 21pts)
+
+  #69  02 GAME 0MID  (score: 26)
+       02 4263 0643
+       NSW / Wollongong
+       5 unique digits (5pts), vanity: GAME-MID (7/8 digits, 21pts)
+
+  #70  02 GAME 0MOD  (score: 30)
+       02 4263 0663
+       NSW / Wollongong
+       5 unique digits (5pts), vanity: GAME-MOD (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #71  02 GAME 0MET  (score: 21)
+       02 4263 0638
+       NSW / Wollongong
+       vanity: GAME-MET (7/8 digits, 21pts)
+
+  #72  03 HEAT OAK1  (score: 26)
+       03 4328 6251
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-OAK (7/8 digits, 21pts)
+
+  #73  03 HEAT MAP0  (score: 26)
+       03 4328 6270
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MAP (7/8 digits, 21pts)
+
+  #74  03 HEAT 6BRO  (score: 26)
+       03 4328 6276
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-BRO (7/8 digits, 21pts)
+
+  #75  03 HEAT OAK0  (score: 26)
+       03 4328 6250
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-OAK (7/8 digits, 21pts)
+
+  #76  03 HEAT MAT0  (score: 26)
+       03 4328 6280
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MAT (7/8 digits, 21pts)
+
+  #77  03 HEAT MAX9  (score: 31)
+       03 4328 6299
+       VIC / Bacchus Marsh
+       trailing 99 (5pts), sequential run of 3 descending (5pts), vanity: HEAT-MAX (7/8 digits, 21pts)
+
+  #78  03 HEAT MAN5  (score: 26)
+       03 4328 6265
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MAN (7/8 digits, 21pts)
+
+  #79  03 HEAT 6CUT  (score: 40)
+       03 4328 6288
+       VIC / Bacchus Marsh
+       5 unique digits (5pts), trailing 88 (5pts), sequential run of 3 descending (5pts), vanity: HEAT-CUT (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #80  03 HEAT MAN1  (score: 26)
+       03 4328 6261
+       VIC / Bacchus Marsh
+       sequential run of 3 descending (5pts), vanity: HEAT-MAN (7/8 digits, 21pts)
+
+  #81  03 4HEA TERA  (score: 31)
+       03 4432 8372
+       VIC / Bendigo
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: HEAT-ERA (7/8 digits, 21pts)
+
+  #82  03 4HEA TFUR  (score: 31)
+       03 4432 8387
+       VIC / Bendigo
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: HEAT-FUR (7/8 digits, 21pts)
+
+  #83  03 4HEA TDUB  (score: 46)
+       03 4432 8382
+       VIC / Bendigo
+       4 unique digits (10pts), sequential run of 3 descending (5pts), palindrome 28382 (10pts), vanity: HEAT-DUB (7/8 digits, 21pts)
+
+  #84  03 HIDT ACO2  (score: 30)
+       03 4438 2262
+       VIC / Echuca
+       5 unique digits (5pts), vanity: HID-TACO (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #85  03 HIDT ACO1  (score: 21)
+       03 4438 2261
+       VIC / Echuca
+       vanity: HID-TACO (7/8 digits, 21pts)
+
+  #86  03 HIDT ACO9  (score: 21)
+       03 4438 2269
+       VIC / Echuca
+       vanity: HID-TACO (7/8 digits, 21pts)
+
+  #87  03 4JAR HILL  (score: 46)
+       03 4527 4455
+       VIC / Warrnambool
+       4 unique digits (10pts), trailing 55 (5pts), double pair 4455 (6pts), vanity: JAR-HILL (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #88  03 4JAR HIDE  (score: 41)
+       03 4527 4433
+       VIC / Warrnambool
+       5 unique digits (5pts), trailing 33 (5pts), double pair 4433 (6pts), vanity: JAR-HIDE (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #89  03 4JAR GIFT  (score: 25)
+       03 4527 4438
+       VIC / Warrnambool
+       vanity: JAR-GIFT (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #90  07 JAB1 FIRM  (score: 21)
+       07 5221 3476
+       QLD / Caboolture
+       vanity: JAB-FIRM (7/8 digits, 21pts)
+
+  #91  07 JAB1 DIRT  (score: 21)
+       07 5221 3478
+       QLD / Caboolture
+       vanity: JAB-DIRT (7/8 digits, 21pts)
+
+  #92  07 4TUB EGEM  (score: 31)
+       07 4882 3436
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: TUBE-GEM (7/8 digits, 21pts)
+
+  #93  07 4TUB EHIT  (score: 40)
+       07 4882 3448
+       QLD / Cannon Valley
+       4 unique digits (10pts), sequential run of 3 ascending (5pts), vanity: TUBE-HIT (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #94  07 4TUB EGAP  (score: 31)
+       07 4882 3427
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: TUBE-GAP (7/8 digits, 21pts)
+
+  #95  07 4TUB EHER  (score: 31)
+       07 4882 3437
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: TUBE-HER (7/8 digits, 21pts)
+
+  #96  07 GUY4 VIBE  (score: 30)
+       07 4894 8423
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-VIBE (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #97  07 4FIX TACO  (score: 21)
+       07 4349 8226
+       QLD / Hervey Bay
+       vanity: FIX-TACO (7/8 digits, 21pts)
+
+  #98  07 4FIX VAIN  (score: 25)
+       07 4349 8246
+       QLD / Hervey Bay
+       vanity: FIX-VAIN (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #99  07 4FIX TABS  (score: 21)
+       07 4349 8227
+       QLD / Hervey Bay
+       vanity: FIX-TABS (7/8 digits, 21pts)
+
+  #100  07 FIND ERA1  (score: 25)
+       07 3463 3721
+       QLD / Ipswich
+       vanity: FIND-ERA (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #101  07 HUGW IND4  (score: 34)
+       07 4849 4634
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-WIND (7/8 digits, 21pts), dominant digit (8pts)
+
+  #102  07 HUGW ING3  (score: 34)
+       07 4849 4643
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-WING (7/8 digits, 21pts), dominant digit (8pts)
+
+  #103  07 HUGW HOM2  (score: 30)
+       07 4849 4662
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-WHOM (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #104  07 HUGW ING1  (score: 34)
+       07 4849 4641
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-WING (7/8 digits, 21pts), dominant digit (8pts)
+
+  #105  07 HUGW HOM1  (score: 30)
+       07 4849 4661
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-WHOM (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #106  07 HUG9 INFO  (score: 30)
+       07 4849 4636
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-INFO (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #107  07 HUGW ING4  (score: 44)
+       07 4849 4644
+       QLD / Mackay
+       4 unique digits (10pts), trailing 44 (5pts), vanity: HUG-WING (7/8 digits, 21pts), dominant digit (8pts)
+
+  #108  07 HUGW ING2  (score: 34)
+       07 4849 4642
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-WING (7/8 digits, 21pts), dominant digit (8pts)
+
+  #109  07 HUGW IND5  (score: 25)
+       07 4849 4635
+       QLD / Mackay
+       vanity: HUG-WIND (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #110  07 HUGW ING5  (score: 34)
+       07 4849 4645
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-WING (7/8 digits, 21pts), dominant digit (8pts)
+
+  #111  07 HUGW HOM4  (score: 47)
+       07 4849 4664
+       QLD / Mackay
+       4 unique digits (10pts), palindrome 4664 (8pts), vanity: HUG-WHOM (7/8 digits, 21pts), dominant digit (8pts)
+
+  #112  07 HUG9 HOOK  (score: 30)
+       07 4849 4665
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-HOOK (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #113  07 HUG9 GONE  (score: 30)
+       07 4849 4663
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-GONE (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #114  07 HULL 3WAX  (score: 21)
+       07 4855 3929
+       QLD / Moranbah
+       vanity: HULL-WAX (7/8 digits, 21pts)
+
+  #115  07 HULL 3YAK  (score: 25)
+       07 4855 3925
+       QLD / Moranbah
+       vanity: HULL-YAK (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #116  07 HULL 3WAG  (score: 21)
+       07 4855 3924
+       QLD / Moranbah
+       vanity: HULL-WAG (7/8 digits, 21pts)
+
+  #117  07 HULL 3WAR  (score: 21)
+       07 4855 3927
+       QLD / Moranbah
+       vanity: HULL-WAR (7/8 digits, 21pts)
+
+  #118  07 LADT UBE0  (score: 26)
+       07 5238 8230
+       QLD / Noosaville
+       5 unique digits (5pts), vanity: LAD-TUBE (7/8 digits, 21pts)
+
+  #119  07 LADT UBE6  (score: 26)
+       07 5238 8236
+       QLD / Noosaville
+       5 unique digits (5pts), vanity: LAD-TUBE (7/8 digits, 21pts)
+
+  #120  07 LADT UBE1  (score: 26)
+       07 5238 8231
+       QLD / Noosaville
+       5 unique digits (5pts), vanity: LAD-TUBE (7/8 digits, 21pts)
+
+  #121  07 LADT UBE2  (score: 35)
+       07 5238 8232
+       QLD / Noosaville
+       4 unique digits (10pts), vanity: LAD-TUBE (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #122  07 LADT UBE3  (score: 40)
+       07 5238 8233
+       QLD / Noosaville
+       4 unique digits (10pts), trailing 33 (5pts), vanity: LAD-TUBE (7/8 digits, 21pts), semi-dominant digit (4pts)
+
+  #123  07 5BET TAIL  (score: 26)
+       07 5238 8245
+       QLD / Noosaville
+       5 unique digits (5pts), vanity: BET-TAIL (7/8 digits, 21pts)
+
+  #124  07 LADT UBE9  (score: 26)
+       07 5238 8239
+       QLD / Noosaville
+       5 unique digits (5pts), vanity: LAD-TUBE (7/8 digits, 21pts)
+
+  #125  07 LOAD VAT5  (score: 26)
+       07 5623 8285
+       QLD / Ormeau
+       5 unique digits (5pts), vanity: LOAD-VAT (7/8 digits, 21pts)
+
+  #126  07 LOAD TAX9  (score: 26)
+       07 5623 8299
+       QLD / Ormeau
+       trailing 99 (5pts), vanity: LOAD-TAX (7/8 digits, 21pts)
+
+  #127  07 LOAD 8BRO  (score: 21)
+       07 5623 8276
+       QLD / Ormeau
+       vanity: LOAD-BRO (7/8 digits, 21pts)
+
+  #128  07 LOAD TAX7  (score: 21)
+       07 5623 8297
+       QLD / Ormeau
+       vanity: LOAD-TAX (7/8 digits, 21pts)
+
+  #129  07 JOBD UCK8  (score: 26)
+       07 5623 8258
+       QLD / Ormeau
+       5 unique digits (5pts), vanity: JOB-DUCK (7/8 digits, 21pts)
+
+  #130  07 LOAD TAP4  (score: 21)
+       07 5623 8274
+       QLD / Ormeau
+       vanity: LOAD-TAP (7/8 digits, 21pts)
+
+  #131  07 JOBD UCK4  (score: 21)
+       07 5623 8254
+       QLD / Ormeau
+       vanity: JOB-DUCK (7/8 digits, 21pts)
+
+  #132  07 LOAD TAN1  (score: 21)
+       07 5623 8261
+       QLD / Ormeau
+       vanity: LOAD-TAN (7/8 digits, 21pts)
+
+  #133  07 JOBD UCK1  (score: 21)
+       07 5623 8251
+       QLD / Ormeau
+       vanity: JOB-DUCK (7/8 digits, 21pts)
+
+  #134  07 LOAD TAX1  (score: 21)
+       07 5623 8291
+       QLD / Ormeau
+       vanity: LOAD-TAX (7/8 digits, 21pts)
+
+  #135  07 LOAD 8BUG  (score: 21)
+       07 5623 8284
+       QLD / Ormeau
+       vanity: LOAD-BUG (7/8 digits, 21pts)
+
+  #136  07 LOAD TAP0  (score: 21)
+       07 5623 8270
+       QLD / Ormeau
+       vanity: LOAD-TAP (7/8 digits, 21pts)
+
+  #137  07 LOAD TAX0  (score: 21)
+       07 5623 8290
+       QLD / Ormeau
+       vanity: LOAD-TAX (7/8 digits, 21pts)
+
+  #138  07 LOAD TAP1  (score: 21)
+       07 5623 8271
+       QLD / Ormeau
+       vanity: LOAD-TAP (7/8 digits, 21pts)
+
+  #139  03 6PAG ENIL  (score: 21)
+       03 6724 3645
+       TAS / Launceston
+       vanity: PAGE-NIL (7/8 digits, 21pts)
+
+  #140  03 ORBG ENE5  (score: 21)
+       03 6724 3635
+       TAS / Launceston
+       vanity: ORB-GENE (7/8 digits, 21pts)
+
+  #141  03 6RAG FOLD  (score: 21)
+       03 6724 3653
+       TAS / Launceston
+       vanity: RAG-FOLD (7/8 digits, 21pts)
+
+  #142  03 6PAG ENIP  (score: 26)
+       03 6724 3647
+       TAS / Launceston
+       5 unique digits (5pts), vanity: PAGE-NIP (7/8 digits, 21pts)
+
+  #143  03 ORBG ENE2  (score: 26)
+       03 6724 3632
+       TAS / Launceston
+       5 unique digits (5pts), vanity: ORB-GENE (7/8 digits, 21pts)
+
+  #144  03 ORBG ENE4  (score: 36)
+       03 6724 3634
+       TAS / Launceston
+       5 unique digits (5pts), palindrome 43634 (10pts), vanity: ORB-GENE (7/8 digits, 21pts)
+
+  #145  03 ORBG ENE1  (score: 21)
+       03 6724 3631
+       TAS / Launceston
+       vanity: ORB-GENE (7/8 digits, 21pts)
+
+  #146  03 6PAG ENEW  (score: 21)
+       03 6724 3639
+       TAS / Launceston
+       vanity: PAGE-NEW (7/8 digits, 21pts)
+
+  #147  08 PLIN YJUG  (score: 18)
+       08 7546 9584
+       SA / Karoonda
+       vanity: PLINY-JUG (8/8 digits, 18pts)
+
+  #148  08 PODF ELTS  (score: 37)
+       08 7633 3587
+       SA / Whyalla
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: POD-FELTS (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #149  02 VIAT WAIN  (score: 23)
+       02 8428 9246
+       NSW / Dural
+       5 unique digits (5pts), vanity: VIA-TWAIN (8/8 digits, 18pts)
+
+  #150  02 LEGW HIFF  (score: 43)
+       02 5349 4433
+       NSW / Mudgee
+       4 unique digits (10pts), trailing 33 (5pts), double pair 4433 (6pts), vanity: LEG-WHIFF (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #151  03 HIDT ABOO  (score: 34)
+       03 4438 2266
+       VIC / Echuca
+       5 unique digits (5pts), trailing 66 (5pts), double pair 2266 (6pts), vanity: HID-TABOO (8/8 digits, 18pts)
+
+  #152  03 VOLT SPAD  (score: 18)
+       03 8658 7723
+       VIC / Melbourne
+       vanity: VOLTS-PAD (8/8 digits, 18pts)
+
+  #153  03 VOLT SPEN  (score: 23)
+       03 8658 7736
+       VIC / Melbourne
+       5 unique digits (5pts), vanity: VOLTS-PEN (8/8 digits, 18pts)
+
+  #154  07 GAGE LUDE  (score: 32)
+       07 4243 5833
+       QLD / Cairns
+       5 unique digits (5pts), trailing 33 (5pts), vanity: GAG-ELUDE (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #155  07 GUTA DIEU  (score: 37)
+       07 4882 3438
+       QLD / Cannon Valley
+       4 unique digits (10pts), sequential run of 3 ascending (5pts), vanity: GUT-ADIEU (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #156  07 GUTB EIGE  (score: 45)
+       07 4882 3443
+       QLD / Cannon Valley
+       4 unique digits (10pts), sequential run of 3 ascending (5pts), palindrome 3443 (8pts), vanity: GUT-BEIGE (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #157  07 GUTB EGAN  (score: 28)
+       07 4882 3426
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: GUT-BEGAN (8/8 digits, 18pts)
+
+  #158  07 GUTB EGIN  (score: 32)
+       07 4882 3446
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: GUT-BEGIN (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #159  07 GUTA EGIS  (score: 32)
+       07 4882 3447
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: GUT-AEGIS (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #160  07 SLAT SOWE  (score: 23)
+       07 7528 7693
+       QLD / Goondiwindi
+       sequential run of 3 descending (5pts), vanity: SLATS-OWE (8/8 digits, 18pts)
+
+  #161  07 SLAT SNUT  (score: 37)
+       07 7528 7688
+       QLD / Goondiwindi
+       5 unique digits (5pts), trailing 88 (5pts), sequential run of 3 descending (5pts), vanity: SLATS-NUT (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #162  07 SLAT SMUG  (score: 23)
+       07 7528 7684
+       QLD / Goondiwindi
+       sequential run of 3 descending (5pts), vanity: SLATS-MUG (8/8 digits, 18pts)
+
+  #163  07 SLAT SNUN  (score: 28)
+       07 7528 7686
+       QLD / Goondiwindi
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: SLATS-NUN (8/8 digits, 18pts)
+
+  #164  07 SLAT SOWL  (score: 23)
+       07 7528 7695
+       QLD / Goondiwindi
+       sequential run of 3 descending (5pts), vanity: SLATS-OWL (8/8 digits, 18pts)
+
+  #165  07 SLAT SMUD  (score: 23)
+       07 7528 7683
+       QLD / Goondiwindi
+       sequential run of 3 descending (5pts), vanity: SLATS-MUD (8/8 digits, 18pts)
+
+  #166  07 SLAT SMOB  (score: 28)
+       07 7528 7662
+       QLD / Goondiwindi
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: SLATS-MOB (8/8 digits, 18pts)
+
+  #167  07 HUGW HOLE  (score: 22)
+       07 4849 4653
+       QLD / Mackay
+       vanity: HUG-WHOLE (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #168  07 HUGW INDY  (score: 27)
+       07 4849 4639
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-WINDY (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #169  07 HUGW INED  (score: 32)
+       07 4849 4633
+       QLD / Mackay
+       5 unique digits (5pts), trailing 33 (5pts), vanity: HUG-WINED (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #170  07 HUGW INKS  (score: 22)
+       07 4849 4657
+       QLD / Mackay
+       vanity: HUG-WINKS (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #171  07 LADT UBER  (score: 23)
+       07 5238 8237
+       QLD / Noosaville
+       5 unique digits (5pts), vanity: LAD-TUBER (8/8 digits, 18pts)
+
+  #172  08 SWEL LJOY  (score: 37)
+       08 7935 5569
+       NT / Alice Springs
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: SWELL-JOY (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #173  08 SWEL LLOT  (score: 32)
+       08 7935 5568
+       NT / Alice Springs
+       repeat run of 3 (10pts), vanity: SWELL-LOT (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #174  08 SWEL LJOB  (score: 32)
+       08 7935 5562
+       NT / Alice Springs
+       repeat run of 3 (10pts), vanity: SWELL-JOB (8/8 digits, 18pts), semi-dominant digit (4pts)
+
+  #175  03 ORBG ENIE  (score: 23)
+       03 6724 3643
+       TAS / Launceston
+       5 unique digits (5pts), vanity: ORB-GENIE (8/8 digits, 18pts)
+
+  #176  08 SKIP 9LUX  (score: 20)
+       08 7547 9589
+       SA / Loxton
+       5 unique digits (5pts), vanity: SKIP-LUX (7/8 digits, 15pts)
+
+  #177  08 SKIP 9LYE  (score: 20)
+       08 7547 9593
+       SA / Loxton
+       5 unique digits (5pts), vanity: SKIP-LYE (7/8 digits, 15pts)
+
+  #178  02 THAT WAC1  (score: 24)
+       02 8428 9221
+       NSW / Dural
+       5 unique digits (5pts), vanity: THAT-WAC (7/8 digits, 15pts), semi-dominant digit (4pts)
+
+  #179  02 THAT WAC0  (score: 24)
+       02 8428 9220
+       NSW / Dural
+       5 unique digits (5pts), vanity: THAT-WAC (7/8 digits, 15pts), semi-dominant digit (4pts)
+
+  #180  02 LSID ASH8  (score: 20)
+       02 5743 2748
+       NSW / Tamworth
+       sequential run of 3 descending (5pts), vanity: LSI-DASH (7/8 digits, 15pts)
+
+  #181  02 LSID ARK0  (score: 20)
+       02 5743 2750
+       NSW / Tamworth
+       sequential run of 3 descending (5pts), vanity: LSI-DARK (7/8 digits, 15pts)
+
+  #182  02 LSID ASH5  (score: 25)
+       02 5743 2745
+       NSW / Tamworth
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: LSI-DASH (7/8 digits, 15pts)
+
+  #183  02 LSID ARK2  (score: 25)
+       02 5743 2752
+       NSW / Tamworth
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: LSI-DARK (7/8 digits, 15pts)
+
+  #184  02 LSID ARK3  (score: 25)
+       02 5743 2753
+       NSW / Tamworth
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: LSI-DARK (7/8 digits, 15pts)
+
+  #185  02 LSID ARK1  (score: 20)
+       02 5743 2751
+       NSW / Tamworth
+       sequential run of 3 descending (5pts), vanity: LSI-DARK (7/8 digits, 15pts)
+
+  #186  02 LSID ASH9  (score: 20)
+       02 5743 2749
+       NSW / Tamworth
+       sequential run of 3 descending (5pts), vanity: LSI-DASH (7/8 digits, 15pts)
+
+  #187  02 GAME 0MEG  (score: 20)
+       02 4263 0634
+       NSW / Wollongong
+       5 unique digits (5pts), vanity: GAME-MEG (7/8 digits, 15pts)
+
+  #188  03 4HEA TERG  (score: 29)
+       03 4432 8374
+       VIC / Bendigo
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: HEAT-ERG (7/8 digits, 15pts), semi-dominant digit (4pts)
+
+  #189  03 GIFT 2BIZ  (score: 24)
+       03 4438 2249
+       VIC / Echuca
+       5 unique digits (5pts), vanity: GIFT-BIZ (7/8 digits, 15pts), semi-dominant digit (4pts)
+
+  #190  03 GSA0 DEAD  (score: 24)
+       03 4720 3323
+       VIC / Seymour
+       5 unique digits (5pts), vanity: GSA-DEAD (7/8 digits, 15pts), semi-dominant digit (4pts)
+
+  #191  07 4TUB EIDA  (score: 40)
+       07 4882 3432
+       QLD / Cannon Valley
+       4 unique digits (10pts), sequential run of 3 ascending (5pts), palindrome 23432 (10pts), vanity: TUBE-IDA (7/8 digits, 15pts)
+
+  #192  07 4TUB EGEL  (score: 25)
+       07 4882 3435
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: TUBE-GEL (7/8 digits, 15pts)
+
+  #193  07 4TUB EHEW  (score: 25)
+       07 4882 3439
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: TUBE-HEW (7/8 digits, 15pts)
+
+  #194  07 4TUB EGEE  (score: 39)
+       07 4882 3433
+       QLD / Cannon Valley
+       4 unique digits (10pts), trailing 33 (5pts), sequential run of 3 ascending (5pts), vanity: TUBE-GEE (7/8 digits, 15pts), semi-dominant digit (4pts)
+
+  #195  07 4TUB EGIL  (score: 29)
+       07 4882 3445
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: TUBE-GIL (7/8 digits, 15pts), semi-dominant digit (4pts)
+
+  #196  07 HULL 3WAC  (score: 20)
+       07 4855 3922
+       QLD / Moranbah
+       trailing 22 (5pts), vanity: HULL-WAC (7/8 digits, 15pts)
+
+  #197  08 70VE TFIX  (score: 22)
+       08 7083 8349
+       SA / Adelaide
+       repeating pair 8383 (8pts), vanity: VET-FIX (6/8 digits, 14pts)
+
+  #198  08 70VE TFIT  (score: 31)
+       08 7083 8348
+       SA / Adelaide
+       5 unique digits (5pts), repeating pair 8383 (8pts), vanity: VET-FIT (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #199  08 SKIO WL11  (score: 19)
+       08 7546 9511
+       SA / Karoonda
+       trailing 11 (5pts), vanity: SKI-OWL (6/8 digits, 14pts)
+
+  #200  08 SKIO WL16  (score: 14)
+       08 7546 9516
+       SA / Karoonda
+       vanity: SKI-OWL (6/8 digits, 14pts)
+
+  #201  08 SKIO WL15  (score: 18)
+       08 7546 9515
+       SA / Karoonda
+       vanity: SKI-OWL (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #202  08 SKIO WL85  (score: 18)
+       08 7546 9585
+       SA / Karoonda
+       vanity: SKI-OWL (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #203  08 SKIO WL13  (score: 14)
+       08 7546 9513
+       SA / Karoonda
+       vanity: SKI-OWL (6/8 digits, 14pts)
+
+  #204  08 SKIO WL86  (score: 14)
+       08 7546 9586
+       SA / Karoonda
+       vanity: SKI-OWL (6/8 digits, 14pts)
+
+  #205  08 SKIO WL82  (score: 14)
+       08 7546 9582
+       SA / Karoonda
+       vanity: SKI-OWL (6/8 digits, 14pts)
+
+  #206  08 SKIO WL81  (score: 14)
+       08 7546 9581
+       SA / Karoonda
+       vanity: SKI-OWL (6/8 digits, 14pts)
+
+  #207  08 MUD0 1BET  (score: 26)
+       08 6830 1238
+       WA / Albany
+       sequential run of 4 ascending (12pts), vanity: MUD-BET (6/8 digits, 14pts)
+
+  #208  08 9ROB ILL0  (score: 14)
+       08 9762 4550
+       WA / Bunbury
+       vanity: ROB-ILL (6/8 digits, 14pts)
+
+  #209  08 9ROB ILL6  (score: 14)
+       08 9762 4556
+       WA / Bunbury
+       vanity: ROB-ILL (6/8 digits, 14pts)
+
+  #210  08 9ROB ILL4  (score: 22)
+       08 9762 4554
+       WA / Bunbury
+       palindrome 4554 (8pts), vanity: ROB-ILL (6/8 digits, 14pts)
+
+  #211  08 9ROB ILL3  (score: 14)
+       08 9762 4553
+       WA / Bunbury
+       vanity: ROB-ILL (6/8 digits, 14pts)
+
+  #212  08 9ROB ILL8  (score: 14)
+       08 9762 4558
+       WA / Bunbury
+       vanity: ROB-ILL (6/8 digits, 14pts)
+
+  #213  08 91BU GPOW  (score: 14)
+       08 9128 4769
+       WA / Karratha
+       vanity: BUG-POW (6/8 digits, 14pts)
+
+  #214  08 91BU GPIE  (score: 14)
+       08 9128 4743
+       WA / Karratha
+       vanity: BUG-PIE (6/8 digits, 14pts)
+
+  #215  08 91BU GSUE  (score: 14)
+       08 9128 4783
+       WA / Karratha
+       vanity: BUG-SUE (6/8 digits, 14pts)
+
+  #216  08 51AR TCAB  (score: 49)
+       08 5127 8222
+       WA / Port Hedland
+       repeat run of 3 (10pts), 5 unique digits (5pts), trailing 222 (12pts), vanity: ART-CAB (6/8 digits, 14pts), dominant digit (8pts)
+
+  #217  08 51AR TACE  (score: 18)
+       08 5127 8223
+       WA / Port Hedland
+       vanity: ART-ACE (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #218  08 51AR TCAM  (score: 18)
+       08 5127 8226
+       WA / Port Hedland
+       vanity: ART-CAM (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #219  02 LEG0 6FIX  (score: 14)
+       02 5340 6349
+       NSW / Bathurst
+       vanity: LEG-FIX (6/8 digits, 14pts)
+
+  #220  02 LEG0 6DEN  (score: 31)
+       02 5340 6336
+       NSW / Bathurst
+       5 unique digits (5pts), palindrome 6336 (8pts), vanity: LEG-DEN (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #221  02 LEG0 6DIG  (score: 28)
+       02 5340 6344
+       NSW / Bathurst
+       5 unique digits (5pts), trailing 44 (5pts), vanity: LEG-DIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #222  02 LEG0 6FLY  (score: 14)
+       02 5340 6359
+       NSW / Bathurst
+       vanity: LEG-FLY (6/8 digits, 14pts)
+
+  #223  02 4TRY 9PAW  (score: 31)
+       02 4879 9729
+       NSW / Bowral
+       5 unique digits (5pts), palindrome 7997 (8pts), vanity: TRY-PAW (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #224  02 4TRY 9PAL  (score: 22)
+       02 4879 9725
+       NSW / Bowral
+       palindrome 7997 (8pts), vanity: TRY-PAL (6/8 digits, 14pts)
+
+  #225  02 4TRY 9PAN  (score: 22)
+       02 4879 9726
+       NSW / Bowral
+       palindrome 7997 (8pts), vanity: TRY-PAN (6/8 digits, 14pts)
+
+  #226  02 56LO TBUG  (score: 27)
+       02 5656 8284
+       NSW / Grafton
+       5 unique digits (5pts), repeating pair 5656 (8pts), vanity: LOT-BUG (6/8 digits, 14pts)
+
+  #227  02 56LO TBUY  (score: 27)
+       02 5656 8289
+       NSW / Grafton
+       5 unique digits (5pts), repeating pair 5656 (8pts), vanity: LOT-BUY (6/8 digits, 14pts)
+
+  #228  02 56LO TCRY  (score: 22)
+       02 5656 8279
+       NSW / Grafton
+       repeating pair 5656 (8pts), vanity: LOT-CRY (6/8 digits, 14pts)
+
+  #229  02 56LO TBUS  (score: 27)
+       02 5656 8287
+       NSW / Grafton
+       5 unique digits (5pts), repeating pair 5656 (8pts), vanity: LOT-BUS (6/8 digits, 14pts)
+
+  #230  02 56LO TBUN  (score: 46)
+       02 5656 8286
+       NSW / Grafton
+       4 unique digits (10pts), repeating pair 5656 (8pts), palindrome 68286 (10pts), vanity: LOT-BUN (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #231  02 56LO TART  (score: 27)
+       02 5656 8278
+       NSW / Grafton
+       5 unique digits (5pts), repeating pair 5656 (8pts), vanity: LOT-ART (6/8 digits, 14pts)
+
+  #232  02 81BI TLAD  (score: 14)
+       02 8124 8523
+       NSW / Liverpool
+       vanity: BIT-LAD (6/8 digits, 14pts)
+
+  #233  02 81BI TJAM  (score: 14)
+       02 8124 8526
+       NSW / Liverpool
+       vanity: BIT-JAM (6/8 digits, 14pts)
+
+  #234  02 81BI TKIT  (score: 23)
+       02 8124 8548
+       NSW / Liverpool
+       5 unique digits (5pts), vanity: BIT-KIT (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #235  02 81BI TJIG  (score: 28)
+       02 8124 8544
+       NSW / Liverpool
+       5 unique digits (5pts), trailing 44 (5pts), vanity: BIT-JIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #236  02 81BI TKIN  (score: 14)
+       02 8124 8546
+       NSW / Liverpool
+       vanity: BIT-KIN (6/8 digits, 14pts)
+
+  #237  02 40RA TLIP  (score: 14)
+       02 4072 8547
+       NSW / Maitland
+       vanity: RAT-LIP (6/8 digits, 14pts)
+
+  #238  02 40RA TJAW  (score: 14)
+       02 4072 8529
+       NSW / Maitland
+       vanity: RAT-JAW (6/8 digits, 14pts)
+
+  #239  02 40RA TJAR  (score: 14)
+       02 4072 8527
+       NSW / Maitland
+       vanity: RAT-JAR (6/8 digits, 14pts)
+
+  #240  02 40RA TLAG  (score: 14)
+       02 4072 8524
+       NSW / Maitland
+       vanity: RAT-LAG (6/8 digits, 14pts)
+
+  #241  02 40RA TLEG  (score: 14)
+       02 4072 8534
+       NSW / Maitland
+       vanity: RAT-LEG (6/8 digits, 14pts)
+
+  #242  02 LEGW IG21  (score: 18)
+       02 5349 4421
+       NSW / Mudgee
+       vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #243  02 LEGW IG10  (score: 18)
+       02 5349 4410
+       NSW / Mudgee
+       vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #244  02 LEGW IG06  (score: 18)
+       02 5349 4406
+       NSW / Mudgee
+       vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #245  02 5FIX 4GAP  (score: 18)
+       02 5349 4427
+       NSW / Mudgee
+       vanity: FIX-GAP (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #246  02 LEGW IG00  (score: 37)
+       02 5349 4400
+       NSW / Mudgee
+       5 unique digits (5pts), trailing 00 (8pts), double pair 4400 (6pts), vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #247  02 5FIX HID0  (score: 23)
+       02 5349 4430
+       NSW / Mudgee
+       5 unique digits (5pts), vanity: FIX-HID (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #248  02 LEGW IG11  (score: 34)
+       02 5349 4411
+       NSW / Mudgee
+       5 unique digits (5pts), trailing 11 (5pts), double pair 4411 (6pts), vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #249  02 LEGW IG04  (score: 27)
+       02 5349 4404
+       NSW / Mudgee
+       5 unique digits (5pts), vanity: LEG-WIG (6/8 digits, 14pts), dominant digit (8pts)
+
+  #250  02 LEGW IG17  (score: 18)
+       02 5349 4417
+       NSW / Mudgee
+       vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #251  02 5FIX HID2  (score: 28)
+       02 5349 4432
+       NSW / Mudgee
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: FIX-HID (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #252  02 LEGW IG01  (score: 18)
+       02 5349 4401
+       NSW / Mudgee
+       vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #253  02 LEGW IG12  (score: 18)
+       02 5349 4412
+       NSW / Mudgee
+       vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #254  02 LEGW IG15  (score: 23)
+       02 5349 4415
+       NSW / Mudgee
+       5 unique digits (5pts), vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #255  02 LEGW IG13  (score: 23)
+       02 5349 4413
+       NSW / Mudgee
+       5 unique digits (5pts), vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #256  02 LEGW IG02  (score: 18)
+       02 5349 4402
+       NSW / Mudgee
+       vanity: LEG-WIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #257  02 40WA XHER  (score: 14)
+       02 4092 9437
+       NSW / Newcastle
+       vanity: WAX-HER (6/8 digits, 14pts)
+
+  #258  02 40WA XHAT  (score: 19)
+       02 4092 9428
+       NSW / Newcastle
+       5 unique digits (5pts), vanity: WAX-HAT (6/8 digits, 14pts)
+
+  #259  02 40WA XHAM  (score: 19)
+       02 4092 9426
+       NSW / Newcastle
+       5 unique digits (5pts), vanity: WAX-HAM (6/8 digits, 14pts)
+
+  #260  02 40WA XHIT  (score: 23)
+       02 4092 9448
+       NSW / Newcastle
+       5 unique digits (5pts), vanity: WAX-HIT (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #261  02 40WA XGAG  (score: 28)
+       02 4092 9424
+       NSW / Newcastle
+       4 unique digits (10pts), vanity: WAX-GAG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #262  02 40WA XGEM  (score: 14)
+       02 4092 9436
+       NSW / Newcastle
+       vanity: WAX-GEM (6/8 digits, 14pts)
+
+  #263  03 4DAY 0POP  (score: 19)
+       03 4329 0767
+       VIC / Ballarat
+       sequential run of 3 descending (5pts), vanity: DAY-POP (6/8 digits, 14pts)
+
+  #264  03 4DAY 0PRO  (score: 19)
+       03 4329 0776
+       VIC / Ballarat
+       sequential run of 3 descending (5pts), vanity: DAY-PRO (6/8 digits, 14pts)
+
+  #265  03 4DAY 0DOT  (score: 19)
+       03 4329 0368
+       VIC / Ballarat
+       sequential run of 3 descending (5pts), vanity: DAY-DOT (6/8 digits, 14pts)
+
+  #266  03 4DAY 0PUB  (score: 19)
+       03 4329 0782
+       VIC / Ballarat
+       sequential run of 3 descending (5pts), vanity: DAY-PUB (6/8 digits, 14pts)
+
+  #267  03 HID2 VEX6  (score: 19)
+       03 4432 8396
+       VIC / Bendigo
+       sequential run of 3 descending (5pts), vanity: HID-VEX (6/8 digits, 14pts)
+
+  #268  03 4HAT TAG1  (score: 40)
+       03 4428 8241
+       VIC / Bendigo
+       4 unique digits (10pts), palindrome 428824 (12pts), vanity: HAT-TAG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #269  03 HID2 VET0  (score: 24)
+       03 4432 8380
+       VIC / Bendigo
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: HID-VET (6/8 digits, 14pts)
+
+  #270  03 HID2 VEX5  (score: 19)
+       03 4432 8395
+       VIC / Bendigo
+       sequential run of 3 descending (5pts), vanity: HID-VEX (6/8 digits, 14pts)
+
+  #271  03 HID2 VET1  (score: 24)
+       03 4432 8381
+       VIC / Bendigo
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: HID-VET (6/8 digits, 14pts)
+
+  #272  03 HID2 VEX7  (score: 19)
+       03 4432 8397
+       VIC / Bendigo
+       sequential run of 3 descending (5pts), vanity: HID-VEX (6/8 digits, 14pts)
+
+  #273  03 HID0 0FLY  (score: 27)
+       03 4430 0359
+       VIC / Castlemaine
+       5 unique digits (5pts), palindrome 3003 (8pts), vanity: HID-FLY (6/8 digits, 14pts)
+
+  #274  03 HID0 0FUN  (score: 27)
+       03 4430 0386
+       VIC / Castlemaine
+       5 unique digits (5pts), palindrome 3003 (8pts), vanity: HID-FUN (6/8 digits, 14pts)
+
+  #275  03 HID0 0FOR  (score: 27)
+       03 4430 0367
+       VIC / Castlemaine
+       5 unique digits (5pts), palindrome 3003 (8pts), vanity: HID-FOR (6/8 digits, 14pts)
+
+  #276  03 HID0 0DOT  (score: 27)
+       03 4430 0368
+       VIC / Castlemaine
+       5 unique digits (5pts), palindrome 3003 (8pts), vanity: HID-DOT (6/8 digits, 14pts)
+
+  #277  03 HID0 0FOX  (score: 27)
+       03 4430 0369
+       VIC / Castlemaine
+       5 unique digits (5pts), palindrome 3003 (8pts), vanity: HID-FOX (6/8 digits, 14pts)
+
+  #278  03 HID0 0ERA  (score: 27)
+       03 4430 0372
+       VIC / Castlemaine
+       5 unique digits (5pts), palindrome 3003 (8pts), vanity: HID-ERA (6/8 digits, 14pts)
+
+  #279  03 HID0 0DUB  (score: 27)
+       03 4430 0382
+       VIC / Castlemaine
+       5 unique digits (5pts), palindrome 3003 (8pts), vanity: HID-DUB (6/8 digits, 14pts)
+
+  #280  03 HIDT AB19  (score: 14)
+       03 4438 2219
+       VIC / Echuca
+       vanity: HID-TAB (6/8 digits, 14pts)
+
+  #281  03 HIDT AB10  (score: 19)
+       03 4438 2210
+       VIC / Echuca
+       sequential run of 3 descending (5pts), vanity: HID-TAB (6/8 digits, 14pts)
+
+  #282  03 HIDT AB18  (score: 19)
+       03 4438 2218
+       VIC / Echuca
+       5 unique digits (5pts), vanity: HID-TAB (6/8 digits, 14pts)
+
+  #283  03 HIDT AB13  (score: 19)
+       03 4438 2213
+       VIC / Echuca
+       5 unique digits (5pts), vanity: HID-TAB (6/8 digits, 14pts)
+
+  #284  03 HIDT AB15  (score: 14)
+       03 4438 2215
+       VIC / Echuca
+       vanity: HID-TAB (6/8 digits, 14pts)
+
+  #285  03 HIDT AB12  (score: 23)
+       03 4438 2212
+       VIC / Echuca
+       5 unique digits (5pts), vanity: HID-TAB (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #286  03 JAW2 0NIL  (score: 14)
+       03 5292 0645
+       VIC / Geelong
+       vanity: JAW-NIL (6/8 digits, 14pts)
+
+  #287  03 JAW2 0NIP  (score: 14)
+       03 5292 0647
+       VIC / Geelong
+       vanity: JAW-NIP (6/8 digits, 14pts)
+
+  #288  03 JAW2 0MIX  (score: 14)
+       03 5292 0649
+       VIC / Geelong
+       vanity: JAW-MIX (6/8 digits, 14pts)
+
+  #289  03 70HU GTAP  (score: 27)
+       03 7048 4827
+       VIC / Melbourne
+       5 unique digits (5pts), repeating pair 4848 (8pts), vanity: HUG-TAP (6/8 digits, 14pts)
+
+  #290  03 70HU GTOP  (score: 27)
+       03 7048 4867
+       VIC / Melbourne
+       5 unique digits (5pts), repeating pair 4848 (8pts), vanity: HUG-TOP (6/8 digits, 14pts)
+
+  #291  03 41GU TMOB  (score: 25)
+       03 4148 8662
+       VIC / Traralgon
+       5 unique digits (5pts), double pair 8866 (6pts), vanity: GUT-MOB (6/8 digits, 14pts)
+
+  #292  03 41GU TNIL  (score: 23)
+       03 4148 8645
+       VIC / Traralgon
+       5 unique digits (5pts), vanity: GUT-NIL (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #293  03 41GU TNIP  (score: 23)
+       03 4148 8647
+       VIC / Traralgon
+       5 unique digits (5pts), vanity: GUT-NIP (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #294  03 41GU TNIT  (score: 28)
+       03 4148 8648
+       VIC / Traralgon
+       4 unique digits (10pts), vanity: GUT-NIT (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #295  03 41GU TMIX  (score: 23)
+       03 4148 8649
+       VIC / Traralgon
+       5 unique digits (5pts), vanity: GUT-MIX (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #296  03 41GU TOLD  (score: 14)
+       03 4148 8653
+       VIC / Traralgon
+       vanity: GUT-OLD (6/8 digits, 14pts)
+
+  #297  03 41GU TMOD  (score: 25)
+       03 4148 8663
+       VIC / Traralgon
+       5 unique digits (5pts), double pair 8866 (6pts), vanity: GUT-MOD (6/8 digits, 14pts)
+
+  #298  03 41GU TMOP  (score: 25)
+       03 4148 8667
+       VIC / Traralgon
+       5 unique digits (5pts), double pair 8866 (6pts), vanity: GUT-MOP (6/8 digits, 14pts)
+
+  #299  03 4JAR HID0  (score: 18)
+       03 4527 4430
+       VIC / Warrnambool
+       vanity: JAR-HID (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #300  03 4JAR HID4  (score: 27)
+       03 4527 4434
+       VIC / Warrnambool
+       5 unique digits (5pts), vanity: JAR-HID (6/8 digits, 14pts), dominant digit (8pts)
+
+  #301  07 JAB1 FIT1  (score: 14)
+       07 5221 3481
+       QLD / Caboolture
+       vanity: JAB-FIT (6/8 digits, 14pts)
+
+  #302  07 JAB1 FIX0  (score: 14)
+       07 5221 3490
+       QLD / Caboolture
+       vanity: JAB-FIX (6/8 digits, 14pts)
+
+  #303  07 JAB1 FIX3  (score: 14)
+       07 5221 3493
+       QLD / Caboolture
+       vanity: JAB-FIX (6/8 digits, 14pts)
+
+  #304  07 JAB1 3GUM  (score: 14)
+       07 5221 3486
+       QLD / Caboolture
+       vanity: JAB-GUM (6/8 digits, 14pts)
+
+  #305  07 JAB1 3GYM  (score: 14)
+       07 5221 3496
+       QLD / Caboolture
+       vanity: JAB-GYM (6/8 digits, 14pts)
+
+  #306  07 JAB1 FIX4  (score: 14)
+       07 5221 3494
+       QLD / Caboolture
+       vanity: JAB-FIX (6/8 digits, 14pts)
+
+  #307  07 JAB1 DIP9  (score: 14)
+       07 5221 3479
+       QLD / Caboolture
+       vanity: JAB-DIP (6/8 digits, 14pts)
+
+  #308  07 JAB1 FIX1  (score: 14)
+       07 5221 3491
+       QLD / Caboolture
+       vanity: JAB-FIX (6/8 digits, 14pts)
+
+  #309  07 JAB1 FIX2  (score: 18)
+       07 5221 3492
+       QLD / Caboolture
+       vanity: JAB-FIX (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #310  07 JAB1 3HUG  (score: 14)
+       07 5221 3484
+       QLD / Caboolture
+       vanity: JAB-HUG (6/8 digits, 14pts)
+
+  #311  07 JAB1 FIT5  (score: 14)
+       07 5221 3485
+       QLD / Caboolture
+       vanity: JAB-FIT (6/8 digits, 14pts)
+
+  #312  07 JAB1 FIX7  (score: 14)
+       07 5221 3497
+       QLD / Caboolture
+       vanity: JAB-FIX (6/8 digits, 14pts)
+
+  #313  07 40TA PNEW  (score: 14)
+       07 4082 7639
+       QLD / Cairns
+       vanity: TAP-NEW (6/8 digits, 14pts)
+
+  #314  07 40TA PNIL  (score: 14)
+       07 4082 7645
+       QLD / Cairns
+       vanity: TAP-NIL (6/8 digits, 14pts)
+
+  #315  07 40TA PNIT  (score: 14)
+       07 4082 7648
+       QLD / Cairns
+       vanity: TAP-NIT (6/8 digits, 14pts)
+
+  #316  07 JAB1 5KIT  (score: 23)
+       07 5221 5548
+       QLD / Caloundra
+       5 unique digits (5pts), vanity: JAB-KIT (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #317  07 JAB1 5KEY  (score: 23)
+       07 5221 5539
+       QLD / Caloundra
+       5 unique digits (5pts), vanity: JAB-KEY (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #318  07 JAB1 5LIP  (score: 23)
+       07 5221 5547
+       QLD / Caloundra
+       5 unique digits (5pts), vanity: JAB-LIP (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #319  07 JAB1 5JET  (score: 23)
+       07 5221 5538
+       QLD / Caloundra
+       5 unique digits (5pts), vanity: JAB-JET (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #320  07 4TUB DIG9  (score: 28)
+       07 4882 3449
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: TUB-DIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #321  07 4TUB DIG2  (score: 33)
+       07 4882 3442
+       QLD / Cannon Valley
+       4 unique digits (10pts), sequential run of 3 ascending (5pts), vanity: TUB-DIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #322  07 4TUB DIG0  (score: 28)
+       07 4882 3440
+       QLD / Cannon Valley
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: TUB-DIG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #323  07 GUYH UG17  (score: 23)
+       07 4894 8417
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #324  07 GUYH UG07  (score: 23)
+       07 4894 8407
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #325  07 GUYH UG08  (score: 28)
+       07 4894 8408
+       QLD / Gladstone
+       4 unique digits (10pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #326  07 GUYH UG03  (score: 23)
+       07 4894 8403
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #327  07 GUYH UG05  (score: 23)
+       07 4894 8405
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #328  07 GUYH UG06  (score: 23)
+       07 4894 8406
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #329  07 GUYH UG10  (score: 23)
+       07 4894 8410
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #330  07 GUYH UG18  (score: 28)
+       07 4894 8418
+       QLD / Gladstone
+       4 unique digits (10pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #331  07 GUY4 VIA0  (score: 23)
+       07 4894 8420
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-VIA (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #332  07 GUYH UG02  (score: 23)
+       07 4894 8402
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #333  07 GUYH UG15  (score: 23)
+       07 4894 8415
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #334  07 GUYH UG19  (score: 28)
+       07 4894 8419
+       QLD / Gladstone
+       4 unique digits (10pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #335  07 GUYH UG09  (score: 28)
+       07 4894 8409
+       QLD / Gladstone
+       4 unique digits (10pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #336  07 GUYH UG16  (score: 23)
+       07 4894 8416
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #337  07 GUYH UG13  (score: 23)
+       07 4894 8413
+       QLD / Gladstone
+       5 unique digits (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #338  07 GUYH UG14  (score: 32)
+       07 4894 8414
+       QLD / Gladstone
+       4 unique digits (10pts), vanity: GUY-HUG (6/8 digits, 14pts), dominant digit (8pts)
+
+  #339  07 GUYH UG11  (score: 33)
+       07 4894 8411
+       QLD / Gladstone
+       4 unique digits (10pts), trailing 11 (5pts), vanity: GUY-HUG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #340  07 4FIX 8BIG  (score: 32)
+       07 4349 8244
+       QLD / Hervey Bay
+       5 unique digits (5pts), trailing 44 (5pts), vanity: FIX-BIG (6/8 digits, 14pts), dominant digit (8pts)
+
+  #341  07 4FIX TAG2  (score: 23)
+       07 4349 8242
+       QLD / Hervey Bay
+       5 unique digits (5pts), vanity: FIX-TAG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #342  07 4FIX 8CAB  (score: 45)
+       07 4349 8222
+       QLD / Hervey Bay
+       repeat run of 3 (10pts), 5 unique digits (5pts), trailing 222 (12pts), vanity: FIX-CAB (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #343  07 GIN1 1LED  (score: 24)
+       07 4461 1533
+       QLD / Mt Isa
+       5 unique digits (5pts), trailing 33 (5pts), vanity: GIN-LED (6/8 digits, 14pts)
+
+  #344  07 GIN1 1LAD  (score: 14)
+       07 4461 1523
+       QLD / Mt Isa
+       vanity: GIN-LAD (6/8 digits, 14pts)
+
+  #345  07 GIN1 1LEG  (score: 23)
+       07 4461 1534
+       QLD / Mt Isa
+       5 unique digits (5pts), vanity: GIN-LEG (6/8 digits, 14pts), semi-dominant digit (4pts)
+
+  #346  07 GIN1 1KEY  (score: 14)
+       07 4461 1539
+       QLD / Mt Isa
+       vanity: GIN-KEY (6/8 digits, 14pts)
+
+  #347  07 52FI TJAR  (score: 19)
+       07 5234 8527
+       QLD / Nambour
+       sequential run of 3 ascending (5pts), vanity: FIT-JAR (6/8 digits, 14pts)
+
+  #348  07 52FI TJAW  (score: 19)
+       07 5234 8529
+       QLD / Nambour
+       sequential run of 3 ascending (5pts), vanity: FIT-JAW (6/8 digits, 14pts)
+
+  #349  07 JOB0 3MET  (score: 14)
+       07 5620 3638
+       QLD / Southport
+       vanity: JOB-MET (6/8 digits, 14pts)
+
+  #350  08 SKIO WLY1  (score: 13)
+       08 7546 9591
+       SA / Karoonda
+       vanity: SKI-OWLY (7/8 digits, 13pts)
+
+  #351  08 SKIO WLS8  (score: 13)
+       08 7546 9578
+       SA / Karoonda
+       vanity: SKI-OWLS (7/8 digits, 13pts)
+
+  #352  08 SKIO WLS9  (score: 18)
+       08 7546 9579
+       SA / Karoonda
+       5 unique digits (5pts), vanity: SKI-OWLS (7/8 digits, 13pts)
+
+  #353  08 SKIO WLS5  (score: 22)
+       08 7546 9575
+       SA / Karoonda
+       5 unique digits (5pts), vanity: SKI-OWLS (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #354  08 SKIO WLY5  (score: 30)
+       08 7546 9595
+       SA / Karoonda
+       5 unique digits (5pts), repeating pair 9595 (8pts), vanity: SKI-OWLY (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #355  08 SKIO WLY6  (score: 28)
+       08 7546 9596
+       SA / Karoonda
+       5 unique digits (5pts), palindrome 69596 (10pts), vanity: SKI-OWLY (7/8 digits, 13pts)
+
+  #356  08 SKIO WLS6  (score: 18)
+       08 7546 9576
+       SA / Karoonda
+       5 unique digits (5pts), vanity: SKI-OWLS (7/8 digits, 13pts)
+
+  #357  08 SKIO WLY8  (score: 13)
+       08 7546 9598
+       SA / Karoonda
+       vanity: SKI-OWLY (7/8 digits, 13pts)
+
+  #358  08 SKIO WLY0  (score: 13)
+       08 7546 9590
+       SA / Karoonda
+       vanity: SKI-OWLY (7/8 digits, 13pts)
+
+  #359  08 SKIO WLY2  (score: 13)
+       08 7546 9592
+       SA / Karoonda
+       vanity: SKI-OWLY (7/8 digits, 13pts)
+
+  #360  08 PODE ELS8  (score: 32)
+       08 7633 3578
+       SA / Whyalla
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: POD-EELS (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #361  08 PODE ELS6  (score: 37)
+       08 7633 3576
+       SA / Whyalla
+       repeat run of 3 (10pts), 4 unique digits (10pts), vanity: POD-EELS (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #362  08 PODE ELS9  (score: 32)
+       08 7633 3579
+       SA / Whyalla
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: POD-EELS (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #363  08 9SNA GLEG  (score: 13)
+       08 9762 4534
+       WA / Bunbury
+       vanity: SNAG-LEG (7/8 digits, 13pts)
+
+  #364  08 9SNA GKID  (score: 18)
+       08 9762 4543
+       WA / Bunbury
+       sequential run of 3 descending (5pts), vanity: SNAG-KID (7/8 digits, 13pts)
+
+  #365  08 9SNA GKIT  (score: 13)
+       08 9762 4548
+       WA / Bunbury
+       vanity: SNAG-KIT (7/8 digits, 13pts)
+
+  #366  08 9SNA GKIN  (score: 13)
+       08 9762 4546
+       WA / Bunbury
+       vanity: SNAG-KIN (7/8 digits, 13pts)
+
+  #367  08 9ROB GLIB  (score: 23)
+       08 9762 4542
+       WA / Bunbury
+       palindrome 24542 (10pts), vanity: ROB-GLIB (7/8 digits, 13pts)
+
+  #368  08 9SNA GKEY  (score: 13)
+       08 9762 4539
+       WA / Bunbury
+       vanity: SNAG-KEY (7/8 digits, 13pts)
+
+  #369  08 9SNA GJIG  (score: 22)
+       08 9762 4544
+       WA / Bunbury
+       trailing 44 (5pts), vanity: SNAG-JIG (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #370  08 9ROB GLEN  (score: 13)
+       08 9762 4536
+       WA / Bunbury
+       vanity: ROB-GLEN (7/8 digits, 13pts)
+
+  #371  02 LEG0 NEIL  (score: 23)
+       02 5340 6345
+       NSW / Bathurst
+       5 unique digits (5pts), sequential run of 3 ascending (5pts), vanity: LEG-NEIL (7/8 digits, 13pts)
+
+  #372  02 ONYX 1HIP  (score: 24)
+       02 6699 1447
+       NSW / Coffs_Harbour
+       5 unique digits (5pts), double pair 6699 (6pts), vanity: ONYX-HIP (7/8 digits, 13pts)
+
+  #373  02 JUDO NIP6  (score: 17)
+       02 5836 6476
+       NSW / Dubbo
+       vanity: JUDO-NIP (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #374  02 JUDO 6HAM  (score: 17)
+       02 5836 6426
+       NSW / Dubbo
+       vanity: JUDO-HAM (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #375  02 JUDO NIP0  (score: 13)
+       02 5836 6470
+       NSW / Dubbo
+       vanity: JUDO-NIP (7/8 digits, 13pts)
+
+  #376  02 JUDO NIP9  (score: 13)
+       02 5836 6479
+       NSW / Dubbo
+       vanity: JUDO-NIP (7/8 digits, 13pts)
+
+  #377  02 JUDO NIP4  (score: 13)
+       02 5836 6474
+       NSW / Dubbo
+       vanity: JUDO-NIP (7/8 digits, 13pts)
+
+  #378  02 JUDO 6HAT  (score: 13)
+       02 5836 6428
+       NSW / Dubbo
+       vanity: JUDO-HAT (7/8 digits, 13pts)
+
+  #379  02 JUDO NIP1  (score: 13)
+       02 5836 6471
+       NSW / Dubbo
+       vanity: JUDO-NIP (7/8 digits, 13pts)
+
+  #380  02 JUDO 6GAG  (score: 13)
+       02 5836 6424
+       NSW / Dubbo
+       vanity: JUDO-GAG (7/8 digits, 13pts)
+
+  #381  02 LEGW HIG3  (score: 41)
+       02 5349 4443
+       NSW / Mudgee
+       repeat run of 3 (10pts), 4 unique digits (10pts), vanity: LEG-WHIG (7/8 digits, 13pts), dominant digit (8pts)
+
+  #382  02 LEGW HIG7  (score: 36)
+       02 5349 4447
+       NSW / Mudgee
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: LEG-WHIG (7/8 digits, 13pts), dominant digit (8pts)
+
+  #383  02 LEGW HIG8  (score: 36)
+       02 5349 4448
+       NSW / Mudgee
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: LEG-WHIG (7/8 digits, 13pts), dominant digit (8pts)
+
+  #384  02 LEGW HIG1  (score: 36)
+       02 5349 4441
+       NSW / Mudgee
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: LEG-WHIG (7/8 digits, 13pts), dominant digit (8pts)
+
+  #385  03 HIDA VER0  (score: 18)
+       03 4432 8370
+       VIC / Bendigo
+       sequential run of 3 descending (5pts), vanity: HID-AVER (7/8 digits, 13pts)
+
+  #386  03 USPS 2PEN  (score: 36)
+       03 8777 2736
+       VIC / Croydon
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: USPS-PEN (7/8 digits, 13pts), dominant digit (8pts)
+
+  #387  03 USPS 2PIT  (score: 41)
+       03 8777 2748
+       VIC / Croydon
+       repeat run of 3 (10pts), 4 unique digits (10pts), vanity: USPS-PIT (7/8 digits, 13pts), dominant digit (8pts)
+
+  #388  03 UTAH 0PEA  (score: 13)
+       03 8824 0732
+       VIC / Ringwood
+       vanity: UTAH-PEA (7/8 digits, 13pts)
+
+  #389  03 UTAH 0RAT  (score: 22)
+       03 8824 0728
+       VIC / Ringwood
+       5 unique digits (5pts), vanity: UTAH-RAT (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #390  03 UTAH 0PIE  (score: 13)
+       03 8824 0743
+       VIC / Ringwood
+       vanity: UTAH-PIE (7/8 digits, 13pts)
+
+  #391  03 UTAH 0RIP  (score: 18)
+       03 8824 0747
+       VIC / Ringwood
+       5 unique digits (5pts), vanity: UTAH-RIP (7/8 digits, 13pts)
+
+  #392  03 UTAH 0RED  (score: 18)
+       03 8824 0733
+       VIC / Ringwood
+       trailing 33 (5pts), vanity: UTAH-RED (7/8 digits, 13pts)
+
+  #393  03 UTAH 0PAL  (score: 13)
+       03 8824 0725
+       VIC / Ringwood
+       vanity: UTAH-PAL (7/8 digits, 13pts)
+
+  #394  03 UTAH 0RIB  (score: 18)
+       03 8824 0742
+       VIC / Ringwood
+       5 unique digits (5pts), vanity: UTAH-RIB (7/8 digits, 13pts)
+
+  #395  03 UTAH 0PEN  (score: 13)
+       03 8824 0736
+       VIC / Ringwood
+       vanity: UTAH-PEN (7/8 digits, 13pts)
+
+  #396  03 UTAH 0PAW  (score: 13)
+       03 8824 0729
+       VIC / Ringwood
+       vanity: UTAH-PAW (7/8 digits, 13pts)
+
+  #397  03 UTAH 0PIG  (score: 27)
+       03 8824 0744
+       VIC / Ringwood
+       5 unique digits (5pts), trailing 44 (5pts), vanity: UTAH-PIG (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #398  03 4LAS HHER  (score: 22)
+       03 4527 4437
+       VIC / Warrnambool
+       5 unique digits (5pts), vanity: LASH-HER (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #399  03 4JAR GILT  (score: 22)
+       03 4527 4458
+       VIC / Warrnambool
+       5 unique digits (5pts), vanity: JAR-GILT (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #400  03 4LAS HHIP  (score: 51)
+       03 4527 4447
+       VIC / Warrnambool
+       repeat run of 3 (10pts), 4 unique digits (10pts), palindrome 74447 (10pts), vanity: LASH-HIP (7/8 digits, 13pts), dominant digit (8pts)
+
+  #401  03 4LAS HHIT  (score: 36)
+       03 4527 4448
+       VIC / Warrnambool
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: LASH-HIT (7/8 digits, 13pts), dominant digit (8pts)
+
+  #402  03 4JAR GILA  (score: 27)
+       03 4527 4452
+       VIC / Warrnambool
+       4 unique digits (10pts), vanity: JAR-GILA (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #403  03 4LAS HGIN  (score: 36)
+       03 4527 4446
+       VIC / Warrnambool
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: LASH-GIN (7/8 digits, 13pts), dominant digit (8pts)
+
+  #404  07 ELBA 2WHO  (score: 27)
+       07 3522 2946
+       QLD / Brisbane
+       repeat run of 3 (10pts), vanity: ELBA-WHO (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #405  07 ELBA 2WIT  (score: 27)
+       07 3522 2948
+       QLD / Brisbane
+       repeat run of 3 (10pts), vanity: ELBA-WIT (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #406  07 ELBA 2YAM  (score: 36)
+       07 3522 2926
+       QLD / Brisbane
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: ELBA-YAM (7/8 digits, 13pts), dominant digit (8pts)
+
+  #407  07 4DIV ESKI  (score: 22)
+       07 4348 3754
+       QLD / Bundaberg
+       5 unique digits (5pts), vanity: DIVE-SKI (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #408  07 JAB1 FITS  (score: 13)
+       07 5221 3487
+       QLD / Caboolture
+       vanity: JAB-FITS (7/8 digits, 13pts)
+
+  #409  07 JAB1 DISK  (score: 13)
+       07 5221 3475
+       QLD / Caboolture
+       vanity: JAB-DISK (7/8 digits, 13pts)
+
+  #410  07 JAB1 DIVA  (score: 17)
+       07 5221 3482
+       QLD / Caboolture
+       vanity: JAB-DIVA (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #411  07 GAGF LUB8  (score: 18)
+       07 4243 5828
+       QLD / Cairns
+       5 unique digits (5pts), vanity: GAG-FLUB (7/8 digits, 13pts)
+
+  #412  07 GAGF LUE4  (score: 22)
+       07 4243 5834
+       QLD / Cairns
+       5 unique digits (5pts), vanity: GAG-FLUE (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #413  07 GAGE JUG0  (score: 17)
+       07 4243 5840
+       QLD / Cairns
+       vanity: GAGE-JUG (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #414  07 GAGE 5VIA  (score: 22)
+       07 4243 5842
+       QLD / Cairns
+       5 unique digits (5pts), vanity: GAGE-VIA (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #415  07 4TWI TGAG  (score: 31)
+       07 4894 8424
+       QLD / Gladstone
+       4 unique digits (10pts), vanity: TWIT-GAG (7/8 digits, 13pts), dominant digit (8pts)
+
+  #416  07 PLAT POT1  (score: 18)
+       07 7528 7681
+       QLD / Goondiwindi
+       sequential run of 3 descending (5pts), vanity: PLAT-POT (7/8 digits, 13pts)
+
+  #417  07 4FIX VADE  (score: 27)
+       07 4349 8233
+       QLD / Hervey Bay
+       5 unique digits (5pts), trailing 33 (5pts), vanity: FIX-VADE (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #418  07 4FIX TABU  (score: 26)
+       07 4349 8228
+       QLD / Hervey Bay
+       5 unique digits (5pts), palindrome 8228 (8pts), vanity: FIX-TABU (7/8 digits, 13pts)
+
+  #419  07 HUGW INK0  (score: 17)
+       07 4849 4650
+       QLD / Mackay
+       vanity: HUG-WINK (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #420  07 HUGW INK1  (score: 17)
+       07 4849 4651
+       QLD / Mackay
+       vanity: HUG-WINK (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #421  07 HUG9 HOLT  (score: 22)
+       07 4849 4658
+       QLD / Mackay
+       5 unique digits (5pts), vanity: HUG-HOLT (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #422  07 LAD4 ULAN  (score: 18)
+       07 5234 8526
+       QLD / Nambour
+       sequential run of 3 ascending (5pts), vanity: LAD-ULAN (7/8 digits, 13pts)
+
+  #423  07 5BET TAGS  (score: 13)
+       07 5238 8247
+       QLD / Noosaville
+       vanity: BET-TAGS (7/8 digits, 13pts)
+
+  #424  07 LADU TAH3  (score: 18)
+       07 5238 8243
+       QLD / Noosaville
+       5 unique digits (5pts), vanity: LAD-UTAH (7/8 digits, 13pts)
+
+  #425  07 LADU TAH8  (score: 22)
+       07 5238 8248
+       QLD / Noosaville
+       5 unique digits (5pts), vanity: LAD-UTAH (7/8 digits, 13pts), semi-dominant digit (4pts)
+
+  #426  07 LADU TAH1  (score: 13)
+       07 5238 8241
+       QLD / Noosaville
+       vanity: LAD-UTAH (7/8 digits, 13pts)
+
+  #427  03 OILY 0HAY  (score: 13)
+       03 6459 0429
+       TAS / Devonport
+       vanity: OILY-HAY (7/8 digits, 13pts)
+
+  #428  03 OILY 0HAM  (score: 13)
+       03 6459 0426
+       TAS / Devonport
+       vanity: OILY-HAM (7/8 digits, 13pts)
+
+  #429  03 OILY 0HER  (score: 13)
+       03 6459 0437
+       TAS / Devonport
+       vanity: OILY-HER (7/8 digits, 13pts)
+
+  #430  03 OILY 0HAT  (score: 13)
+       03 6459 0428
+       TAS / Devonport
+       vanity: OILY-HAT (7/8 digits, 13pts)
+
+  #431  03 OILY 0GAP  (score: 13)
+       03 6459 0427
+       TAS / Devonport
+       vanity: OILY-GAP (7/8 digits, 13pts)
+
+  #432  03 6RAG DOLT  (score: 13)
+       03 6724 3658
+       TAS / Launceston
+       vanity: RAG-DOLT (7/8 digits, 13pts)
+
+  #433  03 ORBI FNI1  (score: 13)
+       03 6724 3641
+       TAS / Launceston
+       vanity: ORB-IFNI (7/8 digits, 13pts)
+
+  #434  03 ORBI DOL1  (score: 13)
+       03 6724 3651
+       TAS / Launceston
+       vanity: ORB-IDOL (7/8 digits, 13pts)
+
+  #435  03 ORBI DOL4  (score: 18)
+       03 6724 3654
+       TAS / Launceston
+       sequential run of 3 descending (5pts), vanity: ORB-IDOL (7/8 digits, 13pts)
+
+  #436  02 JUDO MINK  (score: 21)
+       02 5836 6465
+       NSW / Dubbo
+       5 unique digits (5pts), vanity: JUDO-MINK (8/8 digits, 12pts), semi-dominant digit (4pts)
+
+  #437  02 JUDO MIRA  (score: 12)
+       02 5836 6472
+       NSW / Dubbo
+       vanity: JUDO-MIRA (8/8 digits, 12pts)
+
+  #438  02 JUDO MIRE  (score: 12)
+       02 5836 6473
+       NSW / Dubbo
+       vanity: JUDO-MIRE (8/8 digits, 12pts)
+
+  #439  02 JUDO NIBS  (score: 12)
+       02 5836 6427
+       NSW / Dubbo
+       vanity: JUDO-NIBS (8/8 digits, 12pts)
+
+  #440  02 JUDO NICK  (score: 12)
+       02 5836 6425
+       NSW / Dubbo
+       vanity: JUDO-NICK (8/8 digits, 12pts)
+
+  #441  03 USPS AREA  (score: 40)
+       03 8777 2732
+       VIC / Croydon
+       repeat run of 3 (10pts), 4 unique digits (10pts), vanity: USPS-AREA (8/8 digits, 12pts), dominant digit (8pts)
+
+  #442  03 USPS ASIA  (score: 40)
+       03 8777 2742
+       VIC / Croydon
+       repeat run of 3 (10pts), 4 unique digits (10pts), vanity: USPS-ASIA (8/8 digits, 12pts), dominant digit (8pts)
+
+  #443  03 USPS ARID  (score: 35)
+       03 8777 2743
+       VIC / Croydon
+       repeat run of 3 (10pts), 5 unique digits (5pts), vanity: USPS-ARID (8/8 digits, 12pts), dominant digit (8pts)
+
+  #444  07 GAGE JUGS  (score: 16)
+       07 4243 5847
+       QLD / Cairns
+       vanity: GAGE-JUGS (8/8 digits, 12pts), semi-dominant digit (4pts)
+
+  #445  07 GAGE LUCY  (score: 12)
+       07 4243 5829
+       QLD / Cairns
+       vanity: GAGE-LUCY (8/8 digits, 12pts)
+
+  #446  07 PLAT ROTC  (score: 22)
+       07 7528 7682
+       QLD / Goondiwindi
+       5 unique digits (5pts), sequential run of 3 descending (5pts), vanity: PLAT-ROTC (8/8 digits, 12pts)
+
+  #447  07 PLAT SOYA  (score: 17)
+       07 7528 7692
+       QLD / Goondiwindi
+       sequential run of 3 descending (5pts), vanity: PLAT-SOYA (8/8 digits, 12pts)
+
+  #448  08 70WA CMOB  (score: 33)
+       08 7092 2662
+       SA / Adelaide
+       5 unique digits (5pts), double pair 2266 (6pts), palindrome 2662 (8pts), vanity: WAC-MOB (6/8 digits, 10pts), semi-dominant digit (4pts)
+
+  #449  08 70VE TELI  (score: 18)
+       08 7083 8354
+       SA / Adelaide
+       repeating pair 8383 (8pts), vanity: VET-ELI (6/8 digits, 10pts)
+
+  #450  08 70WA COPT  (score: 15)
+       08 7092 2678
+       SA / Adelaide
+       sequential run of 3 ascending (5pts), vanity: WAC-OPT (6/8 digits, 10pts)
+
+  #451  08 PLIN YLUX  (score: 10)
+       08 7546 9589
+       SA / Karoonda
+       vanity: PLINY-LUX (8/8 digits, 10pts)
+
+  #452  08 MUD0 1AGE  (score: 15)
+       08 6830 1243
+       WA / Albany
+       sequential run of 3 ascending (5pts), vanity: MUD-AGE (6/8 digits, 10pts)
+
+  #453  08 MUD0 1AIL  (score: 15)
+       08 6830 1245
+       WA / Albany
+       sequential run of 3 ascending (5pts), vanity: MUD-AIL (6/8 digits, 10pts)
+
+  #454  08 MUD0 1BIB  (score: 15)
+       08 6830 1242
+       WA / Albany
+       sequential run of 3 ascending (5pts), vanity: MUD-BIB (6/8 digits, 10pts)
+
+  #455  08 MUD0 1BEG  (score: 22)
+       08 6830 1234
+       WA / Albany
+       sequential run of 5 ascending (12pts), vanity: MUD-BEG (6/8 digits, 10pts)
+
+  #456  08 MUD0 1BIZ  (score: 15)
+       08 6830 1249
+       WA / Albany
+       sequential run of 3 ascending (5pts), vanity: MUD-BIZ (6/8 digits, 10pts)
+
+  #457  08 MUD0 1ADS  (score: 22)
+       08 6830 1237
+       WA / Albany
+       sequential run of 4 ascending (12pts), vanity: MUD-ADS (6/8 digits, 10pts)
+
+  #458  08 9ROB IKE5  (score: 10)
+       08 9762 4535
+       WA / Bunbury
+       vanity: ROB-IKE (6/8 digits, 10pts)
+
+  #459  08 9ROB IKE1  (score: 10)
+       08 9762 4531
+       WA / Bunbury
+       vanity: ROB-IKE (6/8 digits, 10pts)
+
+  #460  08 9ROB IKE7  (score: 10)
+       08 9762 4537
+       WA / Bunbury
+       vanity: ROB-IKE (6/8 digits, 10pts)
+
+  #461  08 60CA LOWE  (score: 10)
+       08 6022 5693
+       WA / Kalgoorlie
+       vanity: CAL-OWE (6/8 digits, 10pts)
+
+  #462  08 60CA LOWN  (score: 19)
+       08 6022 5696
+       WA / Kalgoorlie
+       5 unique digits (5pts), vanity: CAL-OWN (6/8 digits, 10pts), semi-dominant digit (4pts)
+
+  #463  08 60CA LOPT  (score: 22)
+       08 6022 5678
+       WA / Kalgoorlie
+       sequential run of 4 ascending (12pts), vanity: CAL-OPT (6/8 digits, 10pts)
+
+  #464  08 60CA LOUR  (score: 10)
+       08 6022 5687
+       WA / Kalgoorlie
+       vanity: CAL-OUR (6/8 digits, 10pts)
+
+  #465  08 60CA LMUD  (score: 10)
+       08 6022 5683
+       WA / Kalgoorlie
+       vanity: CAL-MUD (6/8 digits, 10pts)
+
+  #466  08 51AR TAGO  (score: 10)
+       08 5127 8246
+       WA / Port Hedland
+       vanity: ART-AGO (6/8 digits, 10pts)
+
+  #467  08 51AR TBAY  (score: 14)
+       08 5127 8229
+       WA / Port Hedland
+       vanity: ART-BAY (6/8 digits, 10pts), semi-dominant digit (4pts)
+
+  #468  08 51AR TBEY  (score: 10)
+       08 5127 8239
+       WA / Port Hedland
+       vanity: ART-BEY (6/8 digits, 10pts)
+
+  #469  08 51AR TCAL  (score: 19)
+       08 5127 8225
+       WA / Port Hedland
+       5 unique digits (5pts), vanity: ART-CAL (6/8 digits, 10pts), semi-dominant digit (4pts)
+
+  #470  08 51AR TBIZ  (score: 10)
+       08 5127 8249
+       WA / Port Hedland
+       vanity: ART-BIZ (6/8 digits, 10pts)
+
+  #471  08 51AR TAIR  (score: 10)
+       08 5127 8247
+       WA / Port Hedland
+       vanity: ART-AIR (6/8 digits, 10pts)
+
+  #472  08 51AR TBEG  (score: 15)
+       08 5127 8234
+       WA / Port Hedland
+       sequential run of 3 ascending (5pts), vanity: ART-BEG (6/8 digits, 10pts)
+
+  #473  08 51AR TBEL  (score: 10)
+       08 5127 8235
+       WA / Port Hedland
+       vanity: ART-BEL (6/8 digits, 10pts)
+
+  #474  02 LEG0 6ELI  (score: 15)
+       02 5340 6354
+       NSW / Bathurst
+       5 unique digits (5pts), vanity: LEG-ELI (6/8 digits, 10pts)
+
+  #475  02 LEG0 6DID  (score: 19)
+       02 5340 6343
+       NSW / Bathurst
+       5 unique digits (5pts), vanity: LEG-DID (6/8 digits, 10pts), semi-dominant digit (4pts)
+
+  #476  02 LEG0 MEL7  (score: 10)
+       02 5340 6357
+       NSW / Bathurst
+       vanity: LEG-MEL (6/8 digits, 10pts)
+
+  #477  02 VIAT WA15  (score: 10)
+       02 8428 9215
+       NSW / Dural
+       vanity: VIA-TWA (6/8 digits, 10pts)
+
+  #478  02 VIAT WA06  (score: 10)
+       02 8428 9206
+       NSW / Dural
+       vanity: VIA-TWA (6/8 digits, 10pts)
+
+  #479  02 VIAT WA04  (score: 15)
+       02 8428 9204
+       NSW / Dural
+       5 unique digits (5pts), vanity: VIA-TWA (6/8 digits, 10pts)
+
+  #480  02 VIAT WA19  (score: 15)
+       02 8428 9219
+       NSW / Dural
+       5 unique digits (5pts), vanity: VIA-TWA (6/8 digits, 10pts)
+
+  #481  02 VIAT WA08  (score: 19)
+       02 8428 9208
+       NSW / Dural
+       5 unique digits (5pts), vanity: VIA-TWA (6/8 digits, 10pts), semi-dominant digit (4pts)
+
+  #482  02 VIAT WA16  (score: 10)
+       02 8428 9216
+       NSW / Dural
+       vanity: VIA-TWA (6/8 digits, 10pts)
+
+  #483  02 56LO TAPE  (score: 18)
+       02 5656 8273
+       NSW / Grafton
+       repeating pair 5656 (8pts), vanity: LOT-APE (6/8 digits, 10pts)
+
+  #484  02 56LO TAUK  (score: 32)
+       02 5656 8285
+       NSW / Grafton
+       4 unique digits (10pts), repeating pair 5656 (8pts), vanity: LOT-AUK (6/8 digits, 10pts), semi-dominant digit (4pts)
+
+  #485  02 56LO TASH  (score: 18)
+       02 5656 8274
+       NSW / Grafton
+       repeating pair 5656 (8pts), vanity: LOT-ASH (6/8 digits, 10pts)
+
+  #486  02 56LO TARK  (score: 27)
+       02 5656 8275
+       NSW / Grafton
+       5 unique digits (5pts), repeating pair 5656 (8pts), vanity: LOT-ARK (6/8 digits, 10pts), semi-dominant digit (4pts)
+
+  #487  02 56LO TARC  (score: 23)
+       02 5656 8272
+       NSW / Grafton
+       5 unique digits (5pts), repeating pair 5656 (8pts), vanity: LOT-ARC (6/8 digits, 10pts)
+
+  #488  02 81BI TKEN  (score: 10)
+       02 8124 8536
+       NSW / Liverpool
+       vanity: BIT-KEN (6/8 digits, 10pts)
+
+  #489  02 40RA TLEA  (score: 10)
+       02 4072 8532
+       NSW / Maitland
+       vanity: RAT-LEA (6/8 digits, 10pts)
+
+  #490  02 40RA TLIZ  (score: 10)
+       02 4072 8549
+       NSW / Maitland
+       vanity: RAT-LIZ (6/8 digits, 10pts)
+
+  #491  02 JON1 9LAG  (score: 10)
+       02 5661 9524
+       NSW / Murwillumbah
+       vanity: JON-LAG (6/8 digits, 10pts)
+
+  #492  02 JON1 9JIG  (score: 20)
+       02 5661 9544
+       NSW / Murwillumbah
+       5 unique digits (5pts), trailing 44 (5pts), vanity: JON-JIG (6/8 digits, 10pts)
+
+  #493  02 40WA XGAL  (score: 15)
+       02 4092 9425
+       NSW / Newcastle
+       5 unique digits (5pts), vanity: WAX-GAL (6/8 digits, 10pts)
+
+  #494  02 40WA XHEW  (score: 19)
+       02 4092 9439
+       NSW / Newcastle
+       5 unique digits (5pts), vanity: WAX-HEW (6/8 digits, 10pts), semi-dominant digit (4pts)
+
+  #495  02 40WA XGEL  (score: 10)
+       02 4092 9435
+       NSW / Newcastle
+       vanity: WAX-GEL (6/8 digits, 10pts)
+
+  #496  02 40WA XGIL  (score: 19)
+       02 4092 9445
+       NSW / Newcastle
+       5 unique digits (5pts), vanity: WAX-GIL (6/8 digits, 10pts), semi-dominant digit (4pts)
+
+  #497  02 91DN AERA  (score: 10)
+       02 9136 2372
+       NSW / Sydney
+       vanity: DNA-ERA (6/8 digits, 10pts)
+
+  #498  02 91DN ALIP  (score: 10)
+       02 9136 2547
+       NSW / Sydney
+       vanity: DNA-LIP (6/8 digits, 10pts)
+
+  #499  03 4DAY 0DON  (score: 20)
+       03 4329 0366
+       VIC / Ballarat
+       trailing 66 (5pts), sequential run of 3 descending (5pts), vanity: DAY-DON (6/8 digits, 10pts)
+
+  #500  03 IDA0 0MET  (score: 15)
+       03 4320 0638
+       VIC / Ballarat
+       sequential run of 3 descending (5pts), vanity: IDA-MET (6/8 digits, 10pts)
+

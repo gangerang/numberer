@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vanity Number Explorer</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f5f5f7;
+  color: #1d1d1f;
+  line-height: 1.5;
+  padding: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.control-group { display: flex; flex-direction: column; gap: 0.25rem; }
+
+label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6e6e73;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+input[type="text"], select {
+  border: 1px solid #d2d2d7;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  background: #fafafa;
+  transition: border-color 0.15s;
+}
+input[type="text"]:focus, select:focus {
+  outline: none;
+  border-color: #0071e3;
+  box-shadow: 0 0 0 3px rgba(0,113,227,0.15);
+}
+
+.digit-preview {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 0.8rem;
+  color: #0071e3;
+  min-height: 1.2em;
+  margin-top: 0.15rem;
+}
+
+/* Word browser */
+.word-browser-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+.word-browser-header label { margin: 0; white-space: nowrap; }
+.word-browser-header input[type="text"] { flex: 1; min-width: 120px; max-width: 200px; }
+
+.word-browser-actions {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  margin-left: auto;
+}
+
+.sort-btn, .clear-btn {
+  background: none;
+  border: 1px solid #d2d2d7;
+  border-radius: 6px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #6e6e73;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.sort-btn:hover, .clear-btn:hover { background: #f0f0f0; color: #1d1d1f; }
+.sort-btn.active { background: #e8e8ed; color: #1d1d1f; border-color: #aaa; }
+
+.word-sub-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.word-hint {
+  font-size: 0.65rem;
+  color: #8e8e93;
+}
+
+.cb-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #6e6e73;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: normal;
+  user-select: none;
+}
+.cb-label input[type="checkbox"] {
+  margin: 0;
+  cursor: pointer;
+}
+
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+  min-height: 0;
+}
+.active-filters:empty { display: none; }
+
+.filter-label {
+  font-size: 0.65rem;
+  color: #6e6e73;
+  margin-right: 0.15rem;
+  align-self: center;
+}
+
+.filter-spacer { width: 0.5rem; display: inline-block; }
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+}
+.filter-pill.inc {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #a3d9b1;
+}
+.filter-pill.exc {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f1aeb5;
+}
+.filter-pill .remove { font-size: 0.85em; opacity: 0.6; }
+.filter-pill:hover .remove { opacity: 1; }
+
+.word-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 0.25rem 0;
+}
+
+.word-chip {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  border: 1px solid #d2d2d7;
+  background: #fafafa;
+  color: #6e6e73;
+  transition: all 0.1s;
+}
+.word-chip:hover { border-color: #999; color: #1d1d1f; }
+.word-chip.inc {
+  background: #d4edda;
+  color: #155724;
+  border-color: #a3d9b1;
+  font-weight: 700;
+}
+.word-chip.exc {
+  background: #f8d7da;
+  color: #721c24;
+  border-color: #f1aeb5;
+  font-weight: 700;
+  text-decoration: line-through;
+}
+.word-chip .count {
+  font-weight: 400;
+  opacity: 0.6;
+  margin-left: 0.15rem;
+  font-size: 0.9em;
+}
+
+/* Status bar */
+.status-bar {
+  font-size: 0.8rem;
+  color: #6e6e73;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Table */
+.table-wrap {
+  background: #fff;
+  border: 1px solid #d2d2d7;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+thead { position: sticky; top: 0; z-index: 1; }
+
+th {
+  background: #f5f5f7;
+  border-bottom: 2px solid #d2d2d7;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6e6e73;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+th:hover { color: #1d1d1f; }
+th .sort-arrow { margin-left: 0.25rem; font-size: 0.65rem; }
+
+td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #ebebed;
+  vertical-align: middle;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #f0f5ff; }
+
+/* Number display */
+.num {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.num-vanity {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.vd-digits { color: #8e8e93; }
+.vd-word { color: #1d1d1f; font-weight: 600; }
+
+.num-raw {
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  color: #aeaeb2;
+  margin-top: 0.1rem;
+}
+
+.badge {
+  display: inline-block;
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin: 0.1rem 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+.badge:hover { background: #ffe69c; }
+.badge.is-inc {
+  background: #d4edda;
+  color: #155724;
+  border-color: #a3d9b1;
+}
+.badge.is-exc {
+  background: #f8d7da;
+  color: #721c24;
+  border-color: #f1aeb5;
+  text-decoration: line-through;
+}
+
+mark {
+  background: #bbdefb;
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.score-cell {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.location {
+  color: #6e6e73;
+  font-size: 0.8rem;
+}
+
+.rank-cell {
+  color: #8e8e93;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  width: 2.5rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #8e8e93;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  body { padding: 0.75rem; }
+  .controls { grid-template-columns: 1fr; }
+  .num, .num-vanity { font-size: 0.8rem; }
+  .num-raw { font-size: 0.65rem; }
+  .word-browser-header input[type="text"] { max-width: none; }
+}
+</style>
+</head>
+<body>
+
+<h1>Vanity Number Explorer</h1>
+
+<div class="panel controls">
+  <div class="control-group">
+    <label for="search">Search word / digits</label>
+    <input type="text" id="search" placeholder="e.g. BUSH, CAMP, 2267" autocomplete="off" spellcheck="false">
+    <div class="digit-preview" id="digit-preview"></div>
+  </div>
+  <div class="control-group">
+    <label for="state-filter">State</label>
+    <select id="state-filter"><option value="">All states</option></select>
+  </div>
+</div>
+
+<div class="panel" id="word-panel">
+  <div class="word-browser-header">
+    <label>Vanity words</label>
+    <input type="text" id="word-search" placeholder="Filter words..." autocomplete="off" spellcheck="false">
+    <div class="word-browser-actions">
+      <button class="sort-btn active" data-wsort="length">Length</button>
+      <button class="sort-btn" data-wsort="count">Count</button>
+      <button class="sort-btn" data-wsort="alpha">A-Z</button>
+      <button class="clear-btn" id="clear-filters">Clear</button>
+    </div>
+  </div>
+  <div class="word-sub-header">
+    <span class="word-hint">Click to include &middot; Shift+click to exclude &middot; Click again to remove</span>
+    <label class="cb-label"><input type="checkbox" id="skip-area"> Subscriber only (skip area code digit)</label>
+  </div>
+  <div class="active-filters" id="active-filters"></div>
+  <div class="word-grid" id="word-grid"></div>
+</div>
+
+<div class="status-bar">
+  <span id="result-count">Loading data...</span>
+  <span id="cap-notice"></span>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th class="rank-cell">#</th>
+        <th data-sort="number">Number</th>
+        <th data-sort="word">Word</th>
+        <th data-sort="score">Score <span class="sort-arrow">&#x25BC;</span></th>
+        <th data-sort="location">Location</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<script src="explorer_data.js"></script>
+<script>
+(function() {
+  "use strict";
+
+  var RENDER_CAP = 5000;
+  var KEYPAD = {a:"2",b:"2",c:"2",d:"3",e:"3",f:"3",g:"4",h:"4",i:"4",j:"5",k:"5",l:"5",m:"6",n:"6",o:"6",p:"7",q:"7",r:"7",s:"7",t:"8",u:"8",v:"8",w:"9",x:"9",y:"9",z:"9"};
+
+  var sortCol = "score";
+  var sortAsc = false;
+  var wordSortBy = "length";
+  var wordFilters = {};  // word → "inc" | "exc"
+
+  var $search = document.getElementById("search");
+  var $state = document.getElementById("state-filter");
+  var $preview = document.getElementById("digit-preview");
+  var $count = document.getElementById("result-count");
+  var $cap = document.getElementById("cap-notice");
+  var $tbody = document.getElementById("tbody");
+  var $wordSearch = document.getElementById("word-search");
+  var $wordGrid = document.getElementById("word-grid");
+  var $activeFilters = document.getElementById("active-filters");
+  var $clearBtn = document.getElementById("clear-filters");
+  var $skipArea = document.getElementById("skip-area");
+
+  // --- Flatten DATA into per-word rows ---
+  var ROWS = [];
+  var i, j, r, vw, entry;
+  for (i = 0; i < DATA.length; i++) {
+    r = DATA[i];
+    vw = r.vw || [];
+    if (vw.length) {
+      for (j = 0; j < vw.length; j++) {
+        entry = vw[j];
+        ROWS.push({n: r.n, s: r.s, c: r.c, sc: r.sc, w: entry[0], p: entry[1]});
+      }
+    } else {
+      ROWS.push({n: r.n, s: r.s, c: r.c, sc: r.sc, w: null, p: -1});
+    }
+  }
+
+  // --- Pre-compute per-number digit string for search ---
+  var NUM_DIGITS = {};  // raw number → 9-digit string
+  for (i = 0; i < DATA.length; i++) {
+    var raw = DATA[i].n;
+    NUM_DIGITS[raw] = raw.startsWith("61") ? raw.slice(2) : raw.slice(1);
+  }
+
+  // --- Word counts (recomputed when state/skip-area filters change) ---
+  var cachedWordList = null;
+  var cachedWordKey = "";
+
+  function getWordList() {
+    var skipArea = $skipArea.checked;
+    var st = $state.value;
+    var key = st + "|" + (skipArea ? "1" : "0");
+    if (key === cachedWordKey) return cachedWordList;
+
+    var counts = {};
+    for (var i = 0; i < DATA.length; i++) {
+      var d = DATA[i];
+      if (st && d.s !== st) continue;
+      var vw = d.vw || [];
+      for (var j = 0; j < vw.length; j++) {
+        if (skipArea && vw[j][1] === 0) continue;
+        var w = vw[j][0];
+        counts[w] = (counts[w] || 0) + 1;
+      }
+    }
+    var out = [];
+    for (var k in counts) out.push([k, counts[k]]);
+    cachedWordList = out;
+    cachedWordKey = key;
+    return out;
+  }
+
+  // --- State dropdown ---
+  var stateSet = {};
+  for (i = 0; i < DATA.length; i++) stateSet[DATA[i].s] = 1;
+  var states = Object.keys(stateSet).sort();
+  for (i = 0; i < states.length; i++) {
+    var opt = document.createElement("option");
+    opt.value = states[i];
+    opt.textContent = states[i];
+    $state.appendChild(opt);
+  }
+
+  // --- Sorting ---
+  // Pre-sorted copy of ROWS; re-sorted only when sort column/direction changes
+  var sortedRows = ROWS.slice();
+
+  function comparator(a, b) {
+    var va, vb;
+    switch (sortCol) {
+      case "score":
+        if (a.sc !== b.sc) return sortAsc ? a.sc - b.sc : b.sc - a.sc;
+        va = a.w ? a.w.length : 0; vb = b.w ? b.w.length : 0;
+        return vb - va;
+      case "word":
+        va = a.w || ""; vb = b.w || "";
+        if (va.length !== vb.length) return sortAsc ? va.length - vb.length : vb.length - va.length;
+        if (va < vb) return sortAsc ? -1 : 1;
+        if (va > vb) return sortAsc ? 1 : -1;
+        return 0;
+      case "number":
+        if (a.n < b.n) return sortAsc ? -1 : 1;
+        if (a.n > b.n) return sortAsc ? 1 : -1;
+        return 0;
+      case "location":
+        va = a.s + a.c; vb = b.s + b.c;
+        if (va < vb) return sortAsc ? -1 : 1;
+        if (va > vb) return sortAsc ? 1 : -1;
+        return 0;
+      default:
+        return sortAsc ? a.sc - b.sc : b.sc - a.sc;
+    }
+  }
+
+  function reSort() {
+    sortedRows = ROWS.slice();
+    sortedRows.sort(comparator);
+  }
+  reSort();
+
+  // --- Helpers ---
+
+  function wordToDigits(word) {
+    var out = "", c;
+    for (var i = 0; i < word.length; i++) {
+      c = KEYPAD[word[i].toLowerCase()];
+      if (c) out += c;
+    }
+    return out;
+  }
+
+  function formatNumber(raw) {
+    var local = raw.startsWith("61") ? "0" + raw.slice(2) : raw;
+    if (local.length === 10) return local.slice(0,2) + " " + local.slice(2,6) + " " + local.slice(6);
+    return local;
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  function formatVanityHtml(raw, word, pos) {
+    var local = raw.startsWith("61") ? "0" + raw.slice(2) : raw;
+    var d = local.slice(1);
+    var prefix = local[0] + d.slice(0, pos);
+    var suffix = d.slice(pos + word.length);
+    var parts = [];
+    if (prefix) parts.push('<span class="vd-digits">' + escHtml(prefix) + '</span>');
+    parts.push('<span class="vd-word">' + escHtml(word) + '</span>');
+    if (suffix) parts.push('<span class="vd-digits">' + escHtml(suffix) + '</span>');
+    return parts.join(" ");
+  }
+
+  function highlightDigits(formatted, digitStr) {
+    if (!digitStr) return escHtml(formatted);
+    var raw = formatted.replace(/ /g, "");
+    var d9 = raw.slice(1);
+    var idx = d9.indexOf(digitStr);
+    if (idx === -1) return escHtml(formatted);
+    var hs = idx, he = idx + digitStr.length;
+    var parts = formatted.split("");
+    var result = [], si = -1;
+    for (var i = 0; i < parts.length; i++) {
+      if (parts[i] === " ") { result.push(" "); continue; }
+      if (si >= hs && si < he) result.push('<mark>' + escHtml(parts[i]) + '</mark>');
+      else result.push(escHtml(parts[i]));
+      si++;
+    }
+    return result.join("");
+  }
+
+  // --- Word browser ---
+
+  function getSortedWords() {
+    var all = getWordList();
+    var filter = $wordSearch.value.trim().toLowerCase();
+    var words = filter ? all.filter(function(e) { return e[0].indexOf(filter) !== -1; }) : all.slice();
+    if (wordSortBy === "count") {
+      words.sort(function(a, b) { return b[1] - a[1] || a[0].localeCompare(b[0]); });
+    } else if (wordSortBy === "alpha") {
+      words.sort(function(a, b) { return a[0].localeCompare(b[0]); });
+    } else {
+      words.sort(function(a, b) { return b[0].length - a[0].length || b[1] - a[1] || a[0].localeCompare(b[0]); });
+    }
+    return words;
+  }
+
+  function renderWordGrid() {
+    var words = getSortedWords();
+    var html = "";
+    for (var i = 0; i < words.length; i++) {
+      var w = words[i][0], c = words[i][1];
+      var cls = wordFilters[w] ? " " + wordFilters[w] : "";
+      html += '<span class="word-chip' + cls + '" data-word="' + w + '">'
+        + escHtml(w) + '<span class="count">' + c + '</span></span>';
+    }
+    $wordGrid.innerHTML = html;
+  }
+
+  // Fast: toggle one chip's class without rebuilding the grid
+  function updateChipClass(word) {
+    var chip = $wordGrid.querySelector('[data-word="' + word + '"]');
+    if (chip) chip.className = "word-chip" + (wordFilters[word] ? " " + wordFilters[word] : "");
+  }
+
+  function renderActiveFilters() {
+    var inc = [], exc = [], w;
+    for (w in wordFilters) {
+      if (wordFilters[w] === "inc") inc.push(w);
+      else if (wordFilters[w] === "exc") exc.push(w);
+    }
+    var html = "";
+    if (inc.length) {
+      html += '<span class="filter-label">INCLUDE:</span>';
+      inc.sort();
+      for (var i = 0; i < inc.length; i++) {
+        html += '<span class="filter-pill inc" data-word="' + escHtml(inc[i]) + '">'
+          + escHtml(inc[i]) + ' <span class="remove">&times;</span></span>';
+      }
+    }
+    if (exc.length) {
+      if (inc.length) html += '<span class="filter-spacer"></span>';
+      html += '<span class="filter-label">EXCLUDE:</span>';
+      exc.sort();
+      for (var i = 0; i < exc.length; i++) {
+        html += '<span class="filter-pill exc" data-word="' + escHtml(exc[i]) + '">'
+          + escHtml(exc[i]) + ' <span class="remove">&times;</span></span>';
+      }
+    }
+    $activeFilters.innerHTML = html;
+  }
+
+  function toggleWordFilter(word, mode) {
+    if (wordFilters[word] === mode) delete wordFilters[word];
+    else wordFilters[word] = mode;
+  }
+
+  // Fast toggle: update one chip + pills + re-filter (no re-sort, no grid rebuild)
+  function onWordToggle(word, mode) {
+    toggleWordFilter(word, mode);
+    updateChipClass(word);
+    renderActiveFilters();
+    filterAndRender();
+  }
+
+  $wordGrid.addEventListener("click", function(e) {
+    var chip = e.target.closest(".word-chip");
+    if (!chip) return;
+    onWordToggle(chip.dataset.word, e.shiftKey ? "exc" : "inc");
+  });
+
+  $activeFilters.addEventListener("click", function(e) {
+    var pill = e.target.closest(".filter-pill");
+    if (!pill) return;
+    var word = pill.dataset.word;
+    delete wordFilters[word];
+    updateChipClass(word);
+    renderActiveFilters();
+    filterAndRender();
+  });
+
+  $clearBtn.addEventListener("click", function() {
+    var w;
+    for (w in wordFilters) delete wordFilters[w];
+    $wordSearch.value = "";
+    renderWordGrid();
+    renderActiveFilters();
+    filterAndRender();
+  });
+
+  $wordSearch.addEventListener("input", function() { renderWordGrid(); });
+
+  document.querySelectorAll(".sort-btn[data-wsort]").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      wordSortBy = btn.dataset.wsort;
+      document.querySelectorAll(".sort-btn[data-wsort]").forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      renderWordGrid();
+    });
+  });
+
+  $skipArea.addEventListener("change", function() {
+    renderWordGrid();
+    filterAndRender();
+  });
+
+  // --- Main filter & render (no sorting — uses pre-sorted array) ---
+
+  function filterAndRender() {
+    var searchWord = $search.value.trim();
+    var searchDigits = wordToDigits(searchWord) || (searchWord.match(/^\d+$/) ? searchWord : "");
+    var stateFilter = $state.value;
+    var skipArea = $skipArea.checked;
+
+    // Build Sets for fast lookup
+    var incSet = null, excSet = null, w;
+    for (w in wordFilters) {
+      if (wordFilters[w] === "inc") { if (!incSet) incSet = new Set(); incSet.add(w); }
+      else if (wordFilters[w] === "exc") { if (!excSet) excSet = new Set(); excSet.add(w); }
+    }
+
+    // Digit preview
+    if (searchWord && !searchWord.match(/^\d+$/)) {
+      var digits = wordToDigits(searchWord);
+      $preview.textContent = digits ? "\u2192 " + digits : "";
+    } else {
+      $preview.textContent = "";
+    }
+
+    // Filter pre-sorted rows (order preserved)
+    var filtered = [];
+    var src = sortedRows;
+    for (var i = 0; i < src.length; i++) {
+      var r = src[i];
+      if (stateFilter && r.s !== stateFilter) continue;
+      if (searchDigits && NUM_DIGITS[r.n].indexOf(searchDigits) === -1) continue;
+      if (skipArea && r.p === 0) continue;
+      if (incSet && (!r.w || !incSet.has(r.w))) continue;
+      if (excSet && r.w && excSet.has(r.w)) continue;
+      filtered.push(r);
+      if (filtered.length >= RENDER_CAP) break;
+    }
+
+    var total;
+    if (filtered.length < RENDER_CAP) {
+      total = filtered.length;
+    } else {
+      // Count remaining matches for the status line
+      total = RENDER_CAP;
+      for (var j = i + 1; j < src.length; j++) {
+        r = src[j];
+        if (stateFilter && r.s !== stateFilter) continue;
+        if (searchDigits && NUM_DIGITS[r.n].indexOf(searchDigits) === -1) continue;
+        if (skipArea && r.p === 0) continue;
+        if (incSet && (!r.w || !incSet.has(r.w))) continue;
+        if (excSet && r.w && excSet.has(r.w)) continue;
+        total++;
+      }
+    }
+
+    $count.textContent = "Showing " + filtered.length + " of " + total + " rows";
+    $cap.textContent = total > RENDER_CAP ? (total - RENDER_CAP) + " more not shown" : "";
+
+    // Render
+    var html = "";
+    for (var idx = 0; idx < filtered.length; idx++) {
+      r = filtered[idx];
+      var numberCell;
+      if (r.w) {
+        var vanityHtml = formatVanityHtml(r.n, r.w, r.p);
+        var rawHtml = highlightDigits(formatNumber(r.n), searchDigits);
+        numberCell = '<div class="num-vanity">' + vanityHtml + '</div><div class="num-raw">' + rawHtml + '</div>';
+      } else {
+        numberCell = '<div class="num">' + highlightDigits(formatNumber(r.n), searchDigits) + '</div>';
+      }
+      var badge = "";
+      if (r.w) {
+        var cls = wordFilters[r.w] === "inc" ? " is-inc" : wordFilters[r.w] === "exc" ? " is-exc" : "";
+        badge = '<span class="badge' + cls + '" data-word="' + escHtml(r.w) + '">' + escHtml(r.w) + '</span>';
+      }
+      html += '<tr><td class="rank-cell">' + (idx+1) + '</td><td>' + numberCell + '</td><td>' + badge + '</td><td class="score-cell">' + r.sc + '</td><td class="location">' + escHtml(r.s) + ' / ' + escHtml(r.c) + '</td></tr>';
+    }
+
+    $tbody.innerHTML = html || '<tr><td colspan="5" class="empty-state">No numbers match your filters</td></tr>';
+    saveHash();
+  }
+
+  // Click badges in results
+  $tbody.addEventListener("click", function(e) {
+    var badge = e.target.closest(".badge");
+    if (!badge) return;
+    onWordToggle(badge.dataset.word, e.shiftKey ? "exc" : "inc");
+  });
+
+  // Sort headers — only re-sort here
+  document.querySelectorAll("th[data-sort]").forEach(function(th) {
+    th.addEventListener("click", function() {
+      var col = th.dataset.sort;
+      if (sortCol === col) {
+        sortAsc = !sortAsc;
+      } else {
+        sortCol = col;
+        sortAsc = col === "number" || col === "location";
+      }
+      document.querySelectorAll("th .sort-arrow").forEach(function(el) { el.remove(); });
+      var arrow = document.createElement("span");
+      arrow.className = "sort-arrow";
+      arrow.textContent = sortAsc ? "\u25B2" : "\u25BC";
+      th.appendChild(arrow);
+      reSort();
+      filterAndRender();
+    });
+  });
+
+  // Debounced text input
+  var timer = null;
+  function onInput() {
+    clearTimeout(timer);
+    timer = setTimeout(filterAndRender, 100);
+  }
+  $search.addEventListener("input", onInput);
+  $state.addEventListener("change", function() {
+    renderWordGrid();
+    filterAndRender();
+  });
+
+  // --- URL hash ---
+
+  function saveHash() {
+    var params = new URLSearchParams();
+    if ($search.value) params.set("q", $search.value);
+    if ($state.value) params.set("st", $state.value);
+    if ($skipArea.checked) params.set("sub", "1");
+    var inc = [], exc = [], w;
+    for (w in wordFilters) {
+      if (wordFilters[w] === "inc") inc.push(w);
+      else if (wordFilters[w] === "exc") exc.push(w);
+    }
+    if (inc.length) params.set("inc", inc.sort().join(","));
+    if (exc.length) params.set("exc", exc.sort().join(","));
+    if (sortCol !== "score" || sortAsc) params.set("sort", (sortAsc ? "" : "-") + sortCol);
+    var h = params.toString();
+    history.replaceState(null, "", h ? "#" + h : location.pathname);
+  }
+
+  function loadHash() {
+    var h = location.hash.slice(1);
+    if (!h) return;
+    var params = new URLSearchParams(h);
+    if (params.has("q")) $search.value = params.get("q");
+    if (params.has("st")) $state.value = params.get("st");
+    if (params.get("sub") === "1") $skipArea.checked = true;
+    if (params.has("inc")) {
+      params.get("inc").split(",").forEach(function(w) { if (w) wordFilters[w] = "inc"; });
+    }
+    if (params.has("exc")) {
+      params.get("exc").split(",").forEach(function(w) { if (w) wordFilters[w] = "exc"; });
+    }
+    if (params.has("sort")) {
+      var s = params.get("sort");
+      if (s.startsWith("-")) { sortCol = s.slice(1); sortAsc = false; }
+      else { sortCol = s; sortAsc = true; }
+    }
+  }
+
+  // --- Init ---
+  loadHash();
+  if (sortCol !== "score" || sortAsc) reSort();
+  renderWordGrid();
+  renderActiveFilters();
+  filterAndRender();
+})();
+</script>
+</body>
+</html>

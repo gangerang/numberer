@@ -106,6 +106,10 @@ VANITY_WORDS = {
     "wine", "wing", "wire", "wise", "wish", "with", "woke", "wolf", "wood",
     "wool", "word", "wore", "work", "worm", "worn", "wrap", "yard", "yarn",
     "year", "yoga", "yoke", "your", "zero", "zone", "zoom",
+    # common words previously missing
+    "bang", "bait", "bags", "mama", "papa", "vary", "mash", "mare", "mayo",
+    "maul", "mama", "mint", "mist", "plat", "swell", "space", "judo",
+    "snag", "creek", "trail", "beach", "roam", "trek",
     # fun/memorable 3-letter ones
     "ace", "art", "bar", "bat", "bet", "big", "bit", "bot", "box", "bro",
     "bug", "bun", "bus", "buy", "cab", "cam", "cap", "car", "cat", "cop",
@@ -140,6 +144,10 @@ VANITY_WORDS = {
     "way", "web", "wed", "wet", "who", "why", "wig", "win", "wit", "woe",
     "wok", "won", "woo", "wow", "yak", "yam", "yap", "yaw", "yea", "yes",
     "yet", "yew", "you", "zap", "zen", "zip", "zoo",
+    # custom / brand
+    "anytrip",
+    # aussie swears
+    "shit", "fuck", "cunt", "arse",
 }
 
 
@@ -150,42 +158,63 @@ def word_to_digits(word: str) -> str:
 # --- Dictionary loading ---
 _VOWELS = set("aeiou")
 _WORD_RE = re.compile(r"^[a-z]{3,8}$")
+_DICT_PATHS = [
+    "/usr/share/dict/british-english",
+    "/usr/share/dict/american-english",
+    "/usr/share/dict/words",
+    "/usr/share/cracklib/cracklib-small",
+]
 
 def _load_dictionary() -> set[str]:
-    """Load filtered word list from cracklib, falling back to VANITY_WORDS."""
-    try:
-        with open("/usr/share/cracklib/cracklib-small") as f:
-            words = set()
-            for line in f:
-                w = line.strip().lower()
-                if _WORD_RE.match(w) and _VOWELS & set(w):
-                    words.add(w)
-            return words
-    except OSError:
-        print("Warning: /usr/share/cracklib/cracklib-small not found, "
-              "using built-in vanity word list only", file=sys.stderr)
-        return set()
+    """Load filtered word list from system dictionaries, trying largest first."""
+    for path in _DICT_PATHS:
+        try:
+            with open(path) as f:
+                words = set()
+                for line in f:
+                    w = line.strip().lower()
+                    if _WORD_RE.match(w) and _VOWELS & set(w):
+                        words.add(w)
+                if words:
+                    print(f"Loaded {len(words)} words from {path}", file=sys.stderr)
+                    return words
+        except OSError:
+            continue
+    print("Warning: no system dictionary found, "
+          "using built-in vanity word list only", file=sys.stderr)
+    return set()
 
 DICTIONARY_WORDS = _load_dictionary()
 
 
 # --- Word quality scoring ---
+# Premium words: travel/adventure themed — get extra boost
+PREMIUM_WORDS = {
+    # travel/adventure
+    "bush", "map", "maps", "hike", "trip", "camp", "trek", "trail",
+    "roam", "wild", "park", "path", "lake", "reef", "surf", "sand",
+    "boat", "fish", "dive", "land", "road", "tour", "anytrip",
+    # aussie swears — memorable vanity numbers
+    "shit", "fuck", "crap", "damn", "arse", "cunt", "dick", "piss",
+    "tits", "bong", "root", "slag", "slut",
+}
+
 def _word_quality(word: str) -> float:
-    """Return quality score for a word: tier 1 (VANITY_WORDS) = 1.0, tier 2 by length."""
+    """Return quality score: premium > tier 1 > tier 2."""
+    if word in PREMIUM_WORDS:
+        return 1.5
     if word in VANITY_WORDS:
         return 1.0
-    n = len(word)
-    if n <= 4:
-        return 0.4
-    if n == 5:
-        return 0.3
-    if n == 6:
-        return 0.25
-    return 0.15  # 7-8
+    return 0.6  # tier 2: recognisable dictionary word
 
+
+# Length bonus: longer single words are disproportionately impressive
+# A 6-letter word should rival two 3-letter words; an 8-letter word should be best
+_LENGTH_MULT = {3: 1.0, 4: 1.2, 5: 1.8, 6: 2.8, 7: 3.5, 8: 4.5}
 
 def _word_score(word: str) -> float:
-    return len(word) * _word_quality(word)
+    length_mult = _LENGTH_MULT.get(len(word), 4.5)
+    return len(word) * _word_quality(word) * length_mult
 
 
 # --- Digit trie ---
@@ -245,6 +274,26 @@ def find_vanity_words(digits: str) -> list[tuple[int, int, str, float]]:
     return results
 
 
+def find_all_vanity_words(digits: str) -> list[tuple[str, int]]:
+    """Find all unique vanity words at any position in the digit string.
+
+    Returns list of (word, first_start_position) sorted by word.
+    """
+    seen: dict[str, int] = {}
+    n = len(digits)
+    for start in range(n):
+        node = DIGIT_TRIE
+        for offset in range(n - start):
+            d = digits[start + offset]
+            if d not in node.children:
+                break
+            node = node.children[d]
+            for word, _ in node.words:
+                if word not in seen:
+                    seen[word] = start
+    return sorted(seen.items())
+
+
 # --- Multi-word coverage via DP ---
 def _best_coverage(matches: list[tuple[int, int, str, float]], n: int) -> tuple[int, float, list[tuple[int, int, str]]]:
     """Right-to-left DP to find best non-overlapping word placement.
@@ -284,6 +333,7 @@ def _best_coverage(matches: list[tuple[int, int, str, float]], n: int) -> tuple[
 def format_vanity_number(raw: str, words: list[tuple[int, int, str]]) -> str:
     """Build a display string where matched digit ranges are replaced with words.
 
+    Placements are relative to local[1:] (area code 2nd digit + subscriber = 9 chars).
     Uses the same XX XXXX XXXX spacing as format_au_number().
     """
     if raw.startswith("61"):
@@ -293,19 +343,15 @@ def format_vanity_number(raw: str, words: list[tuple[int, int, str]]) -> str:
     if len(local) != 10:
         return local
 
-    area_code = local[:2]
-    subscriber = local[2:]
-
-    # Build character array for subscriber digits
-    chars = list(subscriber)
-    # Replace matched ranges with word letters (uppercase)
+    # Build 9-char array: area code 2nd digit + 8 subscriber digits
+    chars = list(local[1:])
     for start, length, word in words:
         for j, ch in enumerate(word.upper()):
             if start + j < len(chars):
                 chars[start + j] = ch
 
-    sub = "".join(chars)
-    return f"{area_code} {sub[:4]} {sub[4:]}"
+    # Reconstruct: 0 + chars[0] (area) + space + chars[1:5] + space + chars[5:]
+    return f"{local[0]}{chars[0]} {''.join(chars[1:5])} {''.join(chars[5:])}"
 
 
 # --- Main vanity scoring ---
@@ -323,19 +369,27 @@ def score_vanity(subscriber: str) -> tuple[int, str, list[tuple[int, int, str]] 
     if not placements:
         return 0, "", None
 
-    # Coverage multiplier
+    # Coverage multiplier — flat curve; word quality matters more than coverage
     n = len(subscriber)
     coverage_ratio = digits_covered / n if n else 0
     if coverage_ratio >= 1.0:
-        coverage_mult = 2.0
-    elif coverage_ratio >= 7 / 8:
-        coverage_mult = 1.5
+        coverage_mult = 1.3
     elif coverage_ratio >= 6 / 8:
-        coverage_mult = 1.2
-    else:
+        coverage_mult = 1.15
+    elif coverage_ratio >= 4 / 8:
         coverage_mult = 1.0
+    else:
+        coverage_mult = 0.85
 
-    pts = min(int(total_score * coverage_mult * 2.0), 30)
+    # Alignment bonus: reward words that fit the XX XXXX XXXX display boundaries
+    boundary = 5  # position of the subscriber group split in the 9-digit vanity string
+    aligned = all(
+        (start + length <= boundary) or (start >= boundary)
+        for start, length, _ in placements
+    )
+    alignment_mult = 1.15 if aligned else 1.0
+
+    pts = min(int(total_score * coverage_mult * alignment_mult * 2.0), 30)
     if pts <= 0:
         return 0, "", None
 
@@ -483,7 +537,9 @@ def score_number(raw: str) -> dict:
         break
 
     # --- 7. Vanity words (max 30 pts) ---
-    vanity_pts, vanity_reason, vanity_placements = score_vanity(subscriber)
+    # Include area code 2nd digit so vanity words can bridge into it
+    vanity_digits = local[1:] if len(local) == 10 else subscriber
+    vanity_pts, vanity_reason, vanity_placements = score_vanity(vanity_digits)
     if vanity_pts:
         score += vanity_pts
         reasons.append(vanity_reason)
@@ -503,6 +559,7 @@ def score_number(raw: str) -> dict:
 
     result = {
         "score": score,
+        "vanity_score": vanity_pts,
         "reasons": reasons,
         "formatted": format_au_number(raw),
     }
@@ -511,18 +568,21 @@ def score_number(raw: str) -> dict:
     return result
 
 
-def rank_all(results: dict, top_n: int = 20) -> list[dict]:
+def rank_all(results: dict, top_n: int = 20, vanity_only: bool = False) -> list[dict]:
     scored = []
     for state, cities in results.items():
         for city, numbers in cities.items():
             for entry in numbers:
                 info = score_number(entry["number"])
+                if vanity_only and not info["vanity_score"]:
+                    continue
                 item = {
                     "number": entry["number"],
                     "formatted": info["formatted"],
                     "state": state,
                     "city": city,
                     "score": info["score"],
+                    "vanity_score": info["vanity_score"],
                     "reasons": info["reasons"],
                     "channels": entry["channels"],
                     "setup_cost": entry["setup_cost"],
@@ -531,8 +591,48 @@ def rank_all(results: dict, top_n: int = 20) -> list[dict]:
                 if "vanity_display" in info:
                     item["vanity_display"] = info["vanity_display"]
                 scored.append(item)
-    scored.sort(key=lambda x: x["score"], reverse=True)
+    sort_key = (lambda x: x["vanity_score"]) if vanity_only else (lambda x: x["score"])
+    scored.sort(key=sort_key, reverse=True)
     return scored[:top_n] if top_n else scored
+
+
+def export_explorer(results: dict) -> None:
+    """Export all numbers as compact JSON for the web explorer."""
+    import os
+    records = []
+    total = 0
+    for state, cities in results.items():
+        for city, numbers in cities.items():
+            for entry in numbers:
+                total += 1
+                raw = entry["number"]
+                info = score_number(raw)
+                rec = {
+                    "n": raw,
+                    "s": state,
+                    "c": city,
+                    "sc": info["score"],
+                }
+                # Extract all vanity words with positions
+                local = "0" + raw[2:] if raw.startswith("61") else raw
+                vanity_digits = local[1:] if len(local) == 10 else local
+                all_matches = find_all_vanity_words(vanity_digits)
+                if all_matches:
+                    rec["vw"] = all_matches
+                records.append(rec)
+                if total % 5000 == 0:
+                    print(f"  Processed {total} numbers...", file=sys.stderr)
+
+    # Sort by score descending for default view
+    records.sort(key=lambda r: r["sc"], reverse=True)
+
+    out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "explorer_data.js")
+    with open(out_path, "w") as f:
+        f.write("const DATA = ")
+        json.dump(records, f, separators=(",", ":"))
+        f.write(";\n")
+
+    print(f"Exported {len(records)} numbers to {out_path}", file=sys.stderr)
 
 
 def main():
@@ -555,6 +655,16 @@ def main():
         "--state", "-s",
         help="Filter to specific state(s). Comma-separated.",
     )
+    parser.add_argument(
+        "--vanity", "-v",
+        action="store_true",
+        help="Show only vanity numbers, ranked by vanity score",
+    )
+    parser.add_argument(
+        "--export",
+        choices=["explorer"],
+        help="Export data for web explorer (generates explorer_data.js)",
+    )
     args = parser.parse_args()
 
     with open(args.input) as f:
@@ -565,8 +675,12 @@ def main():
         states = {s.strip().upper() for s in args.state.split(",")}
         results = {k: v for k, v in results.items() if k in states}
 
+    if args.export == "explorer":
+        export_explorer(results)
+        return
+
     top_n = args.top or 0
-    ranked = rank_all(results, top_n=top_n)
+    ranked = rank_all(results, top_n=top_n, vanity_only=args.vanity)
 
     total = sum(
         len(nums)
@@ -575,9 +689,10 @@ def main():
     )
     show = min(args.top, len(ranked)) if args.top else len(ranked)
 
+    label = "VANITY NUMBERS" if args.vanity else "NUMBERS"
     print(f"Ranking {total} numbers from {args.input}")
     print(f"\n{'=' * 60}")
-    print(f" TOP {show} NUMBERS")
+    print(f" TOP {show} {label}")
     print(f"{'=' * 60}\n")
 
     for i, entry in enumerate(ranked[:show], 1):
@@ -585,8 +700,7 @@ def main():
         print(f"  #{i:>2}  {display}  (score: {entry['score']})")
         if "vanity_display" in entry:
             print(f"       {entry['formatted']}")
-        print(f"       {entry['state']} / {entry['city']}  "
-              f"${entry['setup_cost']:.2f} setup, ${entry['monthly_cost']:.2f}/mo")
+        print(f"       {entry['state']} / {entry['city']}")
         if entry["reasons"]:
             print(f"       {', '.join(entry['reasons'])}")
         print()
