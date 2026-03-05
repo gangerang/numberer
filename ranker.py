@@ -113,7 +113,7 @@ VANITY_WORDS = {
     # fun/memorable 3-letter ones
     "ace", "art", "bar", "bat", "bet", "big", "bit", "bot", "box", "bro",
     "bug", "bun", "bus", "buy", "cab", "cam", "cap", "car", "cat", "cop",
-    "cow", "cry", "cub", "cup", "cut", "dam", "day", "den", "dew", "dig",
+    "cow", "cry", "cub", "cup", "cut", "dam", "day", "den", "dew", "dez", "dig",
     "dim", "dip", "dog", "dot", "dry", "dub", "dug", "dye", "ear", "eat",
     "egg", "ego", "elk", "elm", "end", "era", "eve", "eye", "fan", "far",
     "fat", "fax", "fig", "fin", "fit", "fix", "fly", "fog", "for", "fox",
