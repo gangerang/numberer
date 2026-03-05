@@ -357,6 +357,7 @@ mark {
 .combo-line .vd-digits { color: #8e8e93; }
 .combo-overflow { font-size: 0.7rem; color: #8e8e93; font-style: italic; }
 
+
 @media (max-width: 640px) {
   body { padding: 0.75rem; }
   .controls { grid-template-columns: 1fr; }
@@ -373,7 +374,7 @@ mark {
 <div class="panel controls">
   <div class="control-group">
     <label for="search">Search digits</label>
-    <input type="text" id="search" placeholder="e.g. 2267" autocomplete="off" spellcheck="false">
+    <input type="text" id="search" placeholder="e.g. 2267, CAMP" autocomplete="off" spellcheck="false">
     <div class="digit-preview" id="digit-preview"></div>
   </div>
   <div class="control-group">
@@ -503,6 +504,61 @@ mark {
     }
   }
 
+  // --- Generate digit pattern "words" ---
+  var _pats = {};
+  var _d, _k, _s;
+  // Repeated digits: 00, 000, 0000, 00000, 11, 111, ...
+  for (_d = 0; _d <= 9; _d++) {
+    _s = String(_d);
+    for (_k = 1; _k < 5; _k++) {
+      _s += _d;
+      _pats[_s] = true;
+    }
+  }
+  // Round numbers: 10, 20, ..., 100, 200, ..., 1000, 2000, ...
+  for (_d = 1; _d <= 9; _d++) {
+    _pats[_d + "0"] = true;
+    _pats[_d + "00"] = true;
+    _pats[_d + "000"] = true;
+  }
+  // Ascending sequences (3-5 digits): 012, 123, ..., 01234, 12345, ...
+  for (_d = 0; _d <= 9; _d++) {
+    for (_k = 3; _k <= 5; _k++) {
+      if (_d + _k - 1 > 9) break;
+      _s = "";
+      for (var _j = 0; _j < _k; _j++) _s += (_d + _j);
+      _pats[_s] = true;
+    }
+  }
+  // Descending sequences (3-5 digits): 210, 321, ..., 98765, ...
+  for (_d = 9; _d >= 0; _d--) {
+    for (_k = 3; _k <= 5; _k++) {
+      if (_d - _k + 1 < 0) break;
+      _s = "";
+      for (var _j2 = 0; _j2 < _k; _j2++) _s += (_d - _j2);
+      _pats[_s] = true;
+    }
+  }
+
+  // Scan all numbers for pattern occurrences, add as word entries
+  var DIGIT_PATTERNS = Object.keys(_pats);
+  for (var pi = 0; pi < DIGIT_PATTERNS.length; pi++) {
+    var pat = DIGIT_PATTERNS[pi];
+    for (var ni = 0; ni < DATA.length; ni++) {
+      var raw = DATA[ni].n;
+      var d9 = NUM_DIGITS[raw];
+      var pos = 0;
+      while (true) {
+        var idx = d9.indexOf(pat, pos);
+        if (idx === -1) break;
+        NUM_WORDS[raw].push([pat, idx]);
+        if (!WORD_TO_NUMS[pat]) WORD_TO_NUMS[pat] = new Set();
+        WORD_TO_NUMS[pat].add(raw);
+        pos = idx + 1;
+      }
+    }
+  }
+
   // --- Word counts (cached by state+skipArea) ---
   var cachedWordList = null;
   var cachedWordKey = "";
@@ -517,7 +573,7 @@ mark {
     for (var i = 0; i < DATA.length; i++) {
       var d = DATA[i];
       if (st && d.s !== st) continue;
-      var wList = d.w || [];
+      var wList = NUM_WORDS[d.n] || [];
       var seen = {};
       for (var j = 0; j < wList.length; j++) {
         if (skipArea && wList[j][1] === 0) continue;
@@ -549,7 +605,7 @@ mark {
     for (var i = 0; i < DATA.length; i++) {
       var d = DATA[i];
       if (st && d.s !== st) continue;
-      var wList = d.w || [];
+      var wList = NUM_WORDS[d.n] || [];
       if (wList.length < 2) continue;
 
       var words = [];
@@ -594,6 +650,7 @@ mark {
   // --- Helpers ---
 
   function wordToDigits(word) {
+    if (/^\d+$/.test(word)) return word;
     var out = "", c;
     for (var i = 0; i < word.length; i++) {
       c = KEYPAD[word[i].toLowerCase()];
@@ -914,39 +971,58 @@ mark {
 
   function computeResults() {
     resultRows = [];
-    if (stage1Words.size === 0) return;
 
-    var hasS2 = stage2Words.size > 0;
-
-    for (var raw in comboCache) {
-      var combos = comboCache[raw];
-      var matchingCombos;
-
-      if (hasS2) {
-        // Filter to combos containing both a stage 1 AND a stage 2 word
-        matchingCombos = [];
-        for (var i = 0; i < combos.length; i++) {
-          if (comboContainsAny(combos[i], stage2Words)) {
-            matchingCombos.push(combos[i]);
-          }
-        }
-        if (matchingCombos.length === 0) continue;
-      } else {
-        matchingCombos = combos;
+    if (stage1Words.size === 0) {
+      // Digit-search-only mode
+      var searchDigits = getSearchDigits();
+      if (!searchDigits) return;
+      var stateFilter = $state.value;
+      var skipArea = $skipArea.checked;
+      for (var i = 0; i < DATA.length; i++) {
+        var d = DATA[i];
+        if (stateFilter && d.s !== stateFilter) continue;
+        if (NUM_DIGITS[d.n].indexOf(searchDigits) === -1) continue;
+        var combos = getCombinations(d.n, skipArea);
+        resultRows.push({
+          raw: d.n,
+          d: d,
+          best: combos.length > 0 ? combos[0] : null,
+          coverage: combos.length > 0 ? comboCoverage(combos[0]) : 0,
+          combos: combos
+        });
+        if (resultRows.length >= RENDER_CAP) break;
       }
+    } else {
+      var hasS2 = stage2Words.size > 0;
 
-      // Pick best combo (highest coverage)
-      var best = matchingCombos[0]; // already sorted by coverage
-      var cov = comboCoverage(best);
-      var d = stage1Numbers[raw];
+      for (var raw in comboCache) {
+        var combos2 = comboCache[raw];
+        var matchingCombos;
 
-      resultRows.push({
-        raw: raw,
-        d: d,
-        best: best,
-        coverage: cov,
-        combos: matchingCombos
-      });
+        if (hasS2) {
+          matchingCombos = [];
+          for (var j = 0; j < combos2.length; j++) {
+            if (comboContainsAny(combos2[j], stage2Words)) {
+              matchingCombos.push(combos2[j]);
+            }
+          }
+          if (matchingCombos.length === 0) continue;
+        } else {
+          matchingCombos = combos2;
+        }
+
+        var best = matchingCombos[0];
+        var cov = comboCoverage(best);
+        var dd = stage1Numbers[raw];
+
+        resultRows.push({
+          raw: raw,
+          d: dd,
+          best: best,
+          coverage: cov,
+          combos: matchingCombos
+        });
+      }
     }
 
     // Sort
@@ -958,7 +1034,7 @@ mark {
         case "number":
           return sortAsc ? (a.raw < b.raw ? -1 : 1) : (a.raw > b.raw ? -1 : 1);
         case "words":
-          var wa = a.best[0][0], wb = b.best[0][0];
+          var wa = a.best ? a.best[0][0] : "", wb = b.best ? b.best[0][0] : "";
           if (wa < wb) return sortAsc ? -1 : 1;
           if (wa > wb) return sortAsc ? 1 : -1;
           return 0;
@@ -979,10 +1055,13 @@ mark {
   function renderResults() {
     var searchDigits = getSearchDigits();
 
-    if (stage1Words.size === 0) {
-      $count.textContent = "Select one or more words to see matching numbers";
+    if (resultRows.length === 0) {
+      var msg = stage1Words.size === 0 && !getSearchDigits()
+        ? "Select words or search digits to see matching numbers"
+        : "No numbers match your filters";
+      $count.textContent = msg;
       $cap.textContent = "";
-      $tbody.innerHTML = '<tr><td colspan="4" class="empty-state">Select one or more words above to see matching numbers</td></tr>';
+      $tbody.innerHTML = '<tr><td colspan="4" class="empty-state">' + msg + '</td></tr>';
       return;
     }
 
@@ -1000,19 +1079,22 @@ mark {
       var rawHtml = highlightDigits(formatNumber(raw), searchDigits);
       var numberCell = '';
       var cap = 50;
-      var comboShowing = Math.min(row.combos.length, cap);
-      for (var ci = 0; ci < comboShowing; ci++) {
-        numberCell += '<div class="combo-line">' + formatComboHtml(raw, row.combos[ci]) + '</div>';
-      }
-      if (row.combos.length > cap) {
-        numberCell += '<div class="combo-overflow">+ ' + (row.combos.length - cap) + ' more</div>';
+      if (row.combos.length > 0) {
+        var comboShowing = Math.min(row.combos.length, cap);
+        for (var ci = 0; ci < comboShowing; ci++) {
+          numberCell += '<div class="combo-line">' + formatComboHtml(raw, row.combos[ci]) + '</div>';
+        }
+        if (row.combos.length > cap) {
+          numberCell += '<div class="combo-overflow">+ ' + (row.combos.length - cap) + ' more</div>';
+        }
       }
       numberCell += '<div class="num-raw">' + rawHtml + '</div>';
 
       // Word badges: collect unique words from all shown combos
       var badgesSeen = {};
       var badges = "";
-      for (var ci2 = 0; ci2 < comboShowing; ci2++) {
+      var comboShowing2 = row.combos.length > 0 ? Math.min(row.combos.length, cap) : 0;
+      for (var ci2 = 0; ci2 < comboShowing2; ci2++) {
         for (var bi = 0; bi < row.combos[ci2].length; bi++) {
           var bw = row.combos[ci2][bi][0];
           if (badgesSeen[bw]) continue;
