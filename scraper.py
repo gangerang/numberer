@@ -86,6 +86,9 @@ ROW_RE = re.compile(
 )
 
 
+PAGE_THRESHOLD = 20
+
+
 def fetch_numbers(state: str, city: str, session: requests.Session) -> list[dict]:
     resp = session.post(URL, data={"state": state, "city": city})
     resp.raise_for_status()
@@ -99,6 +102,44 @@ def fetch_numbers(state: str, city: str, session: requests.Session) -> list[dict
             "monthly_cost": float(m.group(4)),
         })
     return numbers
+
+
+def fetch_all_numbers(
+    state: str, city: str, session: requests.Session, delay: float = 0.5
+) -> list[dict]:
+    """Fetch numbers repeatedly until no new ones appear.
+
+    Some areas return more numbers than a single response contains.
+    When a response returns PAGE_THRESHOLD or more results, keep
+    querying until a round adds nothing new.
+    """
+    seen: dict[str, dict] = {}
+    numbers = fetch_numbers(state, city, session)
+    for n in numbers:
+        seen[n["number"]] = n
+
+    if len(numbers) < PAGE_THRESHOLD:
+        return list(seen.values())
+
+    rounds = 1
+    empty_streak = 0
+    while empty_streak < 3:
+        time.sleep(delay)
+        numbers = fetch_numbers(state, city, session)
+        rounds += 1
+        new_count = 0
+        for n in numbers:
+            if n["number"] not in seen:
+                seen[n["number"]] = n
+                new_count += 1
+        if new_count == 0:
+            empty_streak += 1
+        else:
+            empty_streak = 0
+            print(f"+{new_count} ", end="", flush=True)
+
+    print(f"({rounds} rounds) ", end="", flush=True)
+    return list(seen.values())
 
 
 def scrape(states: list[str] | None = None, delay: float = 0.5) -> dict:
@@ -119,7 +160,7 @@ def scrape(states: list[str] | None = None, delay: float = 0.5) -> dict:
         results[state] = {}
         for city in cities:
             print(f"  {state} / {city} ... ", end="", flush=True)
-            numbers = fetch_numbers(state, city, session)
+            numbers = fetch_all_numbers(state, city, session, delay)
             print(f"{len(numbers)} numbers")
             if numbers:
                 results[state][city] = numbers
